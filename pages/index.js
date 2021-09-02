@@ -13,7 +13,6 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ products }) => {
-  console.log(products)
   return(
       <div>
         <h1>HOME</h1>
@@ -28,14 +27,5 @@ const Home = ({ products }) => {
       </div>
   )
 }
-
-// async function getStaticProps() {
-//   console.log('INSIDE')
-//   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-//   const posts = await res.json();
-//   return {
-//     props: { posts },
-//   };
-// }
 
 export default Home
