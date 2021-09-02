@@ -17,11 +17,10 @@ const Home = ({ products }) => {
   return(
       <div>
         <h1>HOME</h1>
-        {products.map(ninja => (
-          <div key={ninja.id}>
-            <h3>{ninja.name}</h3>
-          </div>
-
+        {products.map(product => (
+          <Link href={"/" + product.slug} key={product.id}>
+            <p>{product.name}</p>
+          </Link>
         ))}
         <style jsx>{`
           
