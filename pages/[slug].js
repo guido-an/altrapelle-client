@@ -1,5 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from "../contexts/CartContext"
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 
 export const getStaticPaths = async () => {
     const res = await fetch(`${process.env.API_URL}product/get-all`)
@@ -28,13 +31,33 @@ export const getStaticProps = async (context) => {
 }
 
 const Product = ({ product }) => {
-    const { addToCart, test } = useContext(CartContext)
+    const [inputQuantity, setInputQuantity] = useState(1)
+    const { addToCart } = useContext(CartContext)
     const { name } = product[0]
+
     return(
         <div>
             <h1>{name}</h1>
-            <input type="number" default="1" min="1"></input>
-            <button onClick={()=> addToCart(product[0])}>Add to cart</button>
+            {/* <input type="number" default="1" min="1"></input> */}
+            <TextField 
+               type="number"
+               defaultValue="1"
+               fullWidth={true}
+               id="outlined-basic"
+               InputProps={{
+                   inputProps: { 
+                       max: 100, min: 1
+                   }
+               }}
+              label="SELECT QUANTITY"
+              onChange={(e) => setInputQuantity(e.target.value)}
+            />
+            <Button 
+              variant="contained" 
+              color="primary" 
+              onClick={()=> addToCart(product[0], inputQuantity)}>
+                Add to cart
+            </Button>
         </div>
     )
 }
