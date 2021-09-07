@@ -2,12 +2,13 @@ import { useContext, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
 
 const Cart = () => {
-    const { productsInCart, totalPrice, calculateTotalPrice, removeFromCart } = useContext(CartContext)
+    const { productsInCart, totalPrice, calculateTotalPrice, removeFromCart, handleQuantityInCart } = useContext(CartContext)
 
     useEffect(() => {
         calculateTotalPrice()
     }, [productsInCart])
 
+    
     return(
         <div>
              <h1>Carrello</h1>
@@ -17,7 +18,9 @@ const Cart = () => {
                      <div key={id}>
                          {name}
                          {price}€ x {quantity}
+                         <span onClick={() => handleQuantityInCart(product, 'increase')}>+</span> <span onClick={() => handleQuantityInCart(product, 'decrease')}>-</span>
                         <p onClick={() => removeFromCart(product.id)}>delete</p>
+
                      </div>
                  )
              })}

@@ -7,7 +7,6 @@ const CartContextProvider = props => {
    const [totalPrice, setTotalPrice] = useState(0)
    
      useEffect(() => {
-       console.log('MOUNTING CONTEXT')
        setProductsFromStorage()   
     }, [])
 
@@ -51,16 +50,35 @@ const CartContextProvider = props => {
        productsInCart.forEach(product => {
           total += product.quantity * product.price
        })
-       console.log(total, 'total')
        setTotalPrice(total)
    }
-   
+
+    const handleQuantityInCart = (product, action) => {
+      const array = productsInCart.map(item => {
+         // Pevent below 0
+        if(item.quantity === 1 && action === 'decrease'){ 
+          item.quantity = 1 
+          return item
+        } 
+         // Edit product quantity
+        if(item.id === product.id){
+           action === 'increase' ? item.quantity++ : item.quantity--
+           return item
+        } 
+        // Return as they were before other products in cart 
+          return item
+      })      
+      setProductsInCart(array)
+      localStorage.setItem('productsFromStorage', JSON.stringify(array));
+    }
+
    let sharedState = {
        addToCart,
        productsInCart,
        calculateTotalPrice,
        totalPrice,
-       removeFromCart
+       removeFromCart,
+       handleQuantityInCart
    }
 
   return (
