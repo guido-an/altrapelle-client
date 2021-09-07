@@ -1,12 +1,27 @@
-import { useContext } from 'react';
+import { useContext, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
 
 const Cart = () => {
-    const { productsInCart } = useContext(CartContext)
-    console.log(productsInCart, 'productsInCart carrello')
+    const { productsInCart, totalPrice, calculateTotalPrice, removeFromCart } = useContext(CartContext)
+
+    useEffect(() => {
+        calculateTotalPrice()
+    }, [productsInCart])
+
     return(
         <div>
              <h1>Carrello</h1>
+             {productsInCart.map(product => {
+                 const { id, name, price, quantity } = product
+                 return(
+                     <div key={id}>
+                         {name}
+                         {price}€ x {quantity}
+                        <p onClick={() => removeFromCart(product.id)}>delete</p>
+                     </div>
+                 )
+             })}
+             <strong>Total: {totalPrice}</strong>
         </div>
     )
 }

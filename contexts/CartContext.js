@@ -4,19 +4,22 @@ export const CartContext = createContext()
 
 const CartContextProvider = props => {
    const [productsInCart, setProductsInCart] = useState([])
-
+   const [totalPrice, setTotalPrice] = useState(0)
+   
      useEffect(() => {
+       console.log('MOUNTING CONTEXT')
+       setProductsFromStorage()   
+    }, [])
+
+    const setProductsFromStorage = () => {
       const productsFromStorage = JSON.parse(localStorage.getItem('productsFromStorage'))
       productsFromStorage ? setProductsInCart(productsFromStorage) : setProductsInCart([])
-    }, [])
+    }
   
    const addToLocalStorage = (product) => {
-       // retrieve it (Or create a blank array if there isn't any info saved yet),
        let products = JSON.parse(localStorage.getItem('productsFromStorage')) || [];
-       // add to it,
        products.push(product);
-      // then put it back.
-      localStorage.setItem('productsFromStorage', JSON.stringify(products));
+       localStorage.setItem('productsFromStorage', JSON.stringify(products));
    }
 
    const addToCart = (product, inputQuantity) => {
@@ -36,10 +39,28 @@ const CartContextProvider = props => {
          addToLocalStorage(product)
        }
    }
+  
+   const removeFromCart = (productId) => {
+       const array = productsInCart.filter(product => product.id !== productId)
+       setProductsInCart(array)
+       localStorage.setItem('productsFromStorage', JSON.stringify(array));
+   }
+
+   const calculateTotalPrice = () => {
+       let total = 0
+       productsInCart.forEach(product => {
+          total += product.quantity * product.price
+       })
+       console.log(total, 'total')
+       setTotalPrice(total)
+   }
    
    let sharedState = {
        addToCart,
-       productsInCart
+       productsInCart,
+       calculateTotalPrice,
+       totalPrice,
+       removeFromCart
    }
 
   return (
