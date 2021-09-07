@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from "../contexts/CartContext"
+import Link from 'next/link'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -58,6 +59,7 @@ const Product = ({ product }) => {
               onClick={()=> addToCart(product[0], inputQuantity)}>
                 Add to cart
             </Button>
+            <Link href="/carrello">Carrello</Link>
         </div>
     )
 }
