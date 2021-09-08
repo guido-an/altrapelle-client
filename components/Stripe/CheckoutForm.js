@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { CartContext } from '../../contexts/CartContext'
 
 export const CheckoutForm = () => {
+   const { productsInCart } = useContext(CartContext)
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -18,10 +21,11 @@ export const CheckoutForm = () => {
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-          "http://localhost:5000/stripe/charge",
+         `${process.env.API_URL}stripe/charge`, 
           {
-            amount: 899,
+            // amount: 999, calculate amount in the server
             id: id,
+            productsInCart,
           }
         );
         console.log("Stripe 35 | data", response.data.success);

@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 
 import { CheckoutForm } from "./CheckoutForm";
 
-const PUBLIC_KEY = "pk_test_lzaKIGxw3w0XwEjC0fDoAKm400a2bk4nzj"; // To be hide
+const PUBLIC_KEY = process.env.PUBLIC_KEY; 
 
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 

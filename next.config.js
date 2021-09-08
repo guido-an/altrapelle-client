@@ -18,5 +18,6 @@ module.exports = {
   },
   env: {
     API_URL: process.env.API_URL,
+    PUBLIC_KEY: process.env.PUBLIC_KEY
   },
 };
