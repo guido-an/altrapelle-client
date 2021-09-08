@@ -2,13 +2,18 @@ import { useContext, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
 
 const Cart = () => {
-    const { productsInCart, totalPrice, calculateTotalPrice, removeFromCart, handleQuantityInCart } = useContext(CartContext)
+    const {
+        productsInCart, 
+        totalPrice, 
+        calculateTotalPrice, 
+        removeFromCart, 
+        handleQuantityInCart 
+    } = useContext(CartContext)
 
     useEffect(() => {
         calculateTotalPrice()
     }, [productsInCart])
 
-    
     return(
         <div>
              <h1>Carrello</h1>
