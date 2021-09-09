@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { CartContext } from '../../contexts/CartContext'
+import { CartContext } from '../../contexts/CartContext';
+import orderService from "../../services/orderService";
 
-export const CheckoutForm = () => {
+export const CheckoutForm = ({ chekoutData }) => {
+  
    const { productsInCart } = useContext(CartContext)
 
   const stripe = useStripe();
   const elements = useElements();
+
+  const service = new orderService()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,16 +25,17 @@ export const CheckoutForm = () => {
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-         `${process.env.API_URL}stripe/charge`, 
+         `${process.env.API_URL}/stripe/charge`, 
           {
             // amount: 999, calculate amount in the server
             id: id,
             productsInCart,
           }
         );
-        console.log("Stripe 35 | data", response.data.success);
+        // console.log("Stripe 35 | data", response.data.success);
         if (response.data.success) {
-          console.log("CheckoutForm.js 25 | payment successful!");
+            await service.createOrder(chekoutData, productsInCart)
+            console.log("CheckoutForm.js 25 | payment successful!");
         }
       } catch (error) {
         console.log("CheckoutForm.js 28 | ", error);

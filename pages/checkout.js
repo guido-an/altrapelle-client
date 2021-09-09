@@ -21,7 +21,8 @@ const Checkout = () => {
 
    useEffect(() => {
     setCheckoutFromStorage()  
-   }, [])
+    calculateTotalPrice()
+   }, [productsInCart])
 
    const setCheckoutFromStorage = () => {
     const checkoutData = JSON.parse(localStorage.getItem('checkoutData'))
@@ -43,7 +44,10 @@ const Checkout = () => {
     return(
         <div>
              <h1>Checkout</h1>
-               <Form handleChange={handleChange}/>
+               <Form 
+               handleChange={handleChange} 
+               form={form}
+               />
               <strong>Total: {totalPrice}€</strong>
                <div onClick={setCheckoutDataInStorage}>
                   <Link href="/pagamento">Go to payment</Link>

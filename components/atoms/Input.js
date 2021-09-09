@@ -7,7 +7,7 @@ const MyInput = styled.input`
    
 `
 
-const Input = ({ type, placeholder, handleChange, name, required }) => {
+const Input = ({ type, placeholder, handleChange, name, value, required }) => {
     return(
         <MyInput 
           type={type} 
@@ -15,6 +15,7 @@ const Input = ({ type, placeholder, handleChange, name, required }) => {
           name={name}
           onChange={handleChange} // function on change
           required={required}
+          value={value}
         />
     )
 }
@@ -26,7 +27,8 @@ const Input = ({ type, placeholder, handleChange, name, required }) => {
       placeholder: string.isRequired,
       name: string.isRequired,
       handleChange: func.isRequired,
-      required: bool
+      value: string.isRequired,
+      required: bool,
   }
 
 export default Input
