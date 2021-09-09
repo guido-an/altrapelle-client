@@ -3,12 +3,13 @@ import { CartContext } from "../contexts/CartContext"
 import Link from 'next/link'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import productService from '../services/productService'
 
+
+const service = new productService()
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.API_URL}product/get-all`)
-    const data = await res.json()
-
+    const data = await service.getAllProducts()
     const paths = data.map(product => {
         return {
             params: { slug: product.slug }
@@ -23,8 +24,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const slug = context.params.slug
-    const res = await fetch(`${process.env.API_URL}product/get-single/${slug}`)
-    const data = await res.json()
+    const data = await service.getSingleProduct(slug)
 
     return {
         props: { product: data }

@@ -1,18 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
+import productService from '../services/productService'
 import Head from '../components/head'
 import Nav from '../components/nav'
 
+const service = new productService()
 
-export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.API_URL}product/get-all`)
-  const data = await res.json()
+export const getStaticProps = async () => { 
   return {
-    props: { products: data }
+    props: { products: await service.getAllProducts() }
   }
 }
 
 const Home = ({ products }) => {
+
   return(
       <div>
         <h1>HOME</h1>
@@ -22,7 +23,7 @@ const Home = ({ products }) => {
           </Link>
         ))}
         <style jsx>{`
-          
+             
         `}</style>
       </div>
   )
