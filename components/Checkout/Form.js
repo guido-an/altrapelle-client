@@ -10,7 +10,7 @@ const MyForm = styled.form`
 `
 
 
-const Form = ({ handleChange, form }) => {
+const Form = ({ handleChange, form, newsLetterConsent, setNewsletterConsent }) => {
     return(
         <MyForm>
             <Input 
@@ -68,13 +68,23 @@ const Form = ({ handleChange, form }) => {
              name="email" 
              value={form.email}
              handleChange={handleChange}/>
+             Newsletter consent
+            <Input 
+             type="checkbox" 
+             name="newsLetterConsent" 
+             value={newsLetterConsent}
+             checked={newsLetterConsent}
+             handleChange={() => setNewsletterConsent(!newsLetterConsent)}/>
         </MyForm>
     )
 }
 
-  const { func } = PropTypes
+  const { func, bool, object } = PropTypes
   Form.propTypes = {
-      handleChange: func.isRequired
+      handleChange: func.isRequired,
+      newsLetterConsent: bool.isRequired,
+      setNewsletterConsent: func.isRequired,
+      form: object.isRequired
   }
 
 
