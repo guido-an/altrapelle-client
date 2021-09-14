@@ -32,7 +32,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent }) => {
             productsInCart,
           }
         );
-        // console.log("Stripe 35 | data", response.data.success);
+        //console.log("Stripe 35 | data", response.data.success);
         if (response.data.success) {
             await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
             console.log("CheckoutForm.js 25 | payment successful!");
