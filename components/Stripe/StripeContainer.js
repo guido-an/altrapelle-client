@@ -8,10 +8,10 @@ const PUBLIC_KEY = process.env.PUBLIC_KEY;
 
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
-const Stripe = ({ chekoutData }) => {
+const Stripe = ({ chekoutData, newsLetterConsent }) => {
   return (
     <Elements stripe={stripeTestPromise}>
-      <CheckoutForm chekoutData={chekoutData}/>
+      <CheckoutForm chekoutData={chekoutData} newsLetterConsent={newsLetterConsent}/>
     </Elements>
   );
 };

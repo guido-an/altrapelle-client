@@ -4,12 +4,15 @@ import StripeContainer from '../components/Stripe/StripeContainer'
 
 const Payment = () => {
      const [chekoutData, setCheckouData] = useState({})
+     const [newsLetterConsent, setNewsletterConsent] = useState(false)
+     
     //const { } = useContext(CartContext)
 
-
+console.log(newsLetterConsent, 'from pagamento')
 
      useEffect(() => {
         setCheckouData(JSON.parse(localStorage.getItem('checkoutData')) )
+        setNewsletterConsent(localStorage.getItem('newsLetterConsent'))
      }, [])
 
   
@@ -20,7 +23,7 @@ const Payment = () => {
        
         <div>
              <h1>Payment</h1>
-             <StripeContainer chekoutData={chekoutData}/>
+             <StripeContainer chekoutData={chekoutData} newsLetterConsent={newsLetterConsent}/>
         </div>
     )
 }

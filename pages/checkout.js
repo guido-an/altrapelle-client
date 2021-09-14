@@ -19,6 +19,8 @@ const Checkout = () => {
     email: '',
   })
 
+  const [newsLetterConsent, setNewsletterConsent] = useState(false)
+
    useEffect(() => {
     setCheckoutFromStorage()  
     calculateTotalPrice()
@@ -27,10 +29,13 @@ const Checkout = () => {
    const setCheckoutFromStorage = () => {
     const checkoutData = JSON.parse(localStorage.getItem('checkoutData'))
           checkoutData && setForm(checkoutData)
+          const consent = localStorage.getItem('newsLetterConsent')
+          consent === 'true' ? setNewsletterConsent(true) : setNewsletterConsent(false)
   }
 
   const setCheckoutDataInStorage = () => {
     localStorage.setItem('checkoutData', JSON.stringify(form));
+    localStorage.setItem('newsLetterConsent', newsLetterConsent)
   }
 
   const handleChange = e => {
@@ -46,6 +51,8 @@ const Checkout = () => {
              <h1>Checkout</h1>
                <Form 
                handleChange={handleChange} 
+               newsLetterConsent={newsLetterConsent}
+               setNewsletterConsent={setNewsletterConsent}
                form={form}
                />
               <strong>Total: {totalPrice}€</strong>

@@ -9,9 +9,9 @@ class orderService {
         this.service = service;
       }
     
-    createOrder = async (billingDetails, productsInCart) => {
+    createOrder = async (billingDetails, productsInCart, newsLetterConsent) => {
         console.log('CREATING ORDER', billingDetails)
-        const response = this.service.post('/order/create', { billingDetails, productsInCart } )
+        const response = this.service.post('/order/create', { billingDetails, productsInCart, newsLetterConsent } )
         return response.data
     } 
 
