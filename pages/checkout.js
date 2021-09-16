@@ -1,13 +1,14 @@
 import React from 'react'
 import { useContext, useState, useEffect} from 'react';
-import Link from 'next/link'
 import { CartContext } from "../contexts/CartContext"
 import Form from '../components/Checkout/Form';
 import StripeContainer from '../components/Stripe/StripeContainer'
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
+import { useRouter } from 'next/router'
 
 const Checkout = () => {
    const { totalPrice, productsInCart, calculateTotalPrice } = useContext(CartContext)
+   const router = useRouter()
 
    const [form, setForm] = useState({
     firstName: '',
@@ -40,6 +41,12 @@ const Checkout = () => {
     localStorage.setItem('newsLetterConsent', newsLetterConsent)
   }
 
+  const handleSubmit = e => {
+      e.preventDefault()
+      setCheckoutDataInStorage()
+      router.push('/pagamento')
+  }
+
   const handleChange = e => {
     const value = e.target.value;
     setForm({
@@ -59,11 +66,9 @@ const Checkout = () => {
                  newsLetterConsent={newsLetterConsent}
                  setNewsletterConsent={setNewsletterConsent}
                  form={form}
+                 handleSubmit={handleSubmit}
                />
-               <strong>Total: {totalPrice}€</strong>
-                <div onClick={setCheckoutDataInStorage}>
-                   <Link href="/pagamento">Go to payment</Link>
-                </div> 
+                <strong>Total: {totalPrice}€</strong>
                </>         
             }
         </>

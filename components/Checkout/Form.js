@@ -10,9 +10,14 @@ const MyForm = styled.form`
 `
 
 
-const Form = ({ handleChange, form, newsLetterConsent, setNewsletterConsent }) => {
+const Form = ({ 
+    handleChange, 
+    form, 
+    newsLetterConsent, 
+    setNewsletterConsent, 
+    handleSubmit }) => {
     return(
-        <MyForm>
+        <MyForm onSubmit={handleSubmit}>
             <Input 
              type="text" 
              placeholder="* Nome" 
@@ -75,6 +80,7 @@ const Form = ({ handleChange, form, newsLetterConsent, setNewsletterConsent }) =
              value={newsLetterConsent}
              checked={newsLetterConsent}
              handleChange={() => setNewsletterConsent(!newsLetterConsent)}/>
+          <button>pagamento</button>
         </MyForm>
     )
 }
