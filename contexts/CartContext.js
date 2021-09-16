@@ -75,6 +75,7 @@ const CartContextProvider = props => {
    let sharedState = {
        addToCart,
        productsInCart,
+       setProductsInCart,
        calculateTotalPrice,
        totalPrice,
        removeFromCart,

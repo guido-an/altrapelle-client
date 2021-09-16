@@ -4,9 +4,8 @@ import axios from "axios";
 import { CartContext } from '../../contexts/CartContext';
 import orderService from "../../services/orderService";
 
-export const CheckoutForm = ({ chekoutData, newsLetterConsent }) => {
-  
-   const { productsInCart } = useContext(CartContext)
+export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccessful }) => {
+   const { productsInCart, setProductsInCart } = useContext(CartContext)
 
   const stripe = useStripe();
   const elements = useElements();
@@ -34,8 +33,11 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent }) => {
         );
         //console.log("Stripe 35 | data", response.data.success);
         if (response.data.success) {
-            await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
-            console.log("CheckoutForm.js 25 | payment successful!");
+           const test = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
+           console.log("CheckoutForm.js 25 | payment successful!");
+           localStorage.clear();
+           setPaymentSuccessful(true) 
+           setProductsInCart([])
         }
       } catch (error) {
         console.log("CheckoutForm.js 28 | ", error);

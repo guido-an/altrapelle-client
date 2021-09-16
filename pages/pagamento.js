@@ -1,30 +1,32 @@
-import { useContext, useEffect, useState} from 'react';
-import { CartContext } from "../contexts/CartContext"
+import { useEffect, useState, useContext} from 'react';
+import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 import StripeContainer from '../components/Stripe/StripeContainer'
+import { CartContext } from '../contexts/CartContext'
 
 const Payment = () => {
      const [chekoutData, setCheckouData] = useState({})
      const [newsLetterConsent, setNewsletterConsent] = useState(false)
+     const [paymentSuccessful, setPaymentSuccessful] = useState(false)
+     const { productsInCart } = useContext(CartContext)
      
-    //const { } = useContext(CartContext)
-
-console.log(newsLetterConsent, 'from pagamento')
-
      useEffect(() => {
         setCheckouData(JSON.parse(localStorage.getItem('checkoutData')) )
         setNewsletterConsent(localStorage.getItem('newsLetterConsent'))
      }, [])
 
-  
-   console.log(chekoutData, 'chekoutData')
-   
-
-    return(
-       
-        <div>
+    return(  
+        <>
              <h1>Payment</h1>
-             <StripeContainer chekoutData={chekoutData} newsLetterConsent={newsLetterConsent}/>
-        </div>
+             {productsInCart.length === 0 && !paymentSuccessful ? 
+                <NoProductsInCart /> :
+                 <StripeContainer 
+                  chekoutData={chekoutData} 
+                  newsLetterConsent={newsLetterConsent}
+                  setPaymentSuccessful={setPaymentSuccessful}
+                 /> 
+             }
+             {paymentSuccessful && <p>ordine creato</p>}
+        </>
     )
 }
 

@@ -63,7 +63,7 @@ const Form = ({ handleChange, form, newsLetterConsent, setNewsletterConsent }) =
              value={form.telephone}
              handleChange={handleChange}/>
             <Input 
-             type="text" 
+             type="email" 
              placeholder="* Email" 
              name="email" 
              value={form.email}

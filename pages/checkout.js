@@ -1,8 +1,10 @@
+import React from 'react'
 import { useContext, useState, useEffect} from 'react';
 import Link from 'next/link'
 import { CartContext } from "../contexts/CartContext"
 import Form from '../components/Checkout/Form';
 import StripeContainer from '../components/Stripe/StripeContainer'
+import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 
 const Checkout = () => {
    const { totalPrice, productsInCart, calculateTotalPrice } = useContext(CartContext)
@@ -47,19 +49,24 @@ const Checkout = () => {
   }
 
     return(
-        <div>
-             <h1>Checkout</h1>
-               <Form 
-               handleChange={handleChange} 
-               newsLetterConsent={newsLetterConsent}
-               setNewsletterConsent={setNewsletterConsent}
-               form={form}
+        <>
+          <h1>Checkout</h1>
+           {productsInCart.length === 0 ? 
+             <NoProductsInCart/> :
+              <>
+                <Form 
+                 handleChange={handleChange} 
+                 newsLetterConsent={newsLetterConsent}
+                 setNewsletterConsent={setNewsletterConsent}
+                 form={form}
                />
-              <strong>Total: {totalPrice}€</strong>
-               <div onClick={setCheckoutDataInStorage}>
-                  <Link href="/pagamento">Go to payment</Link>
-               </div>
-        </div>
+               <strong>Total: {totalPrice}€</strong>
+                <div onClick={setCheckoutDataInStorage}>
+                   <Link href="/pagamento">Go to payment</Link>
+                </div> 
+               </>         
+            }
+        </>
     )
 }
 
