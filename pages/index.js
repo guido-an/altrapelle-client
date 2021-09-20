@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import productService from '../services/productService'
-import Head from '../components/head'
-import Nav from '../components/nav'
 
 const service = new productService()
 

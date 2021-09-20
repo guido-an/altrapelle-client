@@ -2,7 +2,6 @@ import React from 'react'
 import { useContext, useState, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
 import Form from '../components/Checkout/Form';
-import StripeContainer from '../components/Stripe/StripeContainer'
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 import { useRouter } from 'next/router'
 
