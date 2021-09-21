@@ -24,55 +24,72 @@ const Form = ({
              name="firstName" 
              value={form.firstName}
              handleChange={handleChange}
-             required={true}/>
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* Cognome" 
              name="lastName" 
              value={form.lastName}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* P.IVA / Codice Fiscale" 
              name="vatOrFiscalCode" 
              value={form.vatOrFiscalCode}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* Indirizzo" 
              name="address" 
              value={form.address}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* Città" 
              name="city" 
              value={form.city}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* Provincia" 
              name="province" 
              value={form.province}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* C.A.P." 
              name="zipCode" 
              value={form.zipCode}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="text" 
              placeholder="* Telefono" 
              name="telephone" 
              value={form.telephone}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
             <Input 
              type="email" 
              placeholder="* Email" 
              name="email" 
              value={form.email}
-             handleChange={handleChange}/>
+             handleChange={handleChange}
+             required={true}
+             />
              Newsletter consent
             <Input 
              type="checkbox" 

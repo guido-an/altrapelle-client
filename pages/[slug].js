@@ -8,67 +8,60 @@ import productService from '../services/productService'
 
 const service = new productService()
 
-// export const getStaticPaths = async () => {
-//     const data = await service.getAllProducts()
-//     const paths = data.map(product => {
-//         return {
-//             params: { slug: product.slug }
-//         }
-//     })
+export const getStaticPaths = async () => {
+    const data = await service.getAllProducts()
+    const paths = data.map(product => {
+        return {
+            params: { slug: product.slug }
+        }
+    })
 
-//     return {
-//         paths,
-//         fallback: false
-//     }
-// }
+    return {
+        paths,
+        fallback: false
+    }
+}
 
-// export const getStaticProps = async (context) => {
-//     const slug = context.params.slug
-//     const data = await service.getSingleProduct(slug)
+export const getStaticProps = async (context) => {
+    const slug = context.params.slug
+    const data = await service.getSingleProduct(slug)
 
-//     return {
-//         props: { product: data }
-//     }
-// }
+    return {
+        props: { product: data }
+    }
+}
 
-// const Product = ({ product }) => {
-//     const [inputQuantity, setInputQuantity] = useState(1)
-//     const { addToCart } = useContext(CartContext)
-//     const { name } = product[0]
+const Product = ({ product }) => {
+    const [inputQuantity, setInputQuantity] = useState(1)
+    const { addToCart } = useContext(CartContext)
+    const { name } = product[0]
 
-//     return(
-//         <div>
-//             <h1>{name}</h1>
-//             {/* <input type="number" default="1" min="1"></input> */}
-//             <TextField 
-//                type="number"
-//                defaultValue="1"
-//                fullWidth={true}
-//                id="outlined-basic"
-//                InputProps={{
-//                    inputProps: { 
-//                        max: 100, min: 1
-//                    }
-//                }}
-//               label="SELECT QUANTITY"
-//               onChange={(e) => setInputQuantity(e.target.value)}
-//             />
-//             <Button 
-//               variant="contained" 
-//               color="primary" 
-//               onClick={()=> addToCart(product[0], inputQuantity)}>
-//                 Add to cart
-//             </Button>
-//             <Link href="/carrello">Carrello</Link>
-//         </div>
-//     )
-// }
-
-const Product = () => {
     return(
         <div>
-            product page
+            <h1>{name}</h1>
+            {/* <input type="number" default="1" min="1"></input> */}
+            <TextField 
+               type="number"
+               defaultValue="1"
+               fullWidth={true}
+               id="outlined-basic"
+               InputProps={{
+                   inputProps: { 
+                       max: 100, min: 1
+                   }
+               }}
+              label="SELECT QUANTITY"
+              onChange={(e) => setInputQuantity(e.target.value)}
+            />
+            <Button 
+              variant="contained" 
+              color="primary" 
+              onClick={()=> addToCart(product[0], inputQuantity)}>
+                Add to cart
+            </Button>
+            <Link href="/carrello">Carrello</Link>
         </div>
     )
 }
+
 export default Product
