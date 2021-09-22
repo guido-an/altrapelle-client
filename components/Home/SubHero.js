@@ -23,6 +23,7 @@ const Title = styled.h2 `
     text-align: center;
     font-weight: 400;
     padding: ${({ theme }) => theme.mobileContainer};
+    font-size: 1.5rem;
     @media(min-width: 968px){
         width: 60%;
         margin: 0 auto;

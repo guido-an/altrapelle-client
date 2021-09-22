@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Link from 'next/link'
 
 const MyButton = styled.a `
     background-color: ${({ theme, bgColor }) => bgColor || theme.colors.blue };
@@ -11,10 +12,13 @@ const MyButton = styled.a `
     width: 200px;
     margin: ${({ margin }) => margin};
     text-align: center;
-    box-shadow: 0 4px 14px 0 rgb(0 0 0 / 39%);
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    font-weight: 300;
+    letter-spacing: 0.2px;
       &:hover {
           cursor: pointer;
           background-color: ${({ theme, bgHover }) => bgHover || theme.colors.lightBlue };
+          color: #fff;
       }
     @media(min-width: 968px){
        
@@ -22,19 +26,25 @@ const MyButton = styled.a `
 `
 
 
-export default function Button ({ children, margin, bgColor, bgHover }){
-    return <MyButton 
+export default function Button ({ children, href, margin, bgColor, bgHover }){
+    return (
+        <Link href={href}>
+          <MyButton 
              margin={margin} 
              bgColor={bgColor}
-             bgHover={bgHover}>
-               {children}
-             </MyButton>
+             bgHover={bgHover}
+             >
+             {children}
+          </MyButton>
+        </Link>
+    )
 }
 
   const { string } = PropTypes
 
   Button.propTypes = {
      children: string.isRequired,
+     href: string,
      margin: string.isRequired,
      bgColor: string,
      bgHover: string

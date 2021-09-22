@@ -46,7 +46,7 @@ const MyHeader = styled.div`
     @media(min-width: 1200px){
         display: flex;
         justify-content: space-between;
-        padding: 0 ${({ theme }) => theme.desktopContainer}%;
+        padding: 0 ${({ theme }) => theme.desktopContainer};
     }
 `
 

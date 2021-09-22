@@ -9,9 +9,21 @@ const GlobalStyle = createGlobalStyle`
      margin: 0 auto;
      padding: 0;
      font-family: 'Poppins';
+     scroll-behavior: smooth;
+     overflow-x: hidden;
+     overscroll-behavior: none;
+
    }
    p {
      color: #595b62
+   }
+   a {
+     text-decoration: none;
+     color: #595b62;
+     font-weight: 500
+   }
+   a:hover {
+     color: #153d6d;
    }
 `;
  
@@ -24,7 +36,8 @@ const theme = {
     greyText: '#595b62'
   },
   mobileContainer: `${20}px`,
-  desktopContainer: 10,
+  desktopContainer: '10%',
+  boxShadow: '0 4px 14px 0 rgb(0 0 0 / 39%)',
   
 };
 

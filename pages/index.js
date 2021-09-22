@@ -4,6 +4,8 @@ import productService from '../services/productService'
 import Hero from '../components/Home/Hero'
 import SubHero from '../components/Home/SubHero'
 import About from '../components/Home/About'
+import Problem from '../components/Home/Problem'
+import ProductsHome from '../components/Home/ProductsHome'
 
 const service = new productService()
 
@@ -15,16 +17,13 @@ export const getStaticProps = async () => {
 
 const Home = ({ products }) => {
   return(
-      <div>
-        <Hero/>
-        <SubHero/>
-        <About/>
-        {/* {products.map(product => (
-          <Link href={"/" + product.slug} key={product.id}>
-            <p>{product.name}</p>
-          </Link>
-        ))} */}
-      </div>
+      <>
+        <Hero />
+        <SubHero />
+        <About />
+        <Problem />
+        <ProductsHome products={products}/>
+      </>
   )
 }
 
