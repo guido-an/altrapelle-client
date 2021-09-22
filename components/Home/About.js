@@ -5,7 +5,7 @@ import TitleSection from '../atoms/TitleSection'
 
 export default function About (){
     return(
-        <>
+        <Container>
           <OverTitleSection align="center">
               LOREM IPSUM DOLORET SIN AMET
           </OverTitleSection>
@@ -17,15 +17,17 @@ export default function About (){
            <Button margin="40px auto 0" href="/altrapelle">
               ALTRAPELLE
            </Button>
-        </>
+        </Container>
 
     )
 }
 
+const Container = styled.div `
+    padding: 0 ${({ theme }) => theme.mobileContainer};
+`
 
 const P = styled.p `
     text-align: center;
-    padding: 0 ${({ theme }) => theme.mobileContainer};
     position: relative;
     bottom: 20px;
     @media(min-width: 768px){

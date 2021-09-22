@@ -6,6 +6,7 @@ const Title = styled.h2 `
     text-align: ${({ align }) => align};
     font-weight: 700;
     font-size: 2.5rem;
+    line-height: 100%;
     @media(min-width: 968px){
        
     }
