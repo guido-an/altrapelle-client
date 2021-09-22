@@ -20,7 +20,9 @@ const theme = {
     backgroundGrey: '#ebebed',
     greyText: '#595b62'
   },
+  mobileContainer: `${20}px`,
   desktopContainer: 10,
+  
 };
 
 function App({ Component, pageProps }) {
