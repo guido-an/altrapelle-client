@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
      padding: 0;
      font-family: 'Poppins';
    }
+   p {
+     color: #595b62
+   }
 `;
  
 const theme = {

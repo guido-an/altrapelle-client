@@ -3,6 +3,7 @@ import Link from 'next/link'
 import productService from '../services/productService'
 import Hero from '../components/Home/Hero'
 import SubHero from '../components/Home/SubHero'
+import About from '../components/Home/About'
 
 const service = new productService()
 
@@ -17,6 +18,7 @@ const Home = ({ products }) => {
       <div>
         <Hero/>
         <SubHero/>
+        <About/>
         {/* {products.map(product => (
           <Link href={"/" + product.slug} key={product.id}>
             <p>{product.name}</p>
