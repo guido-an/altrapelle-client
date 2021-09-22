@@ -3,26 +3,21 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import Logo from '../atoms/Logo'
 
-// width: ${({ width }) => width}; example
-
-
-
-
 export default function Header (props) {
     const [showMenu, setShowMenu] = useState(false)
     useEffect(() => {
         if(window){
             // Check if big screen
              setShowMenu(window.innerWidth >= 968)
-             console.log('set window')
         }
     }, [])
-
 
     return(
         <MyHeader>
           <TopContainer>
-                <Logo />
+                <Link href="/">
+                   <a><Logo /></a>
+                </Link>
             <MobileIconContainer onClick={() => setShowMenu(!showMenu)}>
               {!showMenu
                 ? <>
@@ -51,7 +46,7 @@ const MyHeader = styled.div`
     @media(min-width: 1200px){
         display: flex;
         justify-content: space-between;
-        margin: 0 ${({ theme }) => theme.desktopContainer}%;
+        padding: 0 ${({ theme }) => theme.desktopContainer}%;
     }
 `
 
