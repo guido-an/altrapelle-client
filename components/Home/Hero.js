@@ -10,7 +10,7 @@ export default function Hero(){
            <TextContainer>
               <Title weight="600" size="3.5" paddingTop="20px">ADDIO</Title>
               <Title weight="400" size="3.5">MACCHIE</Title>
-              <Title weight="400" size="3.5" paddingTop="0px">sulla pelle</Title>
+              <Title weight="400" size="3.5">sulla pelle</Title>
               <IconsContainer>
                   <Image src="/icons/clinicamente-testato.png" width="100" height="100"></Image>
                   <Image src="/icons/dermatologicamente-testato.png" width="100" height="100"></Image>

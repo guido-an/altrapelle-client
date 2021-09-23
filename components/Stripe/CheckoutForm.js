@@ -33,11 +33,14 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
         );
         //console.log("Stripe 35 | data", response.data.success);
         if (response.data.success) {
-           const test = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
-           console.log("CheckoutForm.js 25 | payment successful!");
-           localStorage.clear();
-           setPaymentSuccessful(true) 
-           setProductsInCart([])
+          console.log("CheckoutForm.js 25 | payment successful!");
+           const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
+           console.log(response, 'response from checkout')
+           if(response.status === 200){
+              localStorage.clear();
+              setPaymentSuccessful(true) 
+              setProductsInCart([])
+           } 
         }
       } catch (error) {
         console.log("CheckoutForm.js 28 | ", error);

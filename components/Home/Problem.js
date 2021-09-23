@@ -33,6 +33,7 @@ const Container = styled.div `
        margin: 120px 0 0;
        padding: 40px ${({ theme }) => theme.mobileContainer} 60px;
        background-color: ${({ theme }) => theme.colors.backgroundGrey};
+       box-shadow: ${({ theme }) => theme.boxShadow};
      @media(min-width: 768px){
         display: flex;
         padding: 60px ${({ theme }) => theme.desktopContainer} 80px;
@@ -40,7 +41,7 @@ const Container = styled.div `
     
 `
 const ImageContainer = styled.div `
-     box-shadow: ${({ theme }) => theme.boxShadow};
+     
        @media(min-width: 768px){
            width: 40%;
         }

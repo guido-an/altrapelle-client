@@ -15,7 +15,7 @@ export default function About (){
           <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae nihil quis qui incidunt atque reprehenderit corrupti. Rem autem odit neque sapiente at, similique tempora libero necessitatibus esse exercitationem architecto.
           </P>
            <Button margin="40px auto 0" href="/altrapelle">
-              ALTRAPELLE
+              Il progetto
            </Button>
         </Container>
 

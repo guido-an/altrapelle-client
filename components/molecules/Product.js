@@ -5,8 +5,7 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 
 export default function Product ({ product }){
-      const theme = useTheme();
-
+    const theme = useTheme();
     return(
         <div key={product.id}>
            <ImageContainer>

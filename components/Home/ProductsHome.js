@@ -12,7 +12,7 @@ export default function Products ({ products }){
                 LOREM IPSUM DOLORET SIN AMET
             </OverTitleSection>
             <TitleSection align="center">
-                Dermatecnologie
+                I nostri prodotti
             </TitleSection>
             <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eveniet aperiam dignissimos, sit dicta dolorem.
             </P>

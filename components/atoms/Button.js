@@ -18,21 +18,19 @@ const MyButton = styled.a `
       &:hover {
           cursor: pointer;
           background-color: ${({ theme, bgHover }) => bgHover || theme.colors.lightBlue };
-          color: #fff;
+          color: ${({ colorHover }) => colorHover || '#fff'};
       }
-    @media(min-width: 968px){
-       
-    }
 `
 
 
-export default function Button ({ children, href, margin, bgColor, bgHover }){
+export default function Button ({ children, href, margin, bgColor, bgHover, colorHover }){
     return (
         <Link href={href}>
           <MyButton 
              margin={margin} 
              bgColor={bgColor}
              bgHover={bgHover}
+             colorHover={colorHover}
              >
              {children}
           </MyButton>
@@ -47,7 +45,8 @@ export default function Button ({ children, href, margin, bgColor, bgHover }){
      href: string,
      margin: string.isRequired,
      bgColor: string,
-     bgHover: string
+     bgHover: string,
+     colorHover: string,
   }
 
 

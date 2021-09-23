@@ -5,19 +5,12 @@ import Product from './Product'
 export default function DisplayProducts ({ products }){
     return(
         <ContainerProducts>
-         {products.map(product => {
-            return (
-                <>
-                   <Product product={product} />
-                </>
-            )
-          })}
+           {products.map(product => <Product product={product} />)}
         </ContainerProducts>
     )
 }
 
-const ContainerProducts = styled.div `
-    
+const ContainerProducts = styled.div ` 
     @media(min-width: 768px){
         display: flex;
         justify-content: space-evenly;
@@ -26,7 +19,6 @@ const ContainerProducts = styled.div `
 `
 
 const { array } = PropTypes
-
 DisplayProducts.propTypes = {
      products: array.isRequired
   }

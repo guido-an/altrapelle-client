@@ -6,6 +6,8 @@ import SubHero from '../components/Home/SubHero'
 import About from '../components/Home/About'
 import Problem from '../components/Home/Problem'
 import ProductsHome from '../components/Home/ProductsHome'
+import BeforeAndAfter from '../components/Home/BeforeAndAfter'
+import OverFooter from '../components/molecules/OverFooter'
 
 const service = new productService()
 
@@ -23,6 +25,8 @@ const Home = ({ products }) => {
         <About />
         <Problem />
         <ProductsHome products={products}/>
+        <BeforeAndAfter/>
+        <OverFooter/>
       </>
   )
 }
