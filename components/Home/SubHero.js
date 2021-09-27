@@ -15,7 +15,7 @@ const Container = styled.div `
     background-color: ${({ theme }) => theme.colors.lightBlue};
     position: relative;
     bottom: 20px;
-    padding: 0 ${({ theme }) => theme.mobileContainer} 10px;
+    padding: 20px ${({ theme }) => theme.mobileContainer} 30px;
     
 `
 const Title = styled.h2 `

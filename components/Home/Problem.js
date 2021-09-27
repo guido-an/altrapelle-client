@@ -10,7 +10,7 @@ export default function Problem (){
     return(
         <Container>
            <ImageContainer>
-               <Image src="/home/altrapelle-hero-2.jpg" width="1500" height="1595"></Image>
+               <Image src="/home/iperpigmentazione.jpg" width="700" height="530"></Image>
            </ImageContainer>
             <TextContainer>
                <OverTitleSection align="left">
@@ -43,7 +43,7 @@ const Container = styled.div `
 const ImageContainer = styled.div `
      
        @media(min-width: 768px){
-           width: 40%;
+           width: 60%;
         }
 `
 const TextContainer = styled.div `

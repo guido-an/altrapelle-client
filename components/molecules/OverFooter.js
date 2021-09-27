@@ -28,7 +28,6 @@ export default function OverFooter (){
 
 const Container = styled.div ` 
       background-color: ${({ theme }) => theme.colors.blue};
-      margin-top: 80px;
       padding: 20px ${({ theme }) => theme.mobileContainer} 60px;
     @media(min-width: 768px){
         display: flex;

@@ -5,7 +5,7 @@ export default function Hero(){
     return(
         <HeroContainer>
            <ImageContainer>
-               <Image src="/home/altrapelle-hero-2.jpg" width="1500" height="1595"></Image>
+               {/* <Image src="/home/altrapelle-hero-2.jpg" width="1500" height="1595"></Image> */}
            </ImageContainer>
            <TextContainer>
               <Title weight="600" size="3.5" paddingTop="20px">ADDIO</Title>
@@ -36,7 +36,7 @@ const TextContainer = styled.div `
    @media(min-width: 968px){
        position: relative;
        left: 10%;
-       padding-top: 80px;
+       padding-top: 17vh;
     }
 `
 const Title = styled.h1 `
