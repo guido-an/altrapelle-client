@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
      overscroll-behavior: none;
 
    }
+
    p {
      color: #595b62
    }

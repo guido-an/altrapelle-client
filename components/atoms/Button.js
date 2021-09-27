@@ -9,7 +9,7 @@ const MyButton = styled.a `
     border-radius: 35px;
     font-size: 14px;
     display: block;
-    width: 200px;
+    width: ${({ width }) => width || '200px'};
     margin: ${({ margin }) => margin};
     text-align: center;
     box-shadow: ${({ theme }) => theme.boxShadow};
@@ -23,7 +23,7 @@ const MyButton = styled.a `
 `
 
 
-export default function Button ({ children, href, margin, bgColor, bgHover, colorHover }){
+export default function Button ({ children, href = "#", margin, bgColor, bgHover, colorHover, width, handleOnClick }){
     return (
         <Link href={href}>
           <MyButton 
@@ -31,6 +31,8 @@ export default function Button ({ children, href, margin, bgColor, bgHover, colo
              bgColor={bgColor}
              bgHover={bgHover}
              colorHover={colorHover}
+             width={width}
+             onClick={handleOnClick}
              >
              {children}
           </MyButton>
@@ -38,7 +40,7 @@ export default function Button ({ children, href, margin, bgColor, bgHover, colo
     )
 }
 
-  const { string } = PropTypes
+  const { string, func } = PropTypes
 
   Button.propTypes = {
      children: string.isRequired,
@@ -47,6 +49,8 @@ export default function Button ({ children, href, margin, bgColor, bgHover, colo
      bgColor: string,
      bgHover: string,
      colorHover: string,
+     width: string,
+     handleOnClick: func
   }
 
 

@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from "../contexts/CartContext"
-import Link from 'next/link'
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import productService from '../services/productService'
+import ProductHeader from '../components/ProductPage/ProductHeader/ProductHeader';
+
 
 
 const service = new productService()
@@ -38,28 +37,8 @@ const Product = ({ product }) => {
 
     return(
         <div>
-            <h1>{name}</h1>
-            {/* <input type="number" default="1" min="1"></input> */}
-            <TextField 
-               type="number"
-               defaultValue="1"
-               fullWidth={true}
-               id="outlined-basic"
-               InputProps={{
-                   inputProps: { 
-                       max: 100, min: 1
-                   }
-               }}
-              label="SELECT QUANTITY"
-              onChange={(e) => setInputQuantity(e.target.value)}
-            />
-            <Button 
-              variant="contained" 
-              color="primary" 
-              onClick={()=> addToCart(product[0], inputQuantity)}>
-                Add to cart
-            </Button>
-            <Link href="/carrello">Carrello</Link>
+            <ProductHeader product={product[0]}/>
+          
         </div>
     )
 }

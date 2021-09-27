@@ -35,12 +35,12 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
         if (response.data.success) {
           console.log("CheckoutForm.js 25 | payment successful!");
            const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
-           console.log(response, 'response from checkout')
-           if(response.status === 200){
+           // console.log(response, 'response from checkout')
+           
               localStorage.clear();
               setPaymentSuccessful(true) 
               setProductsInCart([])
-           } 
+          
         }
       } catch (error) {
         console.log("CheckoutForm.js 28 | ", error);

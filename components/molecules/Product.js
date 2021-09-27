@@ -9,7 +9,7 @@ export default function Product ({ product }){
     return(
         <div key={product.id}>
            <ImageContainer>
-              <Image src={product.image} width="640" height="534" alt={product.name} />
+              <Image src={product.images[0]} width="640" height="534" alt={product.name} />
            </ImageContainer>
            <ProductName>{product.name}</ProductName>     
            <Button 

@@ -5,6 +5,7 @@ export const CartContext = createContext()
 const CartContextProvider = props => {
    const [productsInCart, setProductsInCart] = useState([])
    const [totalPrice, setTotalPrice] = useState(0)
+   const [quantityInCart, setQuantityInCart] = useState(1)
    
      useEffect(() => {
        setProductsFromStorage()   
@@ -21,7 +22,7 @@ const CartContextProvider = props => {
        localStorage.setItem('productsFromStorage', JSON.stringify(products));
    }
 
-   const addToCart = (product, inputQuantity) => {
+   const addToCart = (product) => {
       let productIsPresent = false 
       // Check if the product is already present in cart 
         productsInCart.forEach(productInCart => {
@@ -33,7 +34,7 @@ const CartContextProvider = props => {
         })
        if(!productIsPresent){
          // Add quantity property
-         product.quantity = inputQuantity
+         product.quantity = quantityInCart
          setProductsInCart([...productsInCart, product])
          addToLocalStorage(product)
        }
@@ -52,6 +53,7 @@ const CartContextProvider = props => {
        })
        setTotalPrice(total)
    }
+
 
     const handleQuantityInCart = (product, action) => {
       const array = productsInCart.map(item => {
@@ -79,7 +81,9 @@ const CartContextProvider = props => {
        calculateTotalPrice,
        totalPrice,
        removeFromCart,
-       handleQuantityInCart
+       handleQuantityInCart,
+       quantityInCart,
+       setQuantityInCart
    }
 
   return (
