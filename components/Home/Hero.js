@@ -5,7 +5,7 @@ export default function Hero(){
     return(
         <HeroContainer>
            <ImageContainer>
-               <Image src="/home/altrapelle-hero-2.jpg" width="1500" height="1595"></Image>
+               <Image src="/home/altrapelle-hero-3.jpg" width="1500" height="1345"></Image>
            </ImageContainer>
            <TextContainer>
               <Title weight="600" size="3.5" paddingTop="20px">ADDIO</Title>
@@ -29,15 +29,16 @@ const HeroContainer = styled.div `
 `
 const ImageContainer = styled.div `
     @media(min-width: 968px){
-       width: 50%;
+       width: 50%; 
     }
 `
 const TextContainer = styled.div `
    @media(min-width: 968px){
        position: relative;
        left: 10%;
-       padding-top: 17vh;
+       padding-top: 10vh;
     }
+    
 `
 const Title = styled.h1 `
    color: ${({ theme }) => theme.colors.blue};
@@ -49,6 +50,12 @@ const Title = styled.h1 `
    @media(min-width: 968px){
       font-size: ${({ size}) => size * 1.4}rem;
       text-align: left;
+    }
+    @media(min-width: 1400px){
+        font-size: ${({ size}) => size * 1.6}rem;
+    }
+    @media(min-width: 1600px){
+        font-size: ${({ size}) => size * 1.8}rem;
     }
 `
 

@@ -31,9 +31,7 @@ export default function BeforeAndAfter (){
            </ImagesContainer>
            <ScreenContainer>
               <Image src="/home/results.png" width="533" height="218"/>
-              
            </ScreenContainer>
-           
         </Container>
 
     )
