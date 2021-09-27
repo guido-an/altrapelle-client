@@ -5,6 +5,7 @@ import OverTitleSection from '../atoms/OverTitleSection'
 import TitleSection from '../atoms/TitleSection'
 import Image from 'next/image'
 
+
 export default function Problem (){
     const theme = useTheme()
     return(

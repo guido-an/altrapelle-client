@@ -5,12 +5,13 @@ const OverTitle = styled.h2 `
     color: ${({ theme}) =>theme.colors.greyText };
     text-align: ${({ align }) => align};
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     position: relative;
-    top: 30px;
+    top: 20px;
     @media(min-width: 968px){
-       
+        font-size: 1.1rem;
+        top: 30px;
     }
 `
 

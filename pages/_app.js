@@ -25,13 +25,7 @@ const GlobalStyle = createGlobalStyle`
    a:hover {
      color: #153d6d;
    }
-   .CircularProgressbar .CircularProgressbar-path {
-     stroke: #60bfc2;
-     
-   }
-   .CircularProgressbar .CircularProgressbar-text {
-    fill: #60bfc2;
-   }
+ 
 `;
  
 const theme = {

@@ -5,10 +5,10 @@ const Title = styled.h2 `
     color: ${({ theme}) =>theme.colors.blue };
     text-align: ${({ align }) => align};
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 100%;
     @media(min-width: 968px){
-       
+        font-size: 2.5rem;
     }
 `
 
