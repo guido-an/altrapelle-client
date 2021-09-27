@@ -36,7 +36,7 @@ const TextContainer = styled.div `
    @media(min-width: 968px){
        position: relative;
        left: 10%;
-       padding-top: 10vh;
+       padding-top: 5vh;
     }
     
 `
@@ -48,7 +48,7 @@ const Title = styled.h1 `
    padding-top: ${({ paddingTop }) => paddingTop};
    font-size: ${({ size}) => size}rem;
    @media(min-width: 968px){
-      font-size: ${({ size}) => size * 1.4}rem;
+      font-size: ${({ size}) => size * 1.2}rem;
       text-align: left;
     }
     @media(min-width: 1400px){
@@ -63,7 +63,7 @@ const IconsContainer = styled.div `
     margin: 0 auto;
     padding: 20px 0 60px;
     width: 300px;
-   @media(min-width: 768px){
+   @media(min-width: 968px){
         margin: 0
     }
     
