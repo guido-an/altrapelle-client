@@ -36,7 +36,7 @@ const TextContainer = styled.div `
    @media(min-width: 968px){
        position: relative;
        left: 10%;
-       padding-top: 5vh;
+       padding-top: 8vh;
     }
     
 `
