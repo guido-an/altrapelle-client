@@ -1,10 +1,13 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import Logo from '../atoms/Logo'
+import Image from 'next/image'
+import { CartContext } from '../../contexts/CartContext'
 
 export default function Header (props) {
     const [showMenu, setShowMenu] = useState(false)
+    const { productsInCart } = useContext(CartContext)
     useEffect(() => {
         if(window){
             // Check if big screen
@@ -12,21 +15,35 @@ export default function Header (props) {
         }
     }, [])
 
+    const shoppinCartIcon = () => {
+      return <Link href="/carrello">
+                <a>
+                  <IconCartContainer>
+                    <Image src="/icons/shopping-cart-blue.png" width="24" height="24"/>
+                    <ProductsNumInCart>{productsInCart.length}</ProductsNumInCart>
+                 </IconCartContainer>
+                </a>
+            </Link>
+    }
+
     return(
         <MyHeader>
           <TopContainer>
                 <Link href="/">
                    <a><Logo /></a>
                 </Link>
-            <MobileIconContainer onClick={() => setShowMenu(!showMenu)}>
+             <MobileCartIcon>
+                { shoppinCartIcon() }
+             </MobileCartIcon>
+            <MobileMenuIconContainer onClick={() => setShowMenu(!showMenu)}>
               {!showMenu
                 ? <>
-                <IconLine />
-                <IconLine />
-                <IconLine />
+                <MobileMenuLine />
+                <MobileMenuLine />
+                <MobileMenuLine />
                   </>
                 : <ClosingIcon>x</ClosingIcon>}
-            </MobileIconContainer>
+            </MobileMenuIconContainer>
           </TopContainer>
         {showMenu &&
           <nav>
@@ -36,6 +53,9 @@ export default function Header (props) {
               <Link href="/"><A>MACCHIE DELLA PELLE</A></Link>
               <Link href="/"><A>PRODOTTI</A></Link>
               <Link href="/"><A>CONTATTI</A></Link>
+              <DesktopCartIcon>
+                { shoppinCartIcon() }
+             </DesktopCartIcon>
             </Ul>
           </nav>}
         </MyHeader>
@@ -59,6 +79,37 @@ const TopContainer = styled.div`
     padding: 0px 15px;
     @media(min-width: 1200px){
         justify-content: center;
+    }
+`
+const IconCartContainer = styled.div`
+      position: relative;
+      top: 64px;
+    @media(min-width: 1200px){
+        top: 0;
+    }
+`
+const ProductsNumInCart = styled.span`
+      background-color: ${({ theme }) => theme.colors.backgroundGrey};
+      border-radius: 50%;
+      padding: 1px 6px;
+      font-size: 11px;
+      color: ${({ theme }) => theme.colors.blue};
+    @media(min-width: 1200px){
+        
+    }
+`
+const MobileCartIcon = styled.div`
+    @media(min-width: 1200px){
+        display: none;
+    }
+`
+const DesktopCartIcon = styled.div`
+        display: none;
+    @media(min-width: 1200px){
+        display: block;
+        position: relative;
+        left: 40px;
+        bottom: 2px;
     }
 `
 const Ul = styled.ul `
@@ -88,7 +139,7 @@ const A = styled.a `
       } 
     }
 `
-const MobileIconContainer = styled.div`
+const MobileMenuIconContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.backgroundGrey};
     width: 30px;
     padding: 8px 5px;
@@ -101,7 +152,7 @@ const MobileIconContainer = styled.div`
        display: none;
   }
 `
-const IconLine = styled.div`
+const MobileMenuLine = styled.div`
     height: 2px;
     width: 20px;
     background-color: ${({ theme }) => theme.colors.blue};;
