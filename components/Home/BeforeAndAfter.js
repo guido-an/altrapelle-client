@@ -30,7 +30,7 @@ export default function BeforeAndAfter (){
               </ImageContainer>
            </ImagesContainer>
            <ScreenContainer>
-              <Image src="/home/results.png" width="533" height="218"/>
+              <Image src="/home/results.png" width="1200" height="527"/>
            </ScreenContainer>
         </Container>
 
@@ -62,12 +62,12 @@ const ImageContainer = styled.div `
 const ImagesContainer = styled.div `
     @media(min-width: 968px){
         display: flex;
+        justify-content: space-evenly;
     }
 `
 const ScreenContainer = styled.div `
-    width: 100%;
     margin: 0 auto;
     @media(min-width: 968px){
-        width: 50%
+        width: 60%
     }
 `
