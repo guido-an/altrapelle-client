@@ -17,7 +17,7 @@ const ImageContainer = styled.div`
          border-radius: 8px;
      }
      @media(min-width: 1200px){
-        padding: 20px;
+        padding: 20px 20px 20px 0;
      }
 ` 
 

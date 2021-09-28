@@ -2,8 +2,7 @@ import React, { useContext, useState } from 'react'
 import { CartContext } from "../contexts/CartContext"
 import productService from '../services/productService'
 import ProductHeader from '../components/ProductPage/ProductHeader/ProductHeader';
-
-
+import ProductDescription from '../components/ProductPage/ProductDescription/ProductDescription';
 
 const service = new productService()
 
@@ -36,10 +35,10 @@ const Product = ({ product }) => {
     const { name } = product[0]
 
     return(
-        <div>
-            <ProductHeader product={product[0]}/>
-          
-        </div>
+        <>
+         <ProductHeader product={product[0]}/>
+         <ProductDescription product={product[0]} />
+        </>
     )
 }
 

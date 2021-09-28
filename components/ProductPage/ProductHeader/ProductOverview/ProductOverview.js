@@ -5,17 +5,16 @@ import { useContext, useState } from 'react';
 import HandleProductQuantity from '../../../molecules/HandleProductQuantity';
 import Button from '../../../atoms/Button';
 import Link from 'next/link'
-
-
+import Image from 'next/image'
 export default function ProductOverview({ product }) {
    const { quantityInCart, setQuantityInCart, addToCart } = useContext(CartContext)
    const [displayCartLink, setDisplayCartLink] = useState(false)
     return(
         <Container>
-            <Name>{product.name}</Name>
-            <Subtitle>{product.subtitle}.</Subtitle>
+             <Name>{product.name}</Name>
+             <Subtitle>{product.subtitle}.</Subtitle>
              <Price>{product.price}€</Price>
-            <p>{product.description}.</p>
+             <p>{product.description}.</p>
             <QuantityContainer>
                <p>Quantità:</p>
                <HandleProductQuantity 
