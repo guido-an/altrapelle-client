@@ -51,9 +51,8 @@ const CartContextProvider = props => {
        productsInCart.forEach(product => {
           total += product.quantity * product.price
        })
-       setTotalPrice(total)
+       setTotalPrice(total.toFixed(2))
    }
-
 
     const handleQuantityInCart = (product, action) => {
       const array = productsInCart.map(item => {

@@ -1,52 +1,56 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useContext, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
-import Link from 'next/link'
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
+import CartTable from '../components/Cart/CartTable';
+import IntroHeading from '../components/molecules/IntroHeading';
+import Button from '../components/atoms/Button';
 
 const Cart = () => {
     const {
         productsInCart, 
         totalPrice, 
         calculateTotalPrice, 
-        removeFromCart, 
-        handleQuantityInCart 
     } = useContext(CartContext)
 
     useEffect(() => {
         calculateTotalPrice()
     }, [productsInCart])
 
-    const displayProductsInCart = () => {
-        return productsInCart.map(product => {
-            const { id, name, price, quantity } = product
-            return(
-                <div key={id}>
-                    {name}
-                    {price}€ x {quantity}
-                    <span 
-                    onClick={() => handleQuantityInCart(product, 'increase')}>+</span> 
-                    <span 
-                    onClick={() => handleQuantityInCart(product, 'decrease')}>-</span>
-                   <p onClick={() => removeFromCart(product.id)}>delete</p>
-                </div>
-            )
-        })
-    }
-
     return(
-        <>
-          <h1>Carrello</h1>
+        <Container>
+           <IntroHeading align="center">Carrello</IntroHeading>
              {productsInCart.length === 0 ? 
                 <NoProductsInCart/> :
-                <>
-                  {displayProductsInCart()}
-                  <strong>Total: {totalPrice}</strong>
-                  <Link href="/checkout">Checkout</Link>
+                 <>
+                   <CartTable productsInCart={productsInCart}/>
+                   <TotalPrice>Totale: {totalPrice}€</TotalPrice>
+                   <ButtonContainer>
+                      <Button margin="0 auto" width="100%" href="/checkout">Procedi con l'ordine</Button>
+                   </ButtonContainer>
                 </>
              }
-        </>
+        </Container>
     )
 }
+
+const Container = styled.div`
+      padding: 0 ${({ theme }) => theme.mobileContainer};
+       @media(min-width: 768px){
+        padding: 0 ${({ theme }) => theme.desktopContainer};
+         }
+`
+
+const TotalPrice = styled.h2 `
+    text-align: center;
+    margin-top: 60px;
+    color: ${({ theme }) => theme.colors.blue}
+`
+const ButtonContainer = styled.div `
+    width: 400px;
+    margin: 0 auto 80px;
+
+`
 
 export default Cart 

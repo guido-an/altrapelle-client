@@ -36,8 +36,7 @@ export default function ProductOverview({ product }) {
               </Button>
             </div>
             <IconsContainer>
-            {product.icons.map((icon, i) => <Image key={i} src={icon} width="84" height="84"/>
-                 )}
+            {product.icons.map((icon, i) => <Image key={i} src={icon} width="84" height="84"/>)}
             </IconsContainer>
         </Container>
     )

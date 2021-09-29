@@ -1,9 +1,12 @@
 import React from 'react'
 import { useContext, useState, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
+import { useRouter } from 'next/router'
+import styled from 'styled-components'
 import Form from '../components/Checkout/Form';
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
-import { useRouter } from 'next/router'
+import Button from '../components/atoms/Button';
+import IntroHeading from '../components/molecules/IntroHeading';
 
 const Checkout = () => {
    const { totalPrice, productsInCart, calculateTotalPrice } = useContext(CartContext)
@@ -19,6 +22,7 @@ const Checkout = () => {
     zipCode: '',
     telephone: '',
     email: '',
+    additionalNotes: "",
   })
 
   const [newsLetterConsent, setNewsletterConsent] = useState(false)
@@ -55,11 +59,11 @@ const Checkout = () => {
   }
 
     return(
-        <>
-          <h1>Checkout</h1>
+        <Container>
+          <IntroHeading align="center">Checkout</IntroHeading>
            {productsInCart.length === 0 ? 
              <NoProductsInCart/> :
-              <>
+              <FormContainer>
                 <Form 
                  handleChange={handleChange} 
                  newsLetterConsent={newsLetterConsent}
@@ -67,11 +71,24 @@ const Checkout = () => {
                  form={form}
                  handleSubmit={handleSubmit}
                />
-                <strong>Total: {totalPrice}€</strong>
-               </>         
+              </FormContainer>
             }
-        </>
+    
+        </Container>
     )
 }
+
+const Container = styled.div`
+     margin: 0 ${({ theme }) => theme.mobileContainer};
+       @media(min-width: 768px){
+           padding: 0 ${({ theme }) => theme.desktopContainer};
+         }
+`
+const FormContainer = styled.div`
+     margin-top: 20px;
+       @media(min-width: 768px){
+          
+         }
+`
 
 export default Checkout 

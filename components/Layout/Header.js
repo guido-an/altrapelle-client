@@ -108,7 +108,7 @@ const DesktopCartIcon = styled.div`
     @media(min-width: 1200px){
         display: block;
         position: relative;
-        left: 40px;
+        left: 20px;
         bottom: 2px;
     }
 `

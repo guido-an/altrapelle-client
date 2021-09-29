@@ -4,18 +4,18 @@ import styled from 'styled-components'
 export default function Hero(){
     return(
         <HeroContainer>
-           <ImageContainer>
+           {/* <ImageContainer>
                <Image src="/home/altrapelle-hero-3.jpg" width="1500" height="1345"></Image>
-           </ImageContainer>
+           </ImageContainer> */}
            <TextContainer>
               <Title weight="600" size="3.5" paddingTop="20px">ADDIO</Title>
               <Title weight="400" size="3.5">MACCHIE</Title>
               <Title weight="400" size="3.5">sulla pelle</Title>
-              <IconsContainer>
+              {/* <IconsContainer>
                   <Image src="/icons/clinicamente-testato.png" width="100" height="100"></Image>
                   <Image src="/icons/dermatologicamente-testato.png" width="100" height="100"></Image>
                   <Image src="/icons/metal-tested.png" width="100" height="100"></Image>
-              </IconsContainer>
+              </IconsContainer> */}
            </TextContainer>
         </HeroContainer>
     )
