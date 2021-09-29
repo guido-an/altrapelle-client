@@ -1,70 +1,46 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import TopBar from './TopBar/TopBar'
+import ScreenBenefits from './ScreenBenefits/ScreenBenefits'
 import Benefits from './Benefits/Benefits'
-import Image from 'next/image'
-
-
+import MoleculeText from './MoleculeText/MoleculeText'
+import HowToUseIt from './HowToUseIt/HowToUseIt';
+import Ingredients from './Ingredients/Ingredients';
 export default function ProductDescription({ product }) {
-    console.log(product, 'screen')
+    const { topBarText, screen, moleculeText, benefits, howToUseIt, ingredients } = product
     return(
         <Container>
-            <TopBar product={product}/>
+            <TopBar topBarText={topBarText}/>
             <DescriptionContainer>
-              <IconsContainer>
-                 {product.icons.map(icon => <Image key={product.id} src={icon} width="84" height="84"/>
-                 )}
-              </IconsContainer>
-              <Benefits product={product}/>
-              <ImageContainer>
-                 <Image src={product.screen} width="1200" height="527"/>
-              </ImageContainer>
+              <ScreenBenefits screen={screen} />
+              <MoleculeText moleculeText={moleculeText} />
+              <Benefits benefits={benefits} marginTop="40px" /> 
+              <HowToUseIt howToUseIt={howToUseIt} marginTop="40px" /> 
+              <Ingredients ingredients={ingredients} marginTop="40px" /> 
             </DescriptionContainer>
-           
         </Container>
     )
 }
 
-
 const Container = styled.div`
-      margin: 40px ${({ theme }) => theme.mobileContainer};
-   @media(min-width: 768px){
-       margin: 20px ${({ theme }) => theme.desktopContainer};
-       
-   }
+    margin: 80px ${({ theme }) => theme.mobileContainer};
+       @media(min-width: 768px){
+           margin: 40px ${({ theme }) => theme.desktopContainer};
+       }
 `
 const DescriptionContainer = styled.div`
      background-color: ${({ theme }) => theme.colors.backgroundGrey};
-    @media(min-width: 768px){
-       
-       
-   }
+     padding: 0 ${({ theme }) => theme.mobileContainer} 60px;
+     border-radius: 4px;
+     margin-top: 30px;
+       @media(min-width: 968px){
+           padding: 0 15% 60px;;
+           margin: 20px auto 0; 
+       }
+ 
 `
-const IconsContainer = styled.div`
-     padding-top: 20px;
-     background-color: ${({ theme }) => theme.colors.backgroundGrey};
-     margin: 20px 0 40px;
-     text-align: center;
-   @media(min-width: 768px){
-       display: flex;
-       justify-content: space-evenly;
-         img {
-             width: 124px;
-         }
-   }
-`
-const ImageContainer = styled.div`
-    @media(min-width: 768px){
-       width: 60%;
-       margin: 0 auto;
-       
-   }
-`
-
 
 const { object } = PropTypes
-
 ProductDescription.propTypes = {
      product: object.isRequired
   }
-
