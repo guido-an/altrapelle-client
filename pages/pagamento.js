@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 import StripeContainer from '../components/Stripe/StripeContainer'
 import IntroHeading from '../components/molecules/IntroHeading';
+import OrderRecap from '../components/Payment/OrderRecap';
 
 const Payment = () => {
      const [chekoutData, setCheckouData] = useState({})
@@ -27,6 +28,7 @@ const Payment = () => {
                   setPaymentSuccessful={setPaymentSuccessful}
                  /> 
              }
+             <OrderRecap />
              {paymentSuccessful && <p>ordine creato</p>}
         </Container>
     )
@@ -35,7 +37,8 @@ const Payment = () => {
 const Container = styled.div`
      margin: 0 ${({ theme }) => theme.mobileContainer};
        @media(min-width: 768px){
-           padding: 0 ${({ theme }) => theme.desktopContainer};
+           padding: 0 ${({ theme }) => theme.desktopContainer} 80px;
          }
 `
+
 export default Payment 

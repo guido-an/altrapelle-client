@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import axios from "axios";
 import { CartContext } from '../../contexts/CartContext';
+import Image from 'next/image'
+import axios from "axios";
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import orderService from "../../services/orderService";
+import Button from "../atoms/Button";
 
 export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccessful }) => {
-   const { productsInCart, setProductsInCart } = useContext(CartContext)
+   const { productsInCart, setProductsInCart, totalPrice } = useContext(CartContext)
 
   const stripe = useStripe();
   const elements = useElements();
@@ -36,11 +40,10 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
           console.log("CheckoutForm.js 25 | payment successful!");
            const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
            // console.log(response, 'response from checkout')
-           
+    
               localStorage.clear();
               setPaymentSuccessful(true) 
               setProductsInCart([])
-          
         }
       } catch (error) {
         console.log("CheckoutForm.js 28 | ", error);
@@ -51,9 +54,51 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
   };
 
   return (
+    <Container>
     <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
+      <ImageContainer>
+         <Image src="/icons/credit-cards-logo.png" width="213px" height="32px"/>
+      </ImageContainer>
       <CardElement />
-      <button>Pay</button>
+      <ButtonContainer>   
+        <Button width="100%" margin="60px 0 auto">Completa l'ordine</Button>
+      </ButtonContainer>
     </form>
+    <TotalPrice>Totale: {totalPrice}€</TotalPrice>
+  </Container>
   );
 };
+
+const Container = styled.div `
+    width: 100%;
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    padding: 40px 0 20px;
+    box-sizing: border-box;
+    margin: 20px 0 40px;
+      form {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 60px;
+      }
+
+`
+const ImageContainer = styled.div `
+    margin: 0 auto 40px;
+    text-align: center;
+`
+const ButtonContainer = styled.div `
+    margin: 0 auto 60px;
+`
+const TotalPrice = styled.h3 `
+    text-align: center;
+    color: ${({ theme }) => theme.colors.blue};
+    font-weight: 600;
+`
+
+const { object, bool, func } = PropTypes
+
+CheckoutForm.propTypes = {
+     chekoutData: object.isRequired,
+     newsLetterConsent: bool.isRequired,
+     setPaymentSuccessful: func.isRequired
+  }

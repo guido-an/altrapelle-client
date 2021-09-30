@@ -121,7 +121,6 @@ export default function Form ({
                   />
                </>
              <NewsLetterContainer> 
-               <Span>Iscrivimi alla newsletter</Span>
                <Input 
                type="checkbox" 
                name="newsLetterConsent" 
@@ -130,11 +129,19 @@ export default function Form ({
                handleChange={() => setNewsletterConsent(!newsLetterConsent)}
                width="15px"
                />
+                <P>Acconsento al trattamento dei miei dati personali per finalità di marketing diretto al fine di ricevere comunicazioni commerciali e promozioni dirette.</P>
              </NewsLetterContainer>
-             <button>daje</button>
+             <ButtonContainer>
+                <Button width="100%" margin="40px auto 0">Procedi con il pagamento</Button>
+             </ButtonContainer>
         </MyForm>
     )
 }
+
+const ButtonContainer = styled.div `
+    width: 400px;
+    margin: 0 auto 80px;
+`
 
   const { func, bool, object } = PropTypes
 
@@ -168,12 +175,17 @@ export default function Form ({
   const NewsLetterContainer = styled.div`
       margin: 0 auto;
       text-align: center;
-       input {
-           position: relative;
-           top: 15px;
-           left: 5px;
-       }
+        input {
+            position: relative;
+            top: 15px;
+            right: 10px;
+        }
+      @media(min-width: 968px){
+          width: 50%;
+          margin: 0 auto;
+      } 
    `
-  const Span = styled.span`
+  const P = styled.span`
      color: ${({ theme }) => theme.colors.greyText};
+
    `

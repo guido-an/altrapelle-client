@@ -5,8 +5,9 @@ import Link from 'next/link'
 const MyButton = styled.a `
     background-color: ${({ theme, bgColor }) => bgColor || theme.colors.blue };
     color: #fff;
-    padding: 12px 0;
+    padding: 13px 0;
     border-radius: 35px;
+    border: none;
     font-size: 14px;
     display: block;
     width: ${({ width }) => width || '200px'};
@@ -22,26 +23,24 @@ const MyButton = styled.a `
       }
 `
 
+export default function Button ({ children, href, margin, bgColor, bgHover, colorHover, width, handleOnClick }){
+  const button = <MyButton 
+                   margin={margin} 
+                   bgColor={bgColor}
+                   bgHover={bgHover}
+                   colorHover={colorHover}
+                   width={width}
+                   onClick={handleOnClick}
+                   as={!href && "button"} // with no href this works as a button (for submitting form)
+                   >
+                   {children}
+                 </MyButton>
 
-export default function Button ({ children, href = "#", margin, bgColor, bgHover, colorHover, width, handleOnClick }){
-  return (
-        <Link href={href}>
-          <MyButton 
-             margin={margin} 
-             bgColor={bgColor}
-             bgHover={bgHover}
-             colorHover={colorHover}
-             width={width}
-             onClick={handleOnClick}
-             >
-             {children}
-          </MyButton>
-        </Link>
-    )
+           return href ? <Link href={href}>{button}</Link> : button
+           
 }
 
   const { string, func } = PropTypes
-
   Button.propTypes = {
      children: string.isRequired,
      href: string,

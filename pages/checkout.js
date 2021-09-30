@@ -72,8 +72,7 @@ const Checkout = () => {
                  handleSubmit={handleSubmit}
                />
               </FormContainer>
-            }
-    
+            }     
         </Container>
     )
 }
