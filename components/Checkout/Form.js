@@ -166,10 +166,12 @@ export default function Form ({
    `
 
   const NewsLetterContainer = styled.div`
-      width: 100%;
+      margin: 0 auto;
+      text-align: center;
        input {
            position: relative;
            top: 15px;
+           left: 5px;
        }
    `
   const Span = styled.span`
