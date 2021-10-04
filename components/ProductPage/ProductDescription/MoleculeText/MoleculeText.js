@@ -9,7 +9,7 @@ export default function MoleculeText({ moleculeText }) {
                {moleculeText.list.map((item, i) => <Li key={i}>{item}</Li>)}
             </ul>
           <Text>{moleculeText.lastPart}</Text>
-       </>
+       </> 
     )
 }
 

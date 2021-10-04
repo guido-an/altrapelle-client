@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default function HowToUseIt({ howToUseIt, marginTop }) {
+export default function HowToUseIt({ howToUseIt }) {
     return (
         <>
-           <Title marginTop={marginTop}>Indicazioni per l'uso</Title>
+           <Title>Indicazioni per l'uso</Title>
            <P>{howToUseIt}</P>
         </>
     )
 }
 
 const Title = styled.h3 `
-      margin-top: ${({ marginTop }) => marginTop};
+      margin-top: 40px;
       color: ${({ theme }) => theme.colors.blue}
 `
 const P = styled.p `
@@ -24,7 +24,6 @@ const P = styled.p `
 const { string } = PropTypes
 
 HowToUseIt.propTypes = {
-    howToUseIt: string.isRequired,
-    marginTop: string
+    howToUseIt: string.isRequired
   }
 

@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default function Ingredients({ ingredients, marginTop }) {
+export default function Ingredients({ ingredients }) {
     return (
         <>
-           <Title marginTop={marginTop}>Ingredienti</Title>
+           <Title>Ingredienti</Title>
            <P>{ingredients}</P>
         </>
     )
 }
 
 const Title = styled.h3 `
-     margin-top: ${({ marginTop }) => marginTop};
+     margin-top: 40px;
      color: ${({ theme }) => theme.colors.blue}
 `
 const P = styled.p `

@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default function Benefits({ benefits, marginTop }) {
+export default function Benefits({ benefits }) {
     return (
         <>
-          <Title marginTop={marginTop}>{benefits.title}:</Title>
+          <Title>{benefits.title}:</Title>
           {benefits.list.map((benefit, i) => <P key={i}>{benefit[0]} <Span>{benefit[1]}</Span></P>)}
        </>
     )
 }
 
 const Title = styled.h3`
-       margin-top: ${( {marginTop }) => marginTop};
        color: ${({ theme }) => theme.colors.blue};
+       margin-top: 40px;
 `
 const P = styled.p`
       color: ${({ theme }) => theme.colors.lightBlue};
@@ -28,5 +28,4 @@ const { object, string } = PropTypes
 
 Benefits.propTypes = {
     benefits: object.isRequired,
-     marginTop: string
   }
