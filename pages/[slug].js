@@ -3,6 +3,7 @@ import { CartContext } from "../contexts/CartContext"
 import productService from '../services/productService'
 import ProductHeader from '../components/ProductPage/ProductHeader/ProductHeader';
 import ProductDescription from '../components/ProductPage/ProductDescription/ProductDescription';
+import OverFooter from '../components/molecules/OverFooter';
 
 const service = new productService()
 
@@ -38,6 +39,7 @@ const Product = ({ product }) => {
         <>
          <ProductHeader product={product[0]}/>
          <ProductDescription product={product[0]} />
+         <OverFooter />
         </>
     )
 }

@@ -4,7 +4,8 @@ import { useContext, useEffect} from 'react';
 import { CartContext } from "../contexts/CartContext"
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 import CartTable from '../components/Cart/CartTable';
-import IntroHeading from '../components/molecules/IntroHeading';
+import IntroPage from '../components/molecules/IntroPage';
+import ContainerApp from '../components/atoms/ContainerApp';
 import Button from '../components/atoms/Button';
 
 const Cart = () => {
@@ -19,8 +20,8 @@ const Cart = () => {
     }, [productsInCart])
 
     return(
-        <Container>
-           <IntroHeading align="center">Carrello</IntroHeading>
+        <ContainerApp>
+           <IntroPage bgColor="blue">Carrello</IntroPage>
              {productsInCart.length === 0 ? 
                 <NoProductsInCart/> :
                  <>
@@ -31,16 +32,9 @@ const Cart = () => {
                    </ButtonContainer>
                 </>
              }
-        </Container>
+        </ContainerApp>
     )
 }
-
-const Container = styled.div`
-      padding: 0 ${({ theme }) => theme.mobileContainer};
-       @media(min-width: 768px){
-        padding: 0 ${({ theme }) => theme.desktopContainer};
-         }
-`
 
 const TotalPrice = styled.h2 `
     text-align: center;
@@ -50,7 +44,6 @@ const TotalPrice = styled.h2 `
 const ButtonContainer = styled.div `
     width: 400px;
     margin: 0 auto 80px;
-
 `
 
 export default Cart 

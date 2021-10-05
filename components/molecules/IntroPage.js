@@ -1,34 +1,36 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export default function IntroHeading ({ children, align }){
+export default function IntroHeading ({ children, bgColor }){
+    console.log(bgColor, 'bgColor')
     return (
-        <Container>
-           <Title align={align}>{children}</Title>
+        <Container bgColor={bgColor}>
+           <Title bgColor={bgColor}>{children}</Title>
         </Container>
     )
 }
 
 const Container = styled.div `
-   background-color: ${({ theme }) => theme.colors.backgroundGrey};
+   background-color: ${({ bgColor, theme }) => bgColor === 'blue' ? theme.colors.blue : theme.colors.backgroundGrey};
    border-radius: 4px;
    padding: 20px;
    margin-top: 10px;
 `
 
 const Title = styled.h2 `
-    color: ${({ theme}) =>theme.colors.blue };
+    color: ${({ bgColor, theme }) => bgColor === 'blue' ? '#fff' : theme.colors.blue};
     text-align: ${({ align }) => align};
     font-weight: 700;
     font-size: 2.5rem;
     line-height: 100%;
+    text-align: center;
 `
 
   const { string } = PropTypes
 
   IntroHeading.propTypes = {
      children: string.isRequired,
-     align: string
+     bgColor: string,
   }
 
 

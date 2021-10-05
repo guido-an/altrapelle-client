@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Product from './Product'
 import Button from '../atoms/Button'
 
-export default function OverFooter (){
+export default function OverFooter ({ href }){
     const theme = useTheme()
     return(
         <Container>
@@ -51,9 +51,3 @@ const BtnContainer = styled.div `
         top: 30px;
     }
 `
-
-
-
-
-
-

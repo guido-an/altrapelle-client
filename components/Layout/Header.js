@@ -49,7 +49,6 @@ export default function Header (props) {
           <nav>
             <Ul>
               <Link href="/"><A>HOME</A></Link>
-              <Link href="/altrapelle"><A>ALTRAPELLE</A></Link>
               <Link href="/macchie-della-pelle"><A>MACCHIE DELLA PELLE</A></Link>
               <Link href="/prodotti"><A>PRODOTTI</A></Link>
               <Link href="/contatti"><A>CONTATTI</A></Link>

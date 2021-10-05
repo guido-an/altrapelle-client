@@ -9,7 +9,7 @@ import HowToUseIt from './HowToUseIt/HowToUseIt';
 import Ingredients from './Ingredients/Ingredients';
 export default function ProductDescription({ product }) {
     const { topBarText, screen, moleculeText, benefits, howToUseIt, ingredients } = product
-    
+
     const componentMapping = {
         MoleculeText,
         Benefits,
@@ -17,18 +17,18 @@ export default function ProductDescription({ product }) {
         Ingredients,
     }
 
-    const componentProps = {
-        moleculeText,
-        benefits,
-        howToUseIt,
-        ingredients
-    }
+    // const componentProps = {
+    //     moleculeText,
+    //     benefits,
+    //     howToUseIt,
+    //     ingredients
+    // }
 
     function displayDescription(){
-        return product.properties.map((property, i) => {
+        return product.properties && product.properties.map((property, i) => {
             const componentName = property.type[0].toUpperCase() + property.type.slice(1)
             const Component = componentMapping[componentName]
-            return <Component key={i} {...componentProps} />
+            return <Component key={i} {...product} />
           })
     }
 
@@ -44,9 +44,9 @@ export default function ProductDescription({ product }) {
 }
 
 const Container = styled.div`
-    margin: 80px ${({ theme }) => theme.mobileContainer};
+    margin: 80px ${({ theme }) => theme.mobileContainer} 120px;
        @media(min-width: 768px){
-           margin: 40px ${({ theme }) => theme.desktopContainer};
+           margin: 40px ${({ theme }) => theme.desktopContainer} 120px;
        }
 `
 const DescriptionContainer = styled.div`

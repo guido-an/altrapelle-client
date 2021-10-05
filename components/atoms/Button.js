@@ -1,6 +1,21 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+export default function Button ({ children, href, margin, bgColor, bgHover, colorHover, width, handleOnClick }){
+  const button = <MyButton 
+                   margin={margin} 
+                   bgColor={bgColor}
+                   bgHover={bgHover}
+                   colorHover={colorHover}
+                   width={width}
+                   onClick={handleOnClick}
+                   as={!href && "button"} // with no href this works as a button (for submitting form)
+                   >
+                   {children}
+                 </MyButton>
+           return href ? <Link href={href}>{button}</Link> : button
+           
+}
 
 const MyButton = styled.a `
     background-color: ${({ theme, bgColor }) => bgColor || theme.colors.blue };
@@ -22,23 +37,6 @@ const MyButton = styled.a `
           color: ${({ colorHover }) => colorHover || '#fff'};
       }
 `
-
-export default function Button ({ children, href, margin, bgColor, bgHover, colorHover, width, handleOnClick }){
-  const button = <MyButton 
-                   margin={margin} 
-                   bgColor={bgColor}
-                   bgHover={bgHover}
-                   colorHover={colorHover}
-                   width={width}
-                   onClick={handleOnClick}
-                   as={!href && "button"} // with no href this works as a button (for submitting form)
-                   >
-                   {children}
-                 </MyButton>
-
-           return href ? <Link href={href}>{button}</Link> : button
-           
-}
 
   const { string, func } = PropTypes
   Button.propTypes = {

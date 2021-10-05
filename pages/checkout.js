@@ -4,9 +4,9 @@ import { CartContext } from "../contexts/CartContext"
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import Form from '../components/Checkout/Form';
+import ContainerApp from '../components/atoms/ContainerApp';
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
-import Button from '../components/atoms/Button';
-import IntroHeading from '../components/molecules/IntroHeading';
+import IntroPage from '../components/molecules/IntroPage';
 
 const Checkout = () => {
    const { totalPrice, productsInCart, calculateTotalPrice } = useContext(CartContext)
@@ -59,8 +59,8 @@ const Checkout = () => {
   }
 
     return(
-        <Container>
-          <IntroHeading align="center">Checkout</IntroHeading>
+        <ContainerApp>
+          <IntroPage bgColor="blue">Checkout</IntroPage>
            {productsInCart.length === 0 ? 
              <NoProductsInCart/> :
               <FormContainer>
@@ -73,21 +73,12 @@ const Checkout = () => {
                />
               </FormContainer>
             }     
-        </Container>
+        </ContainerApp>
     )
 }
 
-const Container = styled.div`
-     margin: 0 ${({ theme }) => theme.mobileContainer};
-       @media(min-width: 768px){
-           padding: 0 ${({ theme }) => theme.desktopContainer};
-         }
-`
 const FormContainer = styled.div`
      margin-top: 20px;
-       @media(min-width: 768px){
-          
-         }
 `
 
 export default Checkout 

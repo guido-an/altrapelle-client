@@ -21,7 +21,7 @@ const Container = styled.div`
      border-radius: 4px;
      text-align: center;
      color: #fff;
-     padding: 10px;
+     padding: 5px;
       @media(min-width: 1200px){
         display: flex;
         justify-content: space-evenly;
@@ -30,7 +30,6 @@ const Container = styled.div`
 `
 const TopBarTitle = styled.h3`
       font-weight: 400;
-      padding: 10px 0 0;
 `
 const TopBarText = styled.p`
       color: #fff;

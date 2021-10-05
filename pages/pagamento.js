@@ -1,9 +1,9 @@
 import { useEffect, useState, useContext} from 'react';
 import { CartContext } from '../contexts/CartContext'
-import styled from 'styled-components'
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 import StripeContainer from '../components/Stripe/StripeContainer'
-import IntroHeading from '../components/molecules/IntroHeading';
+import ContainerApp from '../components/atoms/ContainerApp';
+import IntroPage from '../components/molecules/IntroPage';
 import OrderRecap from '../components/Payment/OrderRecap';
 
 const Payment = () => {
@@ -18,8 +18,8 @@ const Payment = () => {
      }, [])
 
     return(  
-        <Container>
-             <IntroHeading align="center">Pagamento</IntroHeading>
+        <ContainerApp>
+             <IntroPage bgColor="blue">Pagamento</IntroPage>
              {productsInCart.length === 0 && !paymentSuccessful ? 
                 <NoProductsInCart /> :
                  <StripeContainer 
@@ -30,15 +30,8 @@ const Payment = () => {
              }
              <OrderRecap />
              {paymentSuccessful && <p>ordine creato</p>}
-        </Container>
+        </ContainerApp>
     )
 }
-
-const Container = styled.div`
-     margin: 0 ${({ theme }) => theme.mobileContainer};
-       @media(min-width: 768px){
-           padding: 0 ${({ theme }) => theme.desktopContainer} 80px;
-         }
-`
 
 export default Payment 
