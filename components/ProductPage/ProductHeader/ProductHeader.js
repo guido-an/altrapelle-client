@@ -15,9 +15,6 @@ const Container = styled.div`
    @media(min-width: 1200px){
        margin: 20px ${({ theme }) => theme.desktopContainer};
        display: flex;
-       justify-content: space-between;
-   }
-   @media(min-width: 1600px){
        justify-content: space-evenly;
    }
 `

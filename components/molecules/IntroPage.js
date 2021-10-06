@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 export default function IntroHeading ({ children, bgColor }){
-    console.log(bgColor, 'bgColor')
     return (
         <Container bgColor={bgColor}>
            <Title bgColor={bgColor}>{children}</Title>

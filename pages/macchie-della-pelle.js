@@ -75,6 +75,7 @@ export default function MacchieDellaPelle(){
                       </CausesText>
                   </CausesTextContainer>
                   <Title>FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle></Title>
+                  <Image src="/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg" width="1000" height="317"/>
             </SecondContainer>
         </ContainerApp>
         <OverFooter />
@@ -84,8 +85,11 @@ export default function MacchieDellaPelle(){
 
 const SecondContainer = styled.div `
          margin-top: 10px;
+         padding: 0 0 80px;
      @media(min-width: 968px){
-         margin: 10px ${({ theme }) => theme.desktopContainer}
+         margin: 10px ${({ theme }) => theme.desktopContainer};
+         padding: 0;
+
      }
 `
 

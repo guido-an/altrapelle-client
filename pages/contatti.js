@@ -13,11 +13,11 @@ export default function Contatti(){
                   <p>Via Ciantro 67 c/o Centro Mercantile Sicilia Capannone A8 98057 Milazzo (ME)</p>
                   <p>Telefono <a href="tel:090.9912376">090.9912376</a></p>
                   <p>Fax 090.9912753</p>
-                  <p>Numero Verde <a href="tel:800.913639">800.913639</a></p>
                </ContainerSection>
                <ContainerSection>
                   <p><strong>Servizio Clienti</strong></p>
                   <p>Per esigenze e richieste relative ai prodotti Altrapelle e-mail: <a href="mailto:info@difar.it">info@difar.it</a> </p>
+                  <p>Numero Verde <a href="tel:800.913639">800.913639</a></p>
                </ContainerSection>
             </ContainerPage>
         </ContainerApp>
@@ -25,7 +25,7 @@ export default function Contatti(){
 }
 
 const ContainerPage = styled.div `
-    margin-top:20px;
+    margin:20px 0 80px;
     box-shadow: ${({ theme }) => theme.boxShadow};
     padding: 10px 20px;
       @media(min-width: 968px){
