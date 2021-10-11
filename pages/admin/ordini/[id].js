@@ -19,7 +19,7 @@ const Ordine = ({ order }) => {
     return(
         <ContainerApp>
          <Container>
-           <div>
+           <OrderDetailsContainer>
               <p><strong>Ordine: </strong> #{order._id}</p>
               <p><strong>Stato dell'ordine: </strong> {stateOfTheOrder}</p>
              <p><strong>Nome: </strong> {firstName} {lastName}</p>
@@ -28,7 +28,7 @@ const Ordine = ({ order }) => {
               <p><strong>Telefono: </strong> {telephone}</p>
               <p><strong>Email: </strong> {email}</p>
               {additionalNotes && <p><strong>Note aggiuntive: </strong> {additionalNotes}</p>}
-           </div>
+           </OrderDetailsContainer>
            <OrderRecapContainer>
              <OrderRecap 
                 products={productsInCart} 
@@ -44,8 +44,13 @@ const Container = styled.div `
     margin: 40px 0  0;
     @media(min-width: 968px){
         display: flex;
-        justify-content: space-evenly;
+        justify-content: centerd;
         margin: 40px 0; 
+    }
+`
+const OrderDetailsContainer = styled.div `
+    @media(min-width: 968px){
+       margin: 0 60px 0 40px;
     }
 `
 const OrderRecapContainer = styled.div `
