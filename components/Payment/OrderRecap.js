@@ -24,8 +24,9 @@ export default function OrderRecap(){
         return (
           <tbody>
             {productsInCart.map((product, i) => {
-              const { name, price, quantity} = product
-                let subtotalPrice = price * quantity
+              const { name, price, discountedPrice, quantity } = product
+                const priceToAdd = discountedPrice ? discountedPrice : price
+                let subtotalPrice = priceToAdd * quantity
                  return (
                   <Tr key={i}>
                        <Td border="none">
@@ -54,8 +55,8 @@ export default function OrderRecap(){
     return(
         <Container>
             <Title>Il tuo ordine</Title>
-            {TableHead()}
-            {TableBody()}
+              {TableHead()}
+              {TableBody()}
         </Container>
     )
 }

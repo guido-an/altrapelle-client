@@ -23,15 +23,15 @@ export default function CartTable() {
         return (
           <tbody>
             {productsInCart.map((product, i) => {
-              const { name, price, quantity} = product
-                let subtotalPrice = price * quantity
+              const { name, price, discountedPrice, quantity} = product
+                let subtotalPrice = discountedPrice ? discountedPrice : price * quantity
                  return (
                   <Tr key={i}>
                        <Td>
                          <DeleteIcon onClick={() => removeFromCart(product.id)}>x</DeleteIcon>
                          <ProductName>{name}</ProductName>
                         </Td>
-                       <Td>{price}€</Td>
+                       <Td>{discountedPrice ? discountedPrice : price}€</Td>
                        <Td>
                          <HandleProductQuantity
                            quantityInCart={quantity}
@@ -49,10 +49,12 @@ export default function CartTable() {
 
     return(
         <Container>
+      
           <Table>
              { TableHead() }
              { TableBody() }
           </Table>
+          
         </Container>
     )
 }

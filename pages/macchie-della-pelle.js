@@ -131,7 +131,7 @@ const SpanTitle = styled.span `
    font-weight: 400;
    font-size: 1.3rem;
    position: relative;
-   bottom: 5px;
+ 
       @media(min-width:768px){
          bottom: 0;
       }

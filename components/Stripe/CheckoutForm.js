@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { CartContext } from '../../contexts/CartContext';
 import Image from 'next/image'
@@ -10,6 +10,8 @@ import Button from "../atoms/Button";
 
 export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccessful }) => {
    const { productsInCart, setProductsInCart, totalPrice } = useContext(CartContext)
+   const [processing, setProcessing] = useState(false)
+   const [error, setError] = useState(false)
 
   const stripe = useStripe();
   const elements = useElements();
@@ -26,6 +28,8 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
     if (!error) {
       console.log("Stripe 23 | token generated!", paymentMethod);
       try {
+        // test 
+        setProcessing(true)
         const { id } = paymentMethod;
         const response = await axios.post(
          `${process.env.API_URL}/stripe/charge`, 
@@ -44,15 +48,20 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
               localStorage.clear();
               setPaymentSuccessful(true) 
               setProductsInCart([])
+              //test
+              setProcessing(false)
         }
       } catch (error) {
         console.log("CheckoutForm.js 28 | ", error);
       }
     } else {
       console.log(error.message);
+      setError(error.message)
     }
   };
 
+
+ 
   return (
     <Container>
     <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
@@ -60,8 +69,16 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
          <Image src="/icons/credit-cards-logo.png" width="213px" height="32px"/>
       </ImageContainer>
       <CardElement />
+      {error && <Error>{error}</Error>}
       <ButtonContainer>   
-        <Button width="100%" margin="60px 0 auto">Completa l'ordine</Button>
+            <Button 
+                 bgColor={!processing ? undefined : "#ebebed" } 
+                 color={!processing ? undefined : "#153d6d" }
+                 width="100%" 
+                 margin="60px 0 auto"
+                 >
+              {!processing ? " Completa l'ordine" : "Processando il pagamento...."}
+            </Button> 
       </ButtonContainer>
     </form>
     <TotalPrice>Totale: {totalPrice}€</TotalPrice>
@@ -93,6 +110,11 @@ const TotalPrice = styled.h3 `
     text-align: center;
     color: ${({ theme }) => theme.colors.blue};
     font-weight: 600;
+`
+const Error = styled.p `
+   position: relative;
+   top: 40px;
+   text-align: center;
 `
 
 const { object, bool, func } = PropTypes

@@ -49,7 +49,9 @@ const CartContextProvider = props => {
    const calculateTotalPrice = () => {
        let total = 0
        productsInCart.forEach(product => {
-          total += product.quantity * product.price
+         const { quantity, price, discountedPrice } = product
+          const priceToAdd = discountedPrice ? discountedPrice : price
+          total += quantity * priceToAdd
        })
        setTotalPrice(total.toFixed(2))
    }

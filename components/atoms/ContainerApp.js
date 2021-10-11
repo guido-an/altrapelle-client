@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
 export default function ContainerApp ({ children }){
     return <MyContainer>{children}</MyContainer>
 }

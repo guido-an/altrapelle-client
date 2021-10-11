@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-export default function Button ({ children, href, margin, bgColor, bgHover, colorHover, width, handleOnClick }){
+export default function Button ({ children, href, margin, bgColor, bgHover, color, colorHover, width, handleOnClick }){
   const button = <MyButton 
                    margin={margin} 
                    bgColor={bgColor}
@@ -9,18 +9,19 @@ export default function Button ({ children, href, margin, bgColor, bgHover, colo
                    colorHover={colorHover}
                    width={width}
                    onClick={handleOnClick}
+                   color={color}
                    as={!href && "button"} // with no href this works as a button (for submitting form)
                    >
                    {children}
                  </MyButton>
-                 
+
            return href ? <Link href={href}>{button}</Link> : button
            
 }
 
 const MyButton = styled.a `
     background-color: ${({ theme, bgColor }) => bgColor || theme.colors.blue };
-    color: #fff;
+    color: ${({ color }) => color || "#fff" };
     padding: 13px 0;
     border-radius: 35px;
     border: none;

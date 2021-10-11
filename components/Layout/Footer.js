@@ -32,7 +32,7 @@ export default function Footer () {
                 </FooterSection>
                 <FooterSection>
                     <Title>Credits</Title>
-                    <a href="https://www.vanillamarketing.it/" target="_blank">
+                    <a href="https://www.vanillamarketing.it/" target="_blank" rel="noopener">
                         <LogoCreditsContainer>
                            <Image src="/footer/logo-vanilla-marketing.png" width="190" height="68"/>
                         </LogoCreditsContainer>

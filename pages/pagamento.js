@@ -5,6 +5,7 @@ import StripeContainer from '../components/Stripe/StripeContainer'
 import ContainerApp from '../components/atoms/ContainerApp';
 import IntroPage from '../components/molecules/IntroPage';
 import OrderRecap from '../components/Payment/OrderRecap';
+import OrderCompleted from '../components/Payment/OrderCompleted';
 
 const Payment = () => {
      const [chekoutData, setCheckouData] = useState({})
@@ -17,19 +18,26 @@ const Payment = () => {
         setNewsletterConsent(localStorage.getItem('newsLetterConsent'))
      }, [])
 
+
+     if(productsInCart.length === 0 && !paymentSuccessful){
+        return   <NoProductsInCart />
+    }
+
+    if(paymentSuccessful){
+        return <OrderCompleted/>
+    }
+
     return(  
         <ContainerApp>
-             <IntroPage bgColor="blue">Pagamento</IntroPage>
-             {productsInCart.length === 0 && !paymentSuccessful ? 
-                <NoProductsInCart /> :
-                 <StripeContainer 
-                  chekoutData={chekoutData} 
-                  newsLetterConsent={newsLetterConsent}
-                  setPaymentSuccessful={setPaymentSuccessful}
-                 /> 
-             }
-             <OrderRecap />
-             {paymentSuccessful && <p>ordine creato</p>}
+             <IntroPage bgColor="blue">Pagamento</IntroPage>             
+                <>  
+                  <StripeContainer 
+                     chekoutData={chekoutData} 
+                     newsLetterConsent={newsLetterConsent}
+                     setPaymentSuccessful={setPaymentSuccessful}
+                    /> 
+                  <OrderRecap />
+                </>
         </ContainerApp>
     )
 }

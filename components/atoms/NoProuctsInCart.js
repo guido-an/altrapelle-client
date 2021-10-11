@@ -1,21 +1,14 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-
-// width: ${({ width }) => width}; example
-
-// const MyDiv = styled.div`
-   
-// `
+import Link from 'next/link'
 
 const NoProductsInCart = () => {
-    return <p>Non ci sono prodotti presenti nel carrello</p>
+    return <Text>Non ci sono prodotti presenti nel carrello. Torna alla <Link href="/">Home</Link></Text>
 }
 
-//   const { string } = PropTypes
-
-//   NoProductsInCart.propTypes = {
-//       text: string.isRequired,
-//   }
+const Text = styled.p`
+   text-align: center;
+   margin: 20vh 0 60vh;
+`
 
 export default NoProductsInCart
 

@@ -20,9 +20,9 @@ export default function Problem (){
                    Macchie sulla pelle
                </TitleSection>
                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora perspiciatis, accusantium delectus sequi cumque nisi beatae commodi cum hic, atque eligendi. Vel alias dolorum hic, nesciunt ratione impedit amet porro ab cupiditate officiis nulla repudiandae quae sit totam deserunt, suscipit magni distinctio doloremque! Optio quis atque aliquid! Nihil adipisci quasi eius ratione. Vero, ducimus alias totam dicta aperiam tempore exercitationem.</P>
-                <Link href="/macchie-della-pelle">
+                {/* <Link href="/macchie-della-pelle">
                     <a style={{ color: theme.colors.blue }}>> Scopri di più</a>
-                </Link>
+                </Link> */}
              </TextContainer>
         </Container>
 

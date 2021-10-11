@@ -40,8 +40,8 @@ const Input = ({ type, placeholder, handleChange, name, value, required, checked
   Input.propTypes = {
       type: string.isRequired,
       placeholder: string,
-      name: string.isRequired,
       handleChange: func.isRequired,
+      name: string.isRequired,
       value: PropTypes.oneOfType([
         string.isRequired,
         bool.isRequired

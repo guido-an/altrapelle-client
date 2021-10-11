@@ -13,8 +13,12 @@ export default function ProductOverview({ product }) {
         <Container>
              <Name>{product.name}</Name>
              <Subtitle>{product.subtitle}.</Subtitle>
-             <Price>{product.price}€</Price>
-             <p>{product.description}.</p>
+             <PricesContainer>
+                <Price product={product}>{product.price}€</Price>
+                 {product.discountedPrice && 
+                      <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>}
+             </PricesContainer>
+             <Description>{product.description}.</Description>
             <QuantityContainer>
                <p>Quantità:</p>
                <HandleProductQuantity 
@@ -30,7 +34,7 @@ export default function ProductOverview({ product }) {
               <Button 
                 handleOnClick={()=> addToCart(product)}
                 width="100%"
-                margin="60px auto 0"
+                margin="20px auto 0"
                 >
                  Aggiungi al carrello
               </Button>
@@ -58,18 +62,32 @@ const Subtitle = styled.h2`
      position: relative;
      bottom: 10px;
 ` 
+const PricesContainer = styled.div`
+     display: flex;
+` 
 const Price = styled.p`
      font-size: 1.2rem;
      position: relative;
-     bottom: 10px;
+     bottom: 30px;
+     text-decoration: ${({ product }) => product.discountedPrice ? 'line-through' : null}
+` 
+const DiscountedPrice = styled.span`
+     font-size: 1.2rem;
+     position: relative;
+     left: 10px;
+     bottom: 13px;
+` 
+const Description = styled.p`
+     position: relative;
+     bottom: 40px;
 ` 
 const QuantityContainer = styled.div`
      position: relative;
-     top: 10px;
+     bottom: 30px;
 ` 
 const ContainerCartLink = styled.div`
      position: relative;
-     top: 50px;
+     top: 5px;
      text-align: center;
 ` 
 const IconsContainer = styled.div`
