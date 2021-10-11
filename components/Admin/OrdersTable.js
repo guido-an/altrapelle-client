@@ -6,17 +6,11 @@ import orderService from '../../services/orderService'
 
 const service = new orderService()
 
-export const getServerSideProps  = async () => {
-    const orders = await service.getAllOrders()
-    return { props: orders }
- }
-
 const OrdersTable = ({ orders }) => {
     const [stateOfTheOrder, setStateOfTheOrder] = useState('')
     const router = useRouter()
 
-
-    useEffect(() => { console.log('calling effect ', stateOfTheOrder)}, [stateOfTheOrder])
+    useEffect(() => { }, [stateOfTheOrder])
 
 function TableHead(){
     return <thead>
@@ -31,17 +25,6 @@ function TableHead(){
            </thead>
  }
 
- async function handleChange(_id, e){
-      try {
-       setStateOfTheOrder(e.target.value)
-       await service.updateOrderState(_id, e.target.value)
-       router.reload(window.location.pathname)
-      }
-     catch(err){
-         console.error(err)
-      }
-}
-
  function TableBody(){
     return (
       <tbody>
@@ -51,7 +34,7 @@ function TableHead(){
           const { date, time } = order.dateOfCreation
              return (
               <Tr key={_id}>
-               <Td> #{_id}</Td>
+               <Td><p>#{_id}</p></Td>
                  <Td border="none">
                     <p>{firstName} {lastName}</p>
                   </Td>
@@ -65,7 +48,7 @@ function TableHead(){
                     </Select>
                   </Td>
                   <Td>{totalPriceOrder / 100}€</Td>
-                  <Td><Link href={`/admin/ordini/${_id}`}>Dettagli</Link></Td>
+                  <Td><Link href={`/admin/ordini/${_id}`}> Dettagli</Link></Td>
                </Tr>
               )
          })}    
@@ -73,12 +56,22 @@ function TableHead(){
     )
 }
 
-console.log(stateOfTheOrder, 'stateOfTheOrder in component')
+async function handleChange(_id, e){
+    try {
+     setStateOfTheOrder(e.target.value)
+     await service.updateOrderState(_id, e.target.value)
+     router.reload(window.location.pathname)
+    }
+   catch(err){
+       console.error(err)
+    }
+}
+
     return(
       <Container>
         <Table>
-           { TableHead() }
-           { TableBody() }
+           { TableHead(orders) }
+           { TableBody(orders) }
         </Table>
       </Container>
     )

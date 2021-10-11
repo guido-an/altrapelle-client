@@ -21,6 +21,14 @@ class orderService {
     getAllOrders = async () => {
         const res = await fetch(`${process.env.API_URL}/order/get-all`)
         const data = await res.json()
+        console.log(data, 'data')
+        return data
+
+    } 
+
+     getOrder = async (id) => {
+        const res = await fetch(`${process.env.API_URL}/order/get-single/${id}`)
+        const data = await res.json()
         return data
     } 
 

@@ -49,12 +49,10 @@ export default function CartTable() {
 
     return(
         <Container>
-      
           <Table>
              { TableHead() }
              { TableBody() }
           </Table>
-          
         </Container>
     )
 }

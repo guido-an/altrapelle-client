@@ -4,14 +4,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 
-export default function OrderRecap(){
-    const { productsInCart, totalPrice, calculateTotalPrice } = useContext(CartContext)
-
-    useEffect(() => {
-        calculateTotalPrice()
-    }, [productsInCart])
-
-    function TableHead(){
+export default function OrderRecap({ products, totalPrice, calculateTotalPrice }){
+  
+  function TableHead(){
         return <thead>
                  <Tr>
                    <Th>Prodotto</Th>
@@ -23,7 +18,7 @@ export default function OrderRecap(){
      function TableBody(){
         return (
           <tbody>
-            {productsInCart.map((product, i) => {
+            {products.map((product, i) => {
               const { name, price, discountedPrice, quantity } = product
                 const priceToAdd = discountedPrice ? discountedPrice : price
                 let subtotalPrice = priceToAdd * quantity
@@ -54,7 +49,7 @@ export default function OrderRecap(){
 
     return(
         <Container>
-            <Title>Il tuo ordine</Title>
+            <Title>Riepilogo ordine</Title>
               {TableHead()}
               {TableBody()}
         </Container>
@@ -109,3 +104,11 @@ const ProductName = styled.span`
       font-weight: 500;
       color: ${({ theme }) => theme.colors.lightBlue};
 `
+
+const { array, number, func } = PropTypes
+
+OrderRecap.propTypes = {
+   products: array.isRequired,
+   totalPrice: number.isRequired,
+   calculateTotalPrice: func
+}
