@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 
-export default function OrderRecap({ products, totalPrice, calculateTotalPrice }){
+export default function OrderRecap({ products, totalPrice }){
   
   function TableHead(){
         return <thead>
@@ -48,26 +48,14 @@ export default function OrderRecap({ products, totalPrice, calculateTotalPrice }
     }
 
     return(
-        <Container>
-            <Title>Riepilogo ordine</Title>
-              {TableHead()}
-              {TableBody()}
-        </Container>
+        <>
+              { TableHead() }
+              { TableBody()}
+        </>
     )
 }
 
-const Container = styled.div`
-     margin-bottom: 120px;
-     @media(min-width: 1200px){
-        width: 70%;
-        margin: 0 auto;
-     }
-`
 
-const Title = styled.h2`
-      font-weight: 700;
-      color: ${({ theme }) => theme.colors.blue}
-`
 const Strong = styled.strong`
       font-weight: 500;
       color: ${({ theme }) => theme.colors.blue};
@@ -105,10 +93,9 @@ const ProductName = styled.span`
       color: ${({ theme }) => theme.colors.lightBlue};
 `
 
-const { array, number, func } = PropTypes
+const { array, number } = PropTypes
 
 OrderRecap.propTypes = {
    products: array.isRequired,
-   totalPrice: number.isRequired,
-   calculateTotalPrice: func
+   totalPrice: number.isRequired
 }

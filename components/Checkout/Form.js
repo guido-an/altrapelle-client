@@ -144,7 +144,6 @@ const ButtonContainer = styled.div `
 `
 
   const { func, bool, object } = PropTypes
-
   Form.propTypes = {
       handleChange: func.isRequired,
       newsLetterConsent: bool.isRequired,
@@ -187,5 +186,4 @@ const ButtonContainer = styled.div `
    `
   const P = styled.span`
      color: ${({ theme }) => theme.colors.greyText};
-
    `

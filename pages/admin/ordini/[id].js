@@ -20,14 +20,14 @@ const Ordine = ({ order }) => {
         <ContainerApp>
          <Container>
            <div>
-              <p>Ordine #{order._id}</p>
-              <p>Stato dell'ordine: {stateOfTheOrder}</p>
+              <p><strong>Ordine: </strong> #{order._id}</p>
+              <p><strong>Stato dell'ordine: </strong> {stateOfTheOrder}</p>
              <p><strong>Nome: </strong> {firstName} {lastName}</p>
-              <p><strong>P.IVA / Codice Fiscale</strong> {vatOrFiscalCode}</p>
-              <p><strong>Indirizzo</strong> {address}, {city}, {province}, {zipCode}</p>
-              <p><strong>Telefono</strong> {telephone}</p>
-              <p><strong>Email</strong> {email}</p>
-              {additionalNotes && <p><strong>Note aggiuntive</strong> {additionalNotes}</p>}
+              <p><strong>P.IVA / Codice Fiscale: </strong> {vatOrFiscalCode}</p>
+              <p><strong>Indirizzo: </strong> {address}, {city}, {province}, {zipCode}</p>
+              <p><strong>Telefono: </strong> {telephone}</p>
+              <p><strong>Email: </strong> {email}</p>
+              {additionalNotes && <p><strong>Note aggiuntive: </strong> {additionalNotes}</p>}
            </div>
            <OrderRecapContainer>
              <OrderRecap 
@@ -45,14 +45,14 @@ const Container = styled.div `
     @media(min-width: 968px){
         display: flex;
         justify-content: space-evenly;
-        margin: 20px 0; 
+        margin: 40px 0; 
     }
 `
 const OrderRecapContainer = styled.div `
+    margin-top: 40px;
     @media(min-width: 968px){
         width: 70%;
-        position: relative;
-        bottom: 20px;
+       margin-top: 20px;
     }
 `
 

@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext} from 'react';
 import { CartContext } from '../contexts/CartContext'
+import styled from 'styled-components'
 import NoProductsInCart from '../components/atoms/NoProuctsInCart';
 import StripeContainer from '../components/Stripe/StripeContainer'
 import ContainerApp from '../components/atoms/ContainerApp';
@@ -36,13 +37,22 @@ const Payment = () => {
                      chekoutData={chekoutData} 
                      newsLetterConsent={newsLetterConsent}
                      setPaymentSuccessful={setPaymentSuccessful} /> 
-                  <OrderRecap 
-                      products={productsInCart} 
-                      totalPrice={totalPrice} 
-                      calculateTotalPrice={calculateTotalPrice} />
+                  <OrderRecapContainer>
+                      <OrderRecap 
+                          products={productsInCart} 
+                          totalPrice={totalPrice} 
+                          calculateTotalPrice={calculateTotalPrice} />
+                    </OrderRecapContainer>
                 </>
         </ContainerApp>
     )
 }
+
+const OrderRecapContainer = styled.div `
+       @media(min-width: 968px){
+         width: 70%;
+         margin: 0 auto;
+       }
+`
 
 export default Payment 
