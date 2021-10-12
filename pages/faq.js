@@ -161,9 +161,9 @@ export default function FaqPage(){
            <div style={{ marginTop: '40px'}}>
               <Faq data={tenless} styles={styles}/>
           </div>
-           <div style={{ marginTop: '40px'}}>
+           {/* <div style={{ marginTop: '40px'}}>
               <Faq data={orders} styles={styles}/>
-          </div>
+          </div> */}
         </ContainerApp>
     )
 }

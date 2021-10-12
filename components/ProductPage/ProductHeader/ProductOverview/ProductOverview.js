@@ -15,8 +15,12 @@ export default function ProductOverview({ product }) {
              <Subtitle>{product.subtitle}.</Subtitle>
              <PricesContainer>
                 <Price product={product}>{product.price}€</Price>
+            {product.id === "3" ? <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice> :
+              <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>
+            }
+                {/* <Price product={product}>{product.price}€</Price>
                  {product.discountedPrice && 
-                      <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>}
+                      <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>} */}
              </PricesContainer>
              <Description>{product.description}.</Description>
             <QuantityContainer>
