@@ -28,7 +28,7 @@ export default WrappedComponent => {
 
   const hocComponent = ({ ...props }) => <WrappedComponent {...props} />;
 
-  hocComponent.getInitialProps = async (context) => {
+  hocComponent.getServerSideProps = async (context) => {
     const userAuth = await checkUserAuthentication();
     // Are you an authorized user or not?
     if (!userAuth?.auth) {

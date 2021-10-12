@@ -27,8 +27,8 @@ export default function Footer () {
                 </FooterSection>
                 <FooterSection>
                     <Title>Termini e Condizioni</Title>
-                    <MyLink as="a" href="#">Spedizioni</MyLink>
-                    <MyLink as="a" href="#">Privacy Policy</MyLink>
+                    <MyLink as="a" href="/spedizioni">Spedizioni</MyLink>
+                    <MyLink as="a" href="/privacy-policy">Privacy Policy</MyLink>
                 </FooterSection>
                 <FooterSection>
                     <Title>Credits</Title>

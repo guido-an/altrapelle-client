@@ -1,42 +1,69 @@
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropType from 'prop-types'
+import { useRouter } from 'next/router'
 import ContainerApp from '../../../components/atoms/ContainerApp'
 import OrderRecap from '../../../components/molecules/OrderRecap'
 import orderService from '../../../services/orderService'
+import authService from '../../../services/authService'
 
 
-const service = new orderService()
+const Orderservice = new orderService()
+const AuthService = new authService()
 
 export const getServerSideProps  = async (context) => {
     const { id } = context.params
-    const order = await service.getOrder(id)
+    const order = await Orderservice.getOrder(id)
     return { props: order }
  }
 
 const Ordine = ({ order }) => {
+    const [proceed, setProceed] = useState(false)
+    const router = useRouter()
+
     const { productsInCart, totalPriceOrder, stateOfTheOrder } = order
     const { firstName, lastName, vatOrFiscalCode, address, city, province, zipCode, telephone, email, additionalNotes} = order.billingDetails
+   
+    useEffect(() => {
+        async function checkIfLoggedIn () {
+          try {
+            const response = await AuthService.loggedin()
+            if (response.user) {
+                setProceed(true)
+            }
+          } catch (e) {
+            router.push('/admin/login') 
+            console.log(e)
+          }
+        }
+        checkIfLoggedIn()
+      }, [])
+
+      if(!proceed){
+        <p>Loading...</p>
+    }
+
     return(
-        <ContainerApp>
-         <Container>
-           <OrderDetailsContainer>
-              <p><strong>Ordine: </strong> #{order._id}</p>
-              <p><strong>Stato dell'ordine: </strong> {stateOfTheOrder}</p>
-             <p><strong>Nome: </strong> {firstName} {lastName}</p>
-              <p><strong>P.IVA / Codice Fiscale: </strong> {vatOrFiscalCode}</p>
-              <p><strong>Indirizzo: </strong> {address}, {city}, {province}, {zipCode}</p>
-              <p><strong>Telefono: </strong> {telephone}</p>
-              <p><strong>Email: </strong> {email}</p>
-              {additionalNotes && <p><strong>Note aggiuntive: </strong> {additionalNotes}</p>}
-           </OrderDetailsContainer>
-           <OrderRecapContainer>
-             <OrderRecap 
-                products={productsInCart} 
-                totalPrice={totalPriceOrder / 100} 
-              />
-           </OrderRecapContainer>
-          </Container>
-        </ContainerApp>
+    proceed && <ContainerApp>
+    <Container>
+      <OrderDetailsContainer>
+         <p><strong>Ordine: </strong> #{order._id}</p>
+         <p><strong>Stato dell'ordine: </strong> {stateOfTheOrder}</p>
+        <p><strong>Nome: </strong> {firstName} {lastName}</p>
+         <p><strong>P.IVA / Codice Fiscale: </strong> {vatOrFiscalCode}</p>
+         <p><strong>Indirizzo: </strong> {address}, {city}, {province}, {zipCode}</p>
+         <p><strong>Telefono: </strong> {telephone}</p>
+         <p><strong>Email: </strong> {email}</p>
+         {additionalNotes && <p><strong>Note aggiuntive: </strong> {additionalNotes}</p>}
+      </OrderDetailsContainer>
+      <OrderRecapContainer>
+        <OrderRecap 
+           products={productsInCart} 
+           totalPrice={totalPriceOrder / 100} 
+         />
+      </OrderRecapContainer>
+     </Container>
+   </ContainerApp>
     )
 }
 

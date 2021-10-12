@@ -7,10 +7,10 @@ import orderService from '../../services/orderService'
 const service = new orderService()
 
 const OrdersTable = ({ orders }) => {
-    const [stateOfTheOrder, setStateOfTheOrder] = useState('')
+    const [inputValue, setInputValue] = useState('') // change this name (same in database)
     const router = useRouter()
 
-    useEffect(() => { }, [stateOfTheOrder])
+  
 
 function TableHead(){
     return <thead>
@@ -58,7 +58,7 @@ function TableHead(){
 
 async function handleChange(_id, e){
     try {
-     setStateOfTheOrder(e.target.value)
+     setInputValue(e.target.value)
      await service.updateOrderState(_id, e.target.value)
      router.reload(window.location.pathname)
     }
