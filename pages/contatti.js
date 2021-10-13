@@ -13,6 +13,7 @@ export default function Contatti(){
                   <p>Via Ciantro 67 c/o Centro Mercantile Sicilia Capannone A8 98057 Milazzo (ME)</p>
                   <p>Telefono <a href="tel:090.9912376" rel="noopener">090.9912376</a></p>
                   <p>Fax 090.9912753</p>
+                  <p>P.IVA 03124530837</p>
                </ContainerSection>
                <ContainerSection>
                   <p><strong>Servizio Clienti</strong></p>

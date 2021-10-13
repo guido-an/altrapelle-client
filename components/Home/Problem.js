@@ -5,31 +5,31 @@ import Link from 'next/link'
 import OverTitleSection from '../atoms/OverTitleSection'
 import TitleSection from '../atoms/TitleSection'
 
-export default function Problem (){
-    const theme = useTheme()
-    return(
-        <Container>
-           <ImageContainer>
-               <Image src="/home/iperpigmentazione.jpg" width="700" height="530"></Image>
-           </ImageContainer>
-            <TextContainer>
-               <OverTitleSection align="left">
-                   LOREM IPSUM DOLORET SIN AMET
-               </OverTitleSection>
-               <TitleSection align="left">
+export default function Problem () {
+  const theme = useTheme()
+  return (
+    <Container>
+      <ImageContainer>
+        <Image src='/home/iperpigmentazione.jpg' width='700' height='530' />
+      </ImageContainer>
+      <TextContainer>
+        <OverTitleSection align='left'>
+                 COME SCEGLIERE IL PRODOTTO PIÙ ADATTO
+        </OverTitleSection>
+        <TitleSection align='left'>
                    Macchie sulla pelle
-               </TitleSection>
-               <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora perspiciatis, accusantium delectus sequi cumque nisi beatae commodi cum hic, atque eligendi. Vel alias dolorum hic, nesciunt ratione impedit amet porro ab cupiditate officiis nulla repudiandae quae sit totam deserunt, suscipit magni distinctio doloremque! Optio quis atque aliquid! Nihil adipisci quasi eius ratione. Vero, ducimus alias totam dicta aperiam tempore exercitationem.</P>
-                {/* <Link href="/macchie-della-pelle">
+        </TitleSection>
+        <P>Possono essere causate da diversi fattori come l’esposizione solare, l’invecchiamento cutaneo e i cambiamenti ormonali. Il trattamento sinergico Altrapelle  schiarisce e uniforma l’incarnato.</P>
+        {/* <Link href="/macchie-della-pelle">
                     <a style={{ color: theme.colors.blue }}>> Scopri di più</a>
                 </Link> */}
-             </TextContainer>
-        </Container>
+      </TextContainer>
+    </Container>
 
-    )
+  )
 }
 
-const Container = styled.div `
+const Container = styled.div`
        margin: 120px 0 0;
        padding: 40px ${({ theme }) => theme.mobileContainer} 60px;
        background-color: ${({ theme }) => theme.colors.backgroundGrey};
@@ -40,13 +40,13 @@ const Container = styled.div `
     }
     
 `
-const ImageContainer = styled.div `
+const ImageContainer = styled.div`
      
        @media(min-width: 768px){
            width: 60%;
         }
 `
-const TextContainer = styled.div `
+const TextContainer = styled.div`
      margin: 0 ${({ theme }) => theme.mobileContainer};
        @media(min-width: 768px){
             position: relative;
@@ -54,7 +54,7 @@ const TextContainer = styled.div `
             width: 50%;
         }
 `
-const P = styled.p `
+const P = styled.p`
     text-align: left;
     position: relative;
     bottom: 20px;

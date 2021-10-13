@@ -3,30 +3,30 @@ import Button from '../atoms/Button'
 import OverTitleSection from '../atoms/OverTitleSection'
 import TitleSection from '../atoms/TitleSection'
 
-export default function About (){
-    return(
-        <Container>
-          <OverTitleSection align="center">
-              LOREM IPSUM DOLORET SIN AMET
-          </OverTitleSection>
-          <TitleSection align="center">
+export default function About () {
+  return (
+    <Container>
+      <OverTitleSection align='center'>
+          IL NOSTRO MODI DI PRENDERCI CURA DI TE
+      </OverTitleSection>
+      <TitleSection align='center'>
               Dermatecnologie
-          </TitleSection>
-          <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam beatae nihil quis qui incidunt atque reprehenderit corrupti. Rem autem odit neque sapiente at, similique tempora libero necessitatibus esse exercitationem architecto.
-          </P>
-           <Button margin="40px auto 0" href="/macchie-della-pelle">
+      </TitleSection>
+      <P>I prodotti Altrapelle uniscono soluzioni dermatologicamente innovative e scientificamente testate per risultati davvero efficaci.
+      </P>
+      <Button margin='40px auto 0' href='/macchie-della-pelle'>
               Scopri di più
-           </Button>
-        </Container>
+      </Button>
+    </Container>
 
-    )
+  )
 }
 
-const Container = styled.div `
+const Container = styled.div`
     padding: 0 ${({ theme }) => theme.mobileContainer};
 `
 
-const P = styled.p `
+const P = styled.p`
     text-align: center;
     position: relative;
     bottom: 20px;
