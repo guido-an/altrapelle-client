@@ -23,47 +23,59 @@ export default function Header (props) {
           <ProductsNumInCart>{productsInCart.length}</ProductsNumInCart>
         </IconCartContainer>
       </a>
-    </Link>
+           </Link>
   }
 
   return (
-    <MyHeader>
-      <TopContainer>
-        <Link href='/'>
-          <a><Logo /></a>
-        </Link>
-        <MobileCartIcon>
-          {shoppinCartIcon()}
-        </MobileCartIcon>
-        <MobileMenuIconContainer onClick={() => setShowMenu(!showMenu)}>
-          {!showMenu
-            ? <>
-              <MobileMenuLine />
-              <MobileMenuLine />
-              <MobileMenuLine />
-            </>
-            : <ClosingIcon>x</ClosingIcon>}
-        </MobileMenuIconContainer>
-      </TopContainer>
-      {showMenu &&
-        <nav>
-          <Ul>
-            <Link href='/'><A>HOME</A></Link>
-            <Link href='/altrapelle/tenless'><A>TENLESS</A></Link>
-            <Link href='/macchie-della-pelle'><A>MACCHIE DELLA PELLE</A></Link>
-            <Link href='/prodotti'><A>PRODOTTI</A></Link>
-            <Link href='/faq'><A>FAQ</A></Link>
-            <Link href='/contatti'><A>CONTATTI</A></Link>
-            <DesktopCartIcon>
-              {shoppinCartIcon()}
-            </DesktopCartIcon>
-          </Ul>
-        </nav>
-        }
-    </MyHeader>
+    <>
+      <TopBar>Spedizione gratuita su tutti gli ordini fino al 31 Dicembre 2021.</TopBar>
+      <MyHeader>
+        <TopContainer>
+          <Link href='/'>
+            <a><Logo /></a>
+          </Link>
+          <MobileCartIcon>
+            {shoppinCartIcon()}
+          </MobileCartIcon>
+          <MobileMenuIconContainer onClick={() => setShowMenu(!showMenu)}>
+            {!showMenu
+              ? <>
+                <MobileMenuLine />
+                <MobileMenuLine />
+                <MobileMenuLine />
+              </>
+              : <ClosingIcon>x</ClosingIcon>}
+          </MobileMenuIconContainer>
+        </TopContainer>
+        {showMenu &&
+          <nav>
+            <Ul>
+              <Link href='/'><A>HOME</A></Link>
+              <Link href='/altrapelle/tenless'><A>TENLESS</A></Link>
+              <Link href='/macchie-della-pelle'><A>MACCHIE DELLA PELLE</A></Link>
+              <Link href='/prodotti'><A>PRODOTTI</A></Link>
+              <Link href='/faq'><A>FAQ</A></Link>
+              <Link href='/contatti'><A>CONTATTI</A></Link>
+              <DesktopCartIcon>
+                {shoppinCartIcon()}
+              </DesktopCartIcon>
+            </Ul>
+          </nav>}
+      </MyHeader>
+    </>
   )
 }
 
+const TopBar = styled.div`
+     background-color: ${({ theme }) => theme.colors.lightBlue};
+     text-align: center;
+     padding: 5px;
+     color: #fff;
+     font-size: 0.9rem;
+    @media(min-width: 1200px){
+       
+    }
+`
 const MyHeader = styled.div`
      background-color: #fff;
     @media(min-width: 1200px){
