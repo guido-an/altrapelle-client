@@ -2,15 +2,15 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Product from './Product'
 
-export default function DisplayProducts ({ products }){
-    return(
-        <ContainerProducts>
-           {products.map(product => <Product product={product} />)}
-        </ContainerProducts>
-    )
+export default function DisplayProducts ({ products }) {
+  return (
+    <ContainerProducts>
+      {products.map(product => <Product key={product.id} product={product} />)}
+    </ContainerProducts>
+  )
 }
 
-const ContainerProducts = styled.div ` 
+const ContainerProducts = styled.div` 
     @media(min-width: 768px){
         display: flex;
         justify-content: space-evenly;
@@ -20,9 +20,5 @@ const ContainerProducts = styled.div `
 
 const { array } = PropTypes
 DisplayProducts.propTypes = {
-     products: array.isRequired
-  }
-
-
-
-
+  products: array.isRequired
+}
