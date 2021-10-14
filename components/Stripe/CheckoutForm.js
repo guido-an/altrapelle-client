@@ -13,6 +13,8 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
   const [processing, setProcessing] = useState(false)
   const [error, setError] = useState(false)
 
+  const { email } = chekoutData
+
   const stripe = useStripe()
   const elements = useElements()
 
@@ -36,7 +38,8 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
          {
            // amount: 999, calculate amount in the server
            id: id,
-           productsInCart
+           productsInCart,
+           email
          }
         )
         // console.log("Stripe 35 | data", response.data.success);
