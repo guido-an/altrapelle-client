@@ -14,7 +14,7 @@ export default function ProductOverview ({ product }) {
       <Name>{product.name}</Name>
       <Subtitle>{product.subtitle}.</Subtitle>
       <PricesContainer>
-        <Price product={product}>{product.price}€</Price>
+        <Price product={product}>{product.price.toFixed(2)}€</Price>
         {/* Quick fix in production - to be changed  */}
         {product.id === '3' && <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>}
       </PricesContainer>

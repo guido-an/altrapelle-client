@@ -1,60 +1,61 @@
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { CartContext } from "../../contexts/CartContext"
+import { CartContext } from '../../contexts/CartContext'
 import HandleProductQuantity from '../molecules/HandleProductQuantity'
 import Image from 'next/image'
 
-export default function CartTable() {
-    const { productsInCart, removeFromCart, handleQuantityInCart } = useContext(CartContext)
+export default function CartTable () {
+  const { productsInCart, removeFromCart, handleQuantityInCart } = useContext(CartContext)
 
-    function TableHead(){
-       return <thead>
-                <Tr>
-                  <Th>Prodotto</Th>
-                  <Th>Prezzo</Th>
-                  <Th>Quantità</Th>
-                  <Th>Subtotale</Th>
-                </Tr>
-              </thead>
-    }
+  function TableHead () {
+    return <thead>
+      <Tr>
+        <Th>Prodotto</Th>
+        <Th>Prezzo</Th>
+        <Th>Quantità</Th>
+        <Th>Subtotale</Th>
+      </Tr>
+    </thead>
+  }
 
-    function TableBody(){
-        return (
-          <tbody>
-            {productsInCart.map((product, i) => {
-              const { name, price, discountedPrice, quantity} = product
-                let subtotalPrice = discountedPrice ? discountedPrice : price * quantity
-                 return (
-                  <Tr key={i}>
-                       <Td>
-                         <DeleteIcon onClick={() => removeFromCart(product.id)}>x</DeleteIcon>
-                         <ProductName>{name}</ProductName>
-                        </Td>
-                       <Td>{discountedPrice ? discountedPrice : price}€</Td>
-                       <Td>
-                         <HandleProductQuantity
-                           quantityInCart={quantity}
-                           increaseQuantity={() => handleQuantityInCart(product, 'increase')}
-                           decreaseQuantity={() => handleQuantityInCart(product, 'decrease')}
-                         />
-                       </Td>
-                       <Td>{subtotalPrice.toFixed(2)}€</Td>
-                     </Tr>
-                   )
-             })}
-         </tbody>
-        )
-    }
-
-    return(
-        <Container>
-          <Table>
-             { TableHead() }
-             { TableBody() }
-          </Table>
-        </Container>
+  function TableBody () {
+    return (
+      <tbody>
+        {productsInCart.map((product, i) => {
+          const { name, price, discountedPrice, quantity } = product
+          {/* const subtotalPrice = discountedPrice || price * quantity */}
+          const subtotalPrice = discountedPrice ? discountedPrice * quantity : price * quantity
+          return (
+            <Tr key={i}>
+              <Td>
+                <DeleteIcon onClick={() => removeFromCart(product.id)}>x</DeleteIcon>
+                <ProductName>{name}</ProductName>
+              </Td>
+              <Td>{discountedPrice?.toFixed(2) || price.toFixed(2)}€</Td>
+              <Td>
+                <HandleProductQuantity
+                  quantityInCart={quantity}
+                  increaseQuantity={() => handleQuantityInCart(product, 'increase')}
+                  decreaseQuantity={() => handleQuantityInCart(product, 'decrease')}
+                />
+              </Td>
+              <Td>{subtotalPrice.toFixed(2)}€</Td>
+            </Tr>
+          )
+        })}
+      </tbody>
     )
+  }
+
+  return (
+    <Container>
+      <Table>
+        {TableHead()}
+        {TableBody()}
+      </Table>
+    </Container>
+  )
 }
 
 const Container = styled.div`
