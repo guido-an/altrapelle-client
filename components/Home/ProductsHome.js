@@ -2,34 +2,33 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import OverTitleSection from '../atoms/OverTitleSection'
 import TitleSection from '../atoms/TitleSection'
-import DisplayProducts from '../molecules/DisplayProducts';
+import DisplayProducts from '../molecules/DisplayProducts'
 
-export default function Products ({ products }){
-    return(
-        <Container>
-          <>
-            <OverTitleSection align="center">
-                LOREM IPSUM DOLORET SIN AMET
-            </OverTitleSection>
-            <TitleSection align="center">
+export default function Products ({ products }) {
+  return (
+    <Container>
+      <>
+        <OverTitleSection align='center'>
+               LE LINEE ALTRA PELLE
+        </OverTitleSection>
+        <TitleSection align='center'>
                 I nostri prodotti
-            </TitleSection>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eveniet aperiam dignissimos, sit dicta dolorem.
-            </P>
-          </>
-              <DisplayProducts products={products} />
-        </Container>
-    )
+        </TitleSection>
+        <P>Scopri i nostri prodotti dedicati alla cura e al benessere della pelle.
+        </P>
+      </>
+      <DisplayProducts products={products} />
+    </Container>
+  )
 }
 
-
-const Container = styled.div `
+const Container = styled.div`
     margin: 40px ${({ theme }) => theme.mobileContainer} 0;
     @media(min-width: 768px){
         margin: 80px auto;
     }
 `
-const P = styled.p `
+const P = styled.p`
     text-align: center;
     padding: 0 ${({ theme }) => theme.mobileContainer};
     position: relative;
@@ -43,6 +42,5 @@ const P = styled.p `
 const { array } = PropTypes
 
 Products.propTypes = {
-   products: array.isRequired
+  products: array.isRequired
 }
-

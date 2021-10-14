@@ -14,7 +14,7 @@ export default function About () {
       </TitleSection>
       <P>I prodotti Altrapelle uniscono soluzioni dermatologicamente innovative e scientificamente testate per risultati davvero efficaci.
       </P>
-      <Button margin='40px auto 0' href='/macchie-della-pelle'>
+      <Button margin='40px auto 0' href='/altrapelle/tenless'>
               Scopri di più
       </Button>
     </Container>

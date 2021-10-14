@@ -1,24 +1,24 @@
 import styled from 'styled-components'
 
-export default function SubHero (){
-    return(
-        <Container>
-            <Title>L'INNOVATIVO TIYF COMPLEX, RIDUCE L'AREA SCURA TOTALE DELLE MACCHIE 
-                 <Span> GIA' DOPO 2 SETTIMANE</Span>
-            </Title>
-        </Container>
+export default function SubHero () {
+  return (
+    <Container>
+      <Title>GLI INNOVATIVI TIYF E DIR COMPLEX RIDUCONO L'AREA SCURA TOTALE DELLE MACCHIE
+        <Span> GIÀ DOPO 2 SETTIMANE</Span>
+      </Title>
+    </Container>
 
-    )
+  )
 }
 
-const Container = styled.div `
+const Container = styled.div`
     background-color: ${({ theme }) => theme.colors.lightBlue};
     position: relative;
     bottom: 20px;
     padding: 20px ${({ theme }) => theme.mobileContainer} 30px;
     
 `
-const Title = styled.h2 `
+const Title = styled.h2`
     color: #fff;
     text-align: center;
     font-weight: 400;
@@ -29,6 +29,6 @@ const Title = styled.h2 `
         margin: 0 auto;
     }
 `
-const Span = styled.span `
+const Span = styled.span`
    font-weight: 600;
 `

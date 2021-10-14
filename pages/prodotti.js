@@ -1,34 +1,34 @@
 import React from 'react'
-import styled from 'styled-components' 
+import styled from 'styled-components'
 import productService from '../services/productService'
-import ContainerApp from '../components/atoms/ContainerApp';
+import ContainerApp from '../components/atoms/ContainerApp'
 import DisplayProducts from '../components/molecules/DisplayProducts'
-import IntroPage from '../components/molecules/IntroPage';
-import OverFooter from '../components/molecules/OverFooter';
+import IntroPage from '../components/molecules/IntroPage'
+import OverFooter from '../components/molecules/OverFooter'
 
 const service = new productService()
 
-export const getStaticProps = async () => { 
+export const getStaticProps = async () => {
   return {
     props: { products: await service.getAllProducts() }
   }
 }
 
 const Products = ({ products }) => {
-  return(
+  return (
     <>
-        <ContainerApp>
-          <IntroPage>I nostri prodotti</IntroPage>
-           <ProductsContainer>
-               <DisplayProducts products={products}/>
-           </ProductsContainer>
-        </ContainerApp>
-      <OverFooter/>
+      <ContainerApp>
+        <IntroPage>I nostri prodotti</IntroPage>
+        <ProductsContainer>
+          <DisplayProducts products={products} />
+        </ProductsContainer>
+      </ContainerApp>
+      <OverFooter />
     </>
   )
 }
 
-const ProductsContainer = styled.div `
+const ProductsContainer = styled.div`
      margin-bottom: 80px;
         @media(min-width: 968px){
           margin: 40px 120px;
@@ -36,5 +36,3 @@ const ProductsContainer = styled.div `
 `
 
 export default Products
-
-

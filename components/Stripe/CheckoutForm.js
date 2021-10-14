@@ -28,7 +28,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
     })
 
     if (!error) {
-      console.log('Stripe 23 | token generated!', paymentMethod)
+      // console.log('Stripe 23 | token generated!', paymentMethod)
       try {
         // test
         setProcessing(true)

@@ -19,7 +19,7 @@ export default function Footer () {
         <FooterSection>
           <Title>Social</Title>
           <MyLink as='a' href='https://www.instagram.com/altrapelle/'>Instagram</MyLink>
-          <MyLink as='a' href='https://www.facebook.com/AltraPelleTenless/'>Facebook</MyLink>
+          <MyLink as='a' href='https://www.facebook.com/AltraPelle'>Facebook</MyLink>
         </FooterSection>
         <FooterSection>
           <Title>Pagamenti</Title>

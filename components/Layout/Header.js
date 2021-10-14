@@ -6,60 +6,62 @@ import Image from 'next/image'
 import { CartContext } from '../../contexts/CartContext'
 
 export default function Header (props) {
-    const [showMenu, setShowMenu] = useState(false)
-    const { productsInCart } = useContext(CartContext)
-    useEffect(() => {
-        if(window){
-            // Check if big screen
-             setShowMenu(window.innerWidth >= 968)
-        }
-    }, [])
-
-    const shoppinCartIcon = () => {
-      return <Link href="/carrello">
-                <a>
-                  <IconCartContainer>
-                    <Image src="/icons/shopping-cart-blue.png" width="24" height="24"/>
-                    <ProductsNumInCart>{productsInCart.length}</ProductsNumInCart>
-                 </IconCartContainer>
-                </a>
-            </Link>
+  const [showMenu, setShowMenu] = useState(false)
+  const { productsInCart } = useContext(CartContext)
+  useEffect(() => {
+    if (window) {
+      // Check if big screen
+      setShowMenu(window.innerWidth >= 968)
     }
+  }, [])
 
-    return(
-        <MyHeader>
-          <TopContainer>
-                <Link href="/">
-                   <a><Logo /></a>
-                </Link>
-             <MobileCartIcon>
-                { shoppinCartIcon() }
-             </MobileCartIcon>
-            <MobileMenuIconContainer onClick={() => setShowMenu(!showMenu)}>
-              {!showMenu
-                ? <>
-                <MobileMenuLine />
-                <MobileMenuLine />
-                <MobileMenuLine />
-                  </>
-                : <ClosingIcon>x</ClosingIcon>}
-            </MobileMenuIconContainer>
-          </TopContainer>
-        {showMenu &&
-          <nav>
-            <Ul>
-              <Link href="/"><A>HOME</A></Link>
-              <Link href="/macchie-della-pelle"><A>MACCHIE DELLA PELLE</A></Link>
-              <Link href="/prodotti"><A>PRODOTTI</A></Link>
-              <Link href="/faq"><A>FAQ</A></Link>
-              <Link href="/contatti"><A>CONTATTI</A></Link>
-              <DesktopCartIcon>
-                { shoppinCartIcon() }
-             </DesktopCartIcon>
-            </Ul>
-          </nav>}
-        </MyHeader>
-    )
+  const shoppinCartIcon = () => {
+    return <Link href='/carrello'>
+      <a>
+        <IconCartContainer>
+          <Image src='/icons/shopping-cart-blue.png' width='24' height='24' />
+          <ProductsNumInCart>{productsInCart.length}</ProductsNumInCart>
+        </IconCartContainer>
+      </a>
+    </Link>
+  }
+
+  return (
+    <MyHeader>
+      <TopContainer>
+        <Link href='/'>
+          <a><Logo /></a>
+        </Link>
+        <MobileCartIcon>
+          {shoppinCartIcon()}
+        </MobileCartIcon>
+        <MobileMenuIconContainer onClick={() => setShowMenu(!showMenu)}>
+          {!showMenu
+            ? <>
+              <MobileMenuLine />
+              <MobileMenuLine />
+              <MobileMenuLine />
+            </>
+            : <ClosingIcon>x</ClosingIcon>}
+        </MobileMenuIconContainer>
+      </TopContainer>
+      {showMenu &&
+        <nav>
+          <Ul>
+            <Link href='/'><A>HOME</A></Link>
+            <Link href='/altrapelle/tenless'><A>TENLESS</A></Link>
+            <Link href='/macchie-della-pelle'><A>MACCHIE DELLA PELLE</A></Link>
+            <Link href='/prodotti'><A>PRODOTTI</A></Link>
+            <Link href='/faq'><A>FAQ</A></Link>
+            <Link href='/contatti'><A>CONTATTI</A></Link>
+            <DesktopCartIcon>
+              {shoppinCartIcon()}
+            </DesktopCartIcon>
+          </Ul>
+        </nav>
+        }
+    </MyHeader>
+  )
 }
 
 const MyHeader = styled.div`
@@ -112,7 +114,7 @@ const DesktopCartIcon = styled.div`
         bottom: 2px;
     }
 `
-const Ul = styled.ul `
+const Ul = styled.ul`
     list-style: none;
     @media(min-width: 1200px){
         display: flex;
@@ -121,7 +123,7 @@ const Ul = styled.ul `
         top: 55px
     }
 `
-const A = styled.a `
+const A = styled.a`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.greyText};
     text-transform: uppercase;
@@ -165,4 +167,3 @@ const ClosingIcon = styled.div`
     bottom: 8px;
     color: ${({ theme }) => theme.colors.blue};
 `
-
