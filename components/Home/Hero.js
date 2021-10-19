@@ -4,9 +4,9 @@ import styled from 'styled-components'
 export default function Hero () {
   return (
     <HeroContainer>
-      <ImageContainer>
+      {/* <ImageContainer>
                <Image src="/home/altrapelle-hero-3.jpg" width="1500" height="1345"></Image>
-           </ImageContainer>
+           </ImageContainer> */}
       <TextContainer>
         <Title weight='600' size='3.5' paddingTop='20px'>ADDIO</Title>
         <Title weight='400' size='3.5'>MACCHIE</Title>

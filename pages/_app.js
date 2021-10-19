@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React from 'react'
 import CartContextProvider from '../contexts/CartContext'
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Layout from '../components/Layout/Layout';
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import Layout from '../components/Layout/Layout'
+import CookieBanner from '../components/utils/CookieBanner'
 
 const GlobalStyle = createGlobalStyle`
    html, body {
@@ -27,11 +28,11 @@ const GlobalStyle = createGlobalStyle`
      color: #153d6d;
    }
  
-`;
- 
+`
+
 const theme = {
   colors: {
-    blue: "#153d6d",
+    blue: '#153d6d',
     lightBlue: '#60bfc2',
     yellow: '#ffc900',
     backgroundGrey: '#ebebed',
@@ -39,21 +40,22 @@ const theme = {
   },
   mobileContainer: `${20}px`,
   desktopContainer: '10%',
-  boxShadow: '0 4px 14px 0 rgb(0 0 0 / 39%)',
-  
-};
+  boxShadow: '0 4px 14px 0 rgb(0 0 0 / 39%)'
 
-function App({ Component, pageProps }) {
-    return (
-            <CartContextProvider>
-              <GlobalStyle />
-              <ThemeProvider theme={theme}>
-                <Layout>
-                   <Component {...pageProps} />
-                 </Layout>
-              </ThemeProvider>
-            </CartContextProvider>
-          )
-  }
-  
+}
+
+function App ({ Component, pageProps }) {
+  return (
+    <CartContextProvider>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+      <CookieBanner />
+    </CartContextProvider>
+  )
+}
+
 export default App
