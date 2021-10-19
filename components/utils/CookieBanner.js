@@ -15,7 +15,7 @@ export default function CookieBanner () {
     >
       <Container>
         <span>Utilizziamo i cookies per fornire all’utente la migliore esperienza possibile nel nostro sito.</span>
-        <span>Puoi saperne di più su quali cookies utilizziamo leggendo la <Link href='/privacy-policy'><a style={{ color: '#fff' }}>privacy policy</a></Link>
+        <span> Puoi saperne di più su quali cookies utilizziamo leggendo la <Link href='/privacy-policy'><a style={{ color: '#fff' }}>privacy policy</a></Link>
         </span>
       </Container>
     </CookieConsent>
