@@ -19,7 +19,6 @@ export default function ProductOverview ({ product }) {
         {/* Quick fix in production - to be changed  */}
         {product.id === '3' && <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>}
       </PricesContainer>
-
       <Description>{product.description}.</Description>
       <QuantityContainer>
         <p>Quantità:</p>
