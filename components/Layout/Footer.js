@@ -12,7 +12,7 @@ export default function Footer () {
       <FooterSectionsContainer>
         <FooterSection>
           <Title>Contatti</Title>
-          <MyLink as='a' href='mailto:info@difar.it'>Email: info@difar.it</MyLink>
+          <MyLink as='a' href='mailto:servizioclienti@difar.it'>Email: servizioclienti@difar.it</MyLink>
           <MyLink as='a' href='tel:+090.9912376'>Telefono: 090.9912376</MyLink>
           <MyLink as='a' href='tel:800.913639'>Numero Verde 800.913639</MyLink>
         </FooterSection>
@@ -27,7 +27,7 @@ export default function Footer () {
         </FooterSection>
         <FooterSection>
           <Title>Termini e Condizioni</Title>
-          <MyLink as='a' href='/spedizioni'>Spedizioni</MyLink>
+          <MyLink as='a' href='/condizioni-generali-di-vendita'>Condizioni Generali di Vendita</MyLink>
           <MyLink as='a' href='/privacy-policy'>Privacy Policy</MyLink>
         </FooterSection>
         <FooterSection>

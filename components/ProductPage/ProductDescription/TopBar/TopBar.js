@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default function TopBar({ topBarText }) {
-    return (
-        <Container>
-          {topBarText.map((text, i) => {
-              return (
-                  <div key={i}>
-                    <TopBarTitle>{ text[0] }</TopBarTitle>
-                    <TopBarText>{ text[1] }</TopBarText>
-                  </div>
-              )
-          })}
-        </Container>
-    )
+export default function TopBar ({ topBarText }) {
+  return (
+    <Container>
+      {topBarText.map((text, i) => {
+        return (
+          <div key={i}>
+            <TopBarTitle>{text[0]}</TopBarTitle>
+            <TopBarText>{text[1]}</TopBarText>
+          </div>
+        )
+      })}
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -30,15 +30,15 @@ const Container = styled.div`
 `
 const TopBarTitle = styled.h3`
       font-weight: 400;
+      font-size: 1.25rem;
 `
 const TopBarText = styled.p`
       color: #fff;
       position: relative;
-      bottom: 15px;
+      bottom: 1rem;
 `
 
 const { array } = PropTypes
 TopBar.propTypes = {
-    topBarText: array.isRequired
-  }
-
+  topBarText: array.isRequired
+}

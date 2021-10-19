@@ -9,10 +9,10 @@ export default function Products ({ products }) {
     <Container>
       <>
         <OverTitleSection align='center'>
-               LE LINEE ALTRA PELLE
+               LE LINEE ALTRAPELLE
         </OverTitleSection>
         <TitleSection align='center'>
-                I nostri prodotti
+                Prodotti in evidenza
         </TitleSection>
         <P>Scopri i nostri prodotti dedicati alla cura e al benessere della pelle.
         </P>

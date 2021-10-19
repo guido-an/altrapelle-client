@@ -12,10 +12,12 @@ export default function About () {
       <TitleSection align='center'>
               Dermatecnologie
       </TitleSection>
-      <P>I prodotti Altrapelle uniscono soluzioni dermatologicamente innovative e scientificamente testate per risultati davvero efficaci.
+      <P>I prodotti Altrapelle uniscono soluzioni dermatologicamente innovative e scientificamente testate per risultati davvero efficaci. Altrapelle è sinonimo di formulazioni dermatologicamente innovative e testate al fine
+di garantire efficacia e risultati davvero sorprendenti. Soluzioni efficaci adatte alle
+esigenze quotidiane e specifiche di ogni tipo di pelle e non solo.
       </P>
       <Button margin='40px auto 0' href='/altrapelle/tenless'>
-              Scopri di più
+              Scopri le nostre linee
       </Button>
     </Container>
 

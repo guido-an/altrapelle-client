@@ -8,77 +8,89 @@ export default function MacchieDellaPelle () {
   return (
     <>
       <ContainerApp>
-          <IntroPage>Macchie della pelle</IntroPage>
-          <SecondContainer>
-            <IntroSectionContainer>
-              <TitleIntro>Perché si manifesta l'iperpigmentazione?</TitleIntro>
-            </IntroSectionContainer>
-            <IntroText>
-                    L’iperpigmentazione può essere causata da diversi fattori come l’esposizione solare,
-                    l’invecchiamento cutaneo, terapie farmacologiche e variazioni ormonali tipiche della
-                    gravidanza che inducono un accumulo anormale di melanina con formazione di
-                    macchie scure localizzate su varie zone del corpo.
-            </IntroText>
-            <FirstSectionContainer>
-              <Title>FATTORI SCATENANTI <SpanTitle>dell'iperpigmentazione cutanea</SpanTitle></Title>
-              <IconsContainer>
-                <IconContainer>
-                  <Image src='/icons/macchie-della-pelle/cambiamenti-ormonali.png' width='180' height='180' />
-                  <TitleIcon>CAMBIAMENTI</TitleIcon>
-                  <TitleIcon>ORMONALI</TitleIcon>
-                </IconContainer>
-                <IconContainer>
-                  <Image src='/icons/macchie-della-pelle/esposizione-solare.png' width='180' height='180' />
-                  <TitleIcon>ESPOSIZIONE</TitleIcon>
-                  <TitleIcon>SOLARE</TitleIcon>
-                </IconContainer>
-                <IconContainer>
-                  <Image src='/icons/macchie-della-pelle/invecchiamento-cutaneo.png' width='180' height='180' />
-                  <TitleIcon>INVECCHIAMENTO</TitleIcon>
-                  <TitleIcon>CUTANEO</TitleIcon>
-                </IconContainer>
-                <IconContainer>
-                  <Image src='/icons/macchie-della-pelle/patologie-metaboliche.png' width='180' height='180' />
-                  <TitleIcon>PATOLOGIE</TitleIcon>
-                  <TitleIcon>METABOLICHE</TitleIcon>
-                </IconContainer>
-              </IconsContainer>
-            </FirstSectionContainer>
-            <Title>CAUSE <SpanTitle>della formazione delle macchie scure</SpanTitle></Title>
-            <ImageCausesContainer>
-              <Image src='/macchie-della-pelle/cause-formazione-macchie-scure.png' width='1234' height='667' />
-            </ImageCausesContainer>
-            <CausesTextContainer>
-              <CausesText>
+        <IntroPage>Macchie della pelle</IntroPage>
+        <Title>FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle></Title>
+        <Image src='/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg' width='1000' height='317' />
+        <SecondContainer>
+          <IntroSectionContainer>
+            <TitleIntro>Perché si manifestano le macchie sulla pelle</TitleIntro>
+          </IntroSectionContainer>
+          <IntroText>
+          Le macchie scure o discromie cutanee sono la conseguenza di un’eccessiva
+produzione di melanina, nota anche come iperpigmentazione. La melanina è il
+pigmento rosso-bruno che determina il colorito della pelle, prodotto da cellule presenti
+nell’epidermide (melanociti).
+          </IntroText>
+          <IntroText>
+          L'iperpigmentazione interessa solo alcune zone della pelle, manifestandosi sotto
+forma di aree piatte e scure di pelle, che hanno un colore che va dal marrone chiaro al
+nero, con differente forma e dimensione.
+          </IntroText>
+          <IntroText>Le aree maggiormente colpite dalle macchie scure sono il viso, il collo, il decolleté e il
+dorso delle mani.
+          </IntroText>
+          <IntroText>L’iperpigmentazione può essere causata da diversi fattori come l’esposizione solare,
+l’invecchiamento cutaneo, terapie farmacologiche e variazioni ormonali tipiche della
+gravidanza che inducono un accumulo anormale di melanina con formazione di macchie scure localizzate su varie zone del corpo.
+          </IntroText>
+          <FirstSectionContainer>
+            <Title>FATTORI SCATENANTI <SpanTitle>dell'iperpigmentazione cutanea</SpanTitle></Title>
+            <IconsContainer>
+              <IconContainer>
+                <Image src='/icons/macchie-della-pelle/cambiamenti-ormonali.png' width='180' height='180' />
+                <TitleIcon>CAMBIAMENTI</TitleIcon>
+                <TitleIcon>ORMONALI</TitleIcon>
+              </IconContainer>
+              <IconContainer>
+                <Image src='/icons/macchie-della-pelle/esposizione-solare.png' width='180' height='180' />
+                <TitleIcon>ESPOSIZIONE</TitleIcon>
+                <TitleIcon>SOLARE</TitleIcon>
+              </IconContainer>
+              <IconContainer>
+                <Image src='/icons/macchie-della-pelle/invecchiamento-cutaneo.png' width='180' height='180' />
+                <TitleIcon>INVECCHIAMENTO</TitleIcon>
+                <TitleIcon>CUTANEO</TitleIcon>
+              </IconContainer>
+              <IconContainer>
+                <Image src='/icons/macchie-della-pelle/patologie-metaboliche.png' width='180' height='180' />
+                <TitleIcon>PATOLOGIE</TitleIcon>
+                <TitleIcon>METABOLICHE</TitleIcon>
+              </IconContainer>
+            </IconsContainer>
+          </FirstSectionContainer>
+          <Title>CAUSE <SpanTitle>della formazione delle macchie scure</SpanTitle></Title>
+          <ImageCausesContainer>
+            <Image src='/macchie-della-pelle/cause-formazione-macchie-scure.png' width='1234' height='667' />
+          </ImageCausesContainer>
+          <CausesTextContainer>
+            <CausesText>
                           La melanina è prodotta dai
                            melanociti nello strato basale
                            dell’epidermide.
                            I fattori scatenanti, tra cui i
                            raggi UV, innescano la formazione
                            di <strong>radicali liberi</strong>.
-              </CausesText>
-              <CausesText>
+            </CausesText>
+            <CausesText>
                            I raggi UV, unitamente ai radicali
                            liberi, innescano l’azione agenti
                            biologici che agiscono sulle cellule
-                <strong> produttrici di pigmenti</strong>, chiamate
+              <strong> produttrici di pigmenti</strong>, chiamate
                            melanociti, stimolando la produzione
                            dell’<strong> enzima Tirosinasi</strong>.
-              </CausesText>
-              <CausesText>
+            </CausesText>
+            <CausesText>
                           La Tirosinasi induce la produzione di
-                <strong> Melanina</strong>, a partire dal precursone
+              <strong> Melanina</strong>, a partire dal precursone
                           Tirosina, che viene trasferita dai
                           melanociti ai cheratinociti sulla
                           superfi cie cutanea conferendo <strong>colore
                           scuro
-                </strong> ad alcune zone cutanee.
-              </CausesText>
-            </CausesTextContainer>
-            <Title>FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle></Title>
-            <Image src='/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg' width='1000' height='317' />
-          </SecondContainer>
-        </ContainerApp>
+              </strong> ad alcune zone cutanee.
+            </CausesText>
+          </CausesTextContainer>
+        </SecondContainer>
+      </ContainerApp>
       <OverFooter />
     </>
   )
@@ -90,7 +102,6 @@ const SecondContainer = styled.div`
      @media(min-width: 968px){
          margin: 10px ${({ theme }) => theme.desktopContainer};
          padding: 0;
-
      }
 `
 

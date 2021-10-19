@@ -1,38 +1,38 @@
 import Image from 'next/image'
 import styled from 'styled-components'
- 
-export default function Hero(){
-    return(
-        <HeroContainer>
-           <ImageContainer>
+
+export default function Hero () {
+  return (
+    <HeroContainer>
+      {/* <ImageContainer>
                <Image src="/home/altrapelle-hero-3.jpg" width="1500" height="1345"></Image>
-           </ImageContainer>
-           <TextContainer>
-              <Title weight="600" size="3.5" paddingTop="20px">ADDIO</Title>
-              <Title weight="400" size="3.5">MACCHIE</Title>
-              <Title weight="400" size="3.5">sulla pelle</Title>
-              <IconsContainer>
-                  <Image src="/icons/clinicamente-testato.png" width="100" height="100"></Image>
-                  <Image src="/icons/dermatologicamente-testato.png" width="100" height="100"></Image>
-                  <Image src="/icons/metal-tested.png" width="100" height="100"></Image>
-              </IconsContainer>
-           </TextContainer>
-        </HeroContainer>
-    )
+           </ImageContainer> */}
+      <TextContainer>
+        <Title weight='600' size='3.5' paddingTop='20px'>ADDIO</Title>
+        <Title weight='400' size='3.5'>MACCHIE</Title>
+        <Title weight='400' size='3.5'>sulla pelle</Title>
+        <IconsContainer>
+          <Image src='/icons/clinicamente-testato.png' width='100' height='100' />
+          <Image src='/icons/dermatologicamente-testato.png' width='100' height='100' />
+          <Image src='/icons/metal-tested.png' width='100' height='100' />
+        </IconsContainer>
+      </TextContainer>
+    </HeroContainer>
+  )
 }
 
-const HeroContainer = styled.div `
+const HeroContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.backgroundGrey};
     @media(min-width: 968px){
        display: flex;
     }
 `
-const ImageContainer = styled.div `
+const ImageContainer = styled.div`
     @media(min-width: 968px){
        width: 50%; 
     }
 `
-const TextContainer = styled.div `
+const TextContainer = styled.div`
    @media(min-width: 968px){
        position: relative;
        left: 10%;
@@ -40,26 +40,26 @@ const TextContainer = styled.div `
     }
     
 `
-const Title = styled.h1 `
+const Title = styled.h1`
    color: ${({ theme }) => theme.colors.blue};
    line-height: 40%;
    text-align: center;
    font-weight: ${({ weight }) => weight};
    padding-top: ${({ paddingTop }) => paddingTop};
-   font-size: ${({ size}) => size}rem;
+   font-size: ${({ size }) => size}rem;
    @media(min-width: 968px){
-      font-size: ${({ size}) => size * 1.2}rem;
+      font-size: ${({ size }) => size * 1.2}rem;
       text-align: left;
     }
     @media(min-width: 1400px){
-        font-size: ${({ size}) => size * 1.6}rem;
+        font-size: ${({ size }) => size * 1.6}rem;
     }
     @media(min-width: 1600px){
-        font-size: ${({ size}) => size * 1.8}rem;
+        font-size: ${({ size }) => size * 1.8}rem;
     }
 `
 
-const IconsContainer = styled.div `
+const IconsContainer = styled.div`
     margin: 0 auto;
     padding: 20px 0 60px;
     width: 300px;

@@ -17,12 +17,14 @@ export default function Problem () {
                  COME SCEGLIERE IL PRODOTTO PIÙ ADATTO
         </OverTitleSection>
         <TitleSection align='left'>
-                   Macchie sulla pelle
+                   I nostri valori
         </TitleSection>
-        <P>Possono essere causate da diversi fattori come l’esposizione solare, l’invecchiamento cutaneo e i cambiamenti ormonali. Il trattamento sinergico Altrapelle  schiarisce e uniforma l’incarnato.</P>
-        {/* <Link href="/macchie-della-pelle">
-                    <a style={{ color: theme.colors.blue }}>> Scopri di più</a>
-                </Link> */}
+        <p><strong>SICUREZZA ED EFFICACIA</strong></p>
+        <p>Ricerca e sviluppo formulativo senza compromessi. Utilizziamo i migliori ingredienti e materiali per ottimizzare sempre l’efficacia dei nostri prodotti.</p>
+        <p><strong>QUALITÀ</strong></p>
+        <p>I nostri prodotti vengono sottoposti a numerosi test per garantire  la massima efficacia e tollerabilità dei prodotti Altrapelle.</p>
+        <p><strong>SOLUZIONI PER ESIGENZE QUOTIDIANE E SPECIFICHE</strong></p>
+        <p>Amiamo i nostri prodotti e prenderci cura delle tue esigenze ed è per questo che sviluppiamo le nostre formule sempre mirate a risolvere specifiche problematiche della pelle.</p>
       </TextContainer>
     </Container>
 
@@ -44,6 +46,8 @@ const ImageContainer = styled.div`
      
        @media(min-width: 768px){
            width: 60%;
+           position: relative;
+           top: 45px;
         }
 `
 const TextContainer = styled.div`
@@ -52,6 +56,7 @@ const TextContainer = styled.div`
             position: relative;
             left: 80px;
             width: 50%;
+            bottom: 40px;
         }
 `
 const P = styled.p`

@@ -23,7 +23,7 @@ export default function Header (props) {
           <ProductsNumInCart>{productsInCart.length}</ProductsNumInCart>
         </IconCartContainer>
       </a>
-           </Link>
+    </Link>
   }
 
   return (
@@ -43,7 +43,7 @@ export default function Header (props) {
                 <MobileMenuLine />
                 <MobileMenuLine />
                 <MobileMenuLine />
-              </>
+                </>
               : <ClosingIcon>x</ClosingIcon>}
           </MobileMenuIconContainer>
         </TopContainer>

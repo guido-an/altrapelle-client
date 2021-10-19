@@ -13,11 +13,13 @@ export default function ProductOverview ({ product }) {
     <Container>
       <Name>{product.name}</Name>
       <Subtitle>{product.subtitle}.</Subtitle>
+      <Dimension>{product.dimension}</Dimension>
       <PricesContainer>
         <Price product={product}>{product.price.toFixed(2)}€</Price>
         {/* Quick fix in production - to be changed  */}
         {product.id === '3' && <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>}
       </PricesContainer>
+
       <Description>{product.description}.</Description>
       <QuantityContainer>
         <p>Quantità:</p>
@@ -59,6 +61,10 @@ const Name = styled.h1`
 const Subtitle = styled.h2`
      color: ${({ theme }) => theme.colors.blue};
      font-size: 1.2rem;
+     position: relative;
+     bottom: 10px;
+`
+const Dimension = styled.p`
      position: relative;
      bottom: 10px;
 `

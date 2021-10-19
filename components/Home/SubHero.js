@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export default function SubHero () {
   return (
     <Container>
-      <Title>GLI INNOVATIVI TIYF E DIR COMPLEX RIDUCONO L'AREA SCURA TOTALE DELLE MACCHIE
-        <Span> GIÀ DOPO 2 SETTIMANE</Span>
+      <Title>Trattamento dermatologico formulato con complessi depigmentanti che riducono
+             significativamente la visibilità delle macchie scure già dopo le prime settimane di
+             applicazione
       </Title>
     </Container>
 
@@ -23,12 +24,9 @@ const Title = styled.h2`
     text-align: center;
     font-weight: 400;
     padding: ${({ theme }) => theme.mobileContainer};
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     @media(min-width: 968px){
         width: 60%;
         margin: 0 auto;
     }
-`
-const Span = styled.span`
-   font-weight: 600;
 `
