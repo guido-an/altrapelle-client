@@ -10,7 +10,7 @@ export default function MacchieDellaPelle () {
       <ContainerApp>
         <IntroPage>Macchie della pelle</IntroPage>
         <Title>FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle></Title>
-        <Image src='/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg' width='1000' height='317' />
+        <Image src='/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg' width='1345' height='317' />
         <SecondContainer>
           <IntroSectionContainer>
             <TitleIntro>Perché si manifestano le macchie sulla pelle</TitleIntro>
