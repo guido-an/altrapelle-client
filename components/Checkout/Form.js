@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import Link from 'next/link'
-import Input from '../atoms/Input'
-import Button from '../atoms/Button'
-export default function Form ({
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import Input from '../atoms/Input';
+import Button from '../atoms/Button';
+export default function Form({
   handleChange,
   form,
   newsLetterConsent,
   setNewsletterConsent,
-  handleSubmit
+  handleSubmit,
 }) {
   return (
     <MyForm onSubmit={handleSubmit}>
@@ -123,14 +123,14 @@ export default function Form ({
         />
       </>
       <CheckBoxContainer>
-        <Input
-          type='checkbox'
-          name='privacy'
-          value=''
-          width='15px'
-          required
-        />
-        <P>* Ho letto e accettato <Link href='/condizioni-generali-di-vendita'>termini e condizioni</Link> del sito web.</P>
+        <Input type='checkbox' name='privacy' value='' width='15px' required />
+        <P>
+          * Ho letto e accettato{' '}
+          <Link href='/condizioni-generali-di-vendita'>
+            termini e condizioni
+          </Link>{' '}
+          del sito web.
+        </P>
       </CheckBoxContainer>
       <CheckBoxContainer>
         <Input
@@ -141,61 +141,65 @@ export default function Form ({
           handleChange={() => setNewsletterConsent(!newsLetterConsent)}
           width='15px'
         />
-        <P>Acconsento al trattamento dei miei dati personali per finalità di marketing diretto al fine di ricevere comunicazioni commerciali e promozioni dirette.</P>
+        <P>
+          Acconsento al trattamento dei miei dati personali per finalità di
+          marketing diretto al fine di ricevere comunicazioni commerciali e
+          promozioni dirette.
+        </P>
       </CheckBoxContainer>
       <ButtonContainer>
-        <Button width='100%' margin='40px auto 0'>Procedi con il pagamento</Button>
+        <Button width='100%'>Procedi con il pagamento</Button>
       </ButtonContainer>
     </MyForm>
-  )
+  );
 }
 
 const ButtonContainer = styled.div`
-    width: 400px;
-    margin: 0 auto 80px;
-`
+  width: 400px;
+  margin: 0 auto 80px;
+`;
 
-const { func, bool, object } = PropTypes
+const { func, bool, object } = PropTypes;
 Form.propTypes = {
   handleChange: func.isRequired,
   newsLetterConsent: bool.isRequired,
   setNewsletterConsent: func.isRequired,
-  form: object.isRequired
-}
+  form: object.isRequired,
+};
 
 const MyForm = styled.form`
-     width: 100%;
-      :input[type="textarea"]{
-        display: none;
-      }
-   `
+  width: 100%;
+  :input[type='textarea'] {
+    display: none;
+  }
+`;
 const InputsContainer = styled.div`
-     @media(min-width: 968px){
-         display: flex;
-           div {
-               width: 50%;
-               margin: 5px;
-           }
-     }
-   `
+  @media (min-width: 968px) {
+    display: flex;
+    div {
+      width: 50%;
+      margin: 5px;
+    }
+  }
+`;
 const Label = styled.label`
-     color: ${({ theme }) => theme.colors.greyText};
-     font-size: 15px;
-   `
+  color: ${({ theme }) => theme.colors.greyText};
+  font-size: 15px;
+`;
 
 const CheckBoxContainer = styled.div`
-      margin: 0 auto;
-      text-align: center;
-        input {
-            position: relative;
-            top: 15px;
-            right: 10px;
-        }
-      @media(min-width: 968px){
-          width: 50%;
-          margin: 0 auto;
-      } 
-   `
+  margin: 0 auto;
+  text-align: center;
+  input {
+    position: relative;
+    top: 15px;
+    right: 10px;
+  }
+  @media (min-width: 968px) {
+    width: 50%;
+    margin: 0 auto;
+  }
+`;
 const P = styled.span`
-     color: ${({ theme }) => theme.colors.greyText};
-   `
+  color: ${({ theme }) => theme.colors.greyText};
+`;
