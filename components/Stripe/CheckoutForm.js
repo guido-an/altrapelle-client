@@ -48,6 +48,12 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
           const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
           // console.log(response, 'response from checkout')
 
+          // transaction tracking
+          window.gtag('event', 'transaction', {
+            'event_category': '' ,
+            'event_label': 'Payment Success',
+            'value': chekoutData
+          });
           localStorage.clear()
           setPaymentSuccessful(true)
           setProductsInCart([])
