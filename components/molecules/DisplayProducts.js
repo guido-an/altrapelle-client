@@ -1,24 +1,29 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import Product from './Product'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Product from './Product';
 
-export default function DisplayProducts ({ products }) {
+export default function DisplayProducts({ products }) {
   return (
     <ContainerProducts>
-      {products.map(product => <Product key={product.id} product={product} />)}
+      {products.map((product) => {
+        if (product.test) {
+          return;
+        }
+        return <Product key={product.id} product={product} />;
+      })}
     </ContainerProducts>
-  )
+  );
 }
 
-const ContainerProducts = styled.div` 
-    @media(min-width: 768px){
-        display: flex;
-        justify-content: space-evenly;
-        margin: 0 ${({ theme }) => theme.desktopContainer}
-    }
-`
+const ContainerProducts = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 ${({ theme }) => theme.desktopContainer};
+  }
+`;
 
-const { array } = PropTypes
+const { array } = PropTypes;
 DisplayProducts.propTypes = {
-  products: array.isRequired
-}
+  products: array.isRequired,
+};

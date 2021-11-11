@@ -74,12 +74,11 @@ export default function ContactForm() {
           required={true}
           value={form.fullName}
         />
-        <Label htmlFor='businessName'>* Ragione sociale</Label>
+        <Label htmlFor='businessName'>Ragione sociale</Label>
         <Input
           type='text'
           name='businessName'
           handleChange={handleChange}
-          required={true}
           value={form.businessName}
         />
         <Label htmlFor='email'>* Email</Label>
@@ -90,36 +89,32 @@ export default function ContactForm() {
           required={true}
           value={form.email}
         />
-        <Label htmlFor='address'>* Indirizzo</Label>
+        <Label htmlFor='address'>Indirizzo</Label>
         <Input
           type='text'
           name='address'
           handleChange={handleChange}
-          required={true}
           value={form.address}
         />
-        <Label htmlFor='zipCode'>* CAP</Label>
+        <Label htmlFor='zipCode'>CAP</Label>
         <Input
           type='text'
           name='zipCode'
           handleChange={handleChange}
-          required={true}
           value={form.zipCode}
         />
-        <Label htmlFor='city'>* Città</Label>
+        <Label htmlFor='city'>Città</Label>
         <Input
           type='text'
           name='city'
           handleChange={handleChange}
-          required={true}
           value={form.city}
         />
-        <Label htmlFor='province'>* Provincia</Label>
+        <Label htmlFor='province'>Provincia</Label>
         <Input
           type='text'
           name='province'
           handleChange={handleChange}
-          required={true}
           value={form.province}
         />
         <Label htmlFor='additionalNotes'>Richieste aggiuntive</Label>
