@@ -49,10 +49,14 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
           // console.log(response, 'response from checkout')
 
           // transaction tracking
-          window.gtag('event', 'transaction', {
-            'event_category': '' ,
-            'event_label': 'Payment Success',
-            'value': chekoutData
+          window.gtag('event', 'purchase', {
+            "transaction_id": "24.031608523954162",
+            "affiliation": "Altrapelle",
+            "value": totalPrice,
+            "currency": "USD",
+            "tax": 0,
+            "shipping": 0,
+            "items": productsInCart
           });
           localStorage.clear()
           setPaymentSuccessful(true)
