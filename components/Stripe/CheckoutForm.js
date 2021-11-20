@@ -50,7 +50,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
 
           // transaction tracking
           window.gtag('event', 'purchase', {
-            "transaction_id": response.transaction_id,
+            "transaction_id": response?.data?.transaction_id || Date.now(),
             "affiliation": "Altrapelle",
             "value": totalPrice,
             "currency": "USD",
