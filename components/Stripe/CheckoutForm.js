@@ -52,7 +52,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
           window.gtag('event', 'purchase', {
             "transaction_id": response?.data?.transaction_id || Date.now(),
             "affiliation": "Altrapelle",
-            "value": response?.data?.totalPrice || totalPrice,
+            "value": totalPrice,
             "currency": "EUR",
             "tax": 0,
             "shipping": 0,
