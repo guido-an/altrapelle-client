@@ -28,7 +28,7 @@ export default function Header (props) {
 
   return (
     <>
-      <TopBar>Spedizione gratuita su tutti gli ordini fino al 31 Dicembre 2021.</TopBar>
+      <TopBar>Le spedizioni riprenderanno a partire dal 3 gennaio.</TopBar>
       <MyHeader>
         <TopContainer>
           <Link href='/'>
