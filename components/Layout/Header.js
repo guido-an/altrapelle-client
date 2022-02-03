@@ -28,7 +28,6 @@ export default function Header (props) {
 
   return (
     <>
-      {/* <TopBar>Le spedizioni riprenderanno a partire dal 3 gennaio.</TopBar> */}
       <MyHeader>
         <TopContainer>
           <Link href='/'>
