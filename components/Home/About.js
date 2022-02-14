@@ -7,7 +7,7 @@ export default function About () {
   return (
     <Container>
       <OverTitleSection align='center'>
-          IL NOSTRO MODI DI PRENDERCI CURA DI TE
+          IL NOSTRO MODO DI PRENDERCI CURA DI TE
       </OverTitleSection>
       <TitleSection align='center'>
               Dermatecnologie
