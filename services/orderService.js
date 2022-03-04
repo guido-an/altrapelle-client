@@ -9,11 +9,14 @@ class orderService {
         this.service = service;
       }
    
-    createOrder = async (billingDetails, productsInCart, newsLetterConsent) => {
+    createOrder = async (billingDetails, productsInCart, newsLetterConsent, totalPrice, discountCodeWasApplied) => {
         const response = await this.service.post('/order/create', 
         { billingDetails, 
           productsInCart, 
-          newsLetterConsent } )
+          newsLetterConsent, 
+          totalPrice,
+          discountCodeWasApplied
+        })
         return response;
     } 
 

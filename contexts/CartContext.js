@@ -81,10 +81,11 @@ const CartContextProvider = props => {
        setProductsInCart,
        calculateTotalPrice,
        totalPrice,
+       setTotalPrice,
        removeFromCart,
        handleQuantityInCart,
        quantityInCart,
-       setQuantityInCart
+       setQuantityInCart,
    }
 
   return (

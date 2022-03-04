@@ -94,7 +94,6 @@ export default function Form({
           <Label htmlFor='telephone'>* Telefono</Label>
           <Input
             type='text'
-            placeholder='* Telefono'
             name='telephone'
             value={form.telephone}
             handleChange={handleChange}

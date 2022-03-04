@@ -10,11 +10,13 @@ const stripeTestPromise = loadStripe(STRIPE_PUBLIC_KEY)
 const Stripe = ({ chekoutData, newsLetterConsent, setPaymentSuccessful }) => {
   return (
     <Elements stripe={stripeTestPromise}>
+      
       <CheckoutForm
         chekoutData={chekoutData}
         newsLetterConsent={newsLetterConsent}
         setPaymentSuccessful={setPaymentSuccessful}
       />
+
     </Elements>
   )
 }

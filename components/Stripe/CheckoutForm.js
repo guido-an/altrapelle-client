@@ -7,11 +7,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import orderService from '../../services/orderService'
 import Button from '../atoms/Button'
+import Input from '../atoms/Input';
 
 export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccessful }) => {
-  const { productsInCart, setProductsInCart, totalPrice } = useContext(CartContext)
+  const { productsInCart, setProductsInCart, totalPrice, setTotalPrice } = useContext(CartContext)
   const [processing, setProcessing] = useState(false)
   const [error, setError] = useState(false)
+  const [discountCode, setDiscountCode] = useState("")
+  const [discountCodeWasApplied, setDiscountCodeWasApplied] = useState(false)
+  const [discountCodeMessage, setDiscountCodeMessage] = useState("")
+  
 
   const { email } = chekoutData
 
@@ -45,7 +50,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
         // console.log("Stripe 35 | data", response.data.success);
         if (response.data.success) {
           console.log('CheckoutForm.js 25 | payment successful!')
-          const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent)
+          const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent, totalPrice, discountCodeWasApplied)
           // console.log(response, 'response from checkout')
 
           // transaction tracking
@@ -73,26 +78,80 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
     }
   }
 
+  const handleDiscountCodeChange = (e) => {
+    const codes = [
+      "SILVIA15",
+      "ARIANNA15",
+      "BEAUTIFUL15",
+      "CIAPINA15",
+      "SONIA15",
+      "MARA15",
+      "MARIALUISA15",
+      "FRANCY15",
+      "CHIARA15",
+      "LAURA15",
+      "SERENA15",
+      "ANGELA15",
+      "ARIANNAV15",
+      "ALBERTA15",
+      "ROSSELLA15",
+      "SABINA15",
+      "BARBARA15",
+      "ILARIA15",
+      "MATTEO15",
+      "FEDERICA15",
+      "ALESSANDRA15",
+      "ROBERTA15",
+    ]
+    setDiscountCode(e.target.value)
+    if(codes.includes(e.target.value.toUpperCase()) && !discountCodeWasApplied){
+      const priceToRemove = (totalPrice * 15 / 100).toFixed(2)
+      setTotalPrice((totalPrice - priceToRemove).toFixed(2))
+      setDiscountCodeMessage('Codice valido e applicato correttamente!')
+      setDiscountCodeWasApplied(true)
+    }  
+    if(codes.includes(e.target.value.toUpperCase()) && discountCodeWasApplied){
+      setDiscountCodeMessage('Lo sconto è già stato applicato')
+    }
+    if(!codes.includes(e.target.value.toUpperCase())){
+      setDiscountCodeMessage('Codice non valido')
+    }
+    if(e.target.value === ""){
+      setDiscountCodeMessage("")
+    }
+  }
+
   return (
     <Container>
       <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
         <ImageContainer>
           <Image src='/icons/credit-cards-logo.png' width='213px' height='32px' />
         </ImageContainer>
+        {/* <p>Inserisci i dati della carta:</p> */}
         <CardElement />
-        {error && <Error>{error}</Error>}
+       <div style={{marginTop: '30px'}}>
+         {/* <p style={{ fontSize: '14px'}}>Hai un codice sconto?</p> */}
+         <Input
+            type='text'
+            value={discountCode}
+            placeholder="Hai un codice sconto?"
+            handleChange={handleDiscountCodeChange}
+          />
+          <p style={{fontSize: '13px', position: 'relative', bottom: '10px', minHeight: '20px'}}>{discountCodeMessage}</p>
+         </div>
+        {error && !processing && <Error>{error}</Error>}
         <ButtonContainer>
           <Button
             bgColor={!processing ? undefined : '#ebebed'}
             color={!processing ? undefined : '#153d6d'}
             width='100%'
-            margin='60px 0 auto'
+            margin='0 auto'
           >
             {!processing ? " Completa l'ordine" : 'Processando il pagamento....'}
           </Button>
         </ButtonContainer>
       </form>
-      <TotalPrice>Totale: {totalPrice}€</TotalPrice>
+      <TotalPrice>{discountCodeWasApplied ? `Totale scontato: ${totalPrice}€` : `Totale: ${totalPrice}€`}</TotalPrice>
     </Container>
   )
 }
@@ -115,7 +174,7 @@ const ImageContainer = styled.div`
     text-align: center;
 `
 const ButtonContainer = styled.div`
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
 `
 const TotalPrice = styled.h3`
     text-align: center;
@@ -124,7 +183,9 @@ const TotalPrice = styled.h3`
 `
 const Error = styled.p`
    position: relative;
-   top: 40px;
+   top: 0px;
+   color: red;
+   font-size: 14px;
    text-align: center;
 `
 

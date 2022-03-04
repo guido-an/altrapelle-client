@@ -9,6 +9,7 @@ const MyInput = styled.input`
     border-radius: 4px;
     border: 1px solid #d2d2d2;
     margin-bottom: 10px;
+    margin-top: ${({ marginTop }) => marginTop || '0'};
     padding-left: 10px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -19,7 +20,7 @@ const MyInput = styled.input`
        }
 `
 
-const Input = ({ type, placeholder, handleChange, name, value, required, checked, width, height }) => {
+const Input = ({ type, placeholder, handleChange, name, value, required, checked, width, height, marginTop }) => {
     return(
         <MyInput 
           type={type} 
@@ -31,6 +32,7 @@ const Input = ({ type, placeholder, handleChange, name, value, required, checked
           checked={checked}
           width={width}
           height={height}
+          marginTop={marginTop}
         />
     )
 }

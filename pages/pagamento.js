@@ -37,6 +37,7 @@ const Payment = () => {
                      chekoutData={chekoutData} 
                      newsLetterConsent={newsLetterConsent}
                      setPaymentSuccessful={setPaymentSuccessful} /> 
+
                   <OrderRecapContainer>
                       <OrderRecap 
                           products={productsInCart} 
