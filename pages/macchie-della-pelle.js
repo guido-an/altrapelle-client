@@ -9,8 +9,10 @@ export default function MacchieDellaPelle () {
     <>
       <ContainerApp>
         <IntroPage>Macchie della pelle</IntroPage>
-        <Title>FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle></Title>
-        <Image src='/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg' width='1345' height='317' />
+         <ImageContainer>
+           <Title>FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle></Title>
+            <Image src='/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg' width='1345' height='317' />
+         </ImageContainer>
         <SecondContainer>
           <IntroSectionContainer>
             <TitleIntro>Perché si manifestano le macchie sulla pelle</TitleIntro>
@@ -104,6 +106,16 @@ const SecondContainer = styled.div`
          padding: 0;
      }
 `
+const ImageContainer = styled.div`
+         margin-top: 10px;
+         padding: 0 0 10px;
+     @media(min-width: 968px){
+         margin: 10px ${({ theme }) => theme.desktopContainer};
+         padding: 0;
+     }
+`
+
+
 
 // Intro
 const IntroSectionContainer = styled.div`
