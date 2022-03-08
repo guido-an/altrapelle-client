@@ -44,7 +44,8 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
            // amount: 999, calculate amount in the server
            id: id,
            productsInCart,
-           email
+           email,
+           totalPrice
          }
         )
         // console.log("Stripe 35 | data", response.data.success);

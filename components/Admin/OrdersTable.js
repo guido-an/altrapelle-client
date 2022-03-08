@@ -27,7 +27,7 @@ function TableHead(){
     return (
       <tbody>
         {orders.map(order => {
-          const { _id, totalPriceOrder, stateOfTheOrder } = order
+          const { _id, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied } = order
           const { firstName, lastName } = order.billingDetails
           const { date, time } = order.dateOfCreation
              return (
@@ -45,7 +45,7 @@ function TableHead(){
                        <option value='Cancellato'>Cancellato</option>
                     </Select>
                   </Td>
-                  <Td>{totalPriceOrder.toFixed(2)}€</Td>
+                  <Td>{totalPriceOrder.toFixed(2)}€{discountCodeWasApplied && <Discounted>Scontato</Discounted>}</Td>
                   <Td><Link href={`/admin/ordini/${_id}`}> Dettagli</Link></Td>
                </Tr>
               )
@@ -146,5 +146,11 @@ const Time = styled.p`
      font-size: 14px;
      position: relative;
      bottom: 15px;
+`
+const Discounted = styled.span`
+     font-size: 14px;
+     display: block;
+     line-height: 12px;
+     position: relative;
 `
 export default OrdersTable;
