@@ -59,7 +59,7 @@ const Ordine = ({ order }) => {
       <OrderRecapContainer>
         <OrderRecap 
            products={productsInCart} 
-           totalPrice={totalPriceOrder / 100} 
+           totalPrice={totalPriceOrder} 
          />
       </OrderRecapContainer>
      </Container>
