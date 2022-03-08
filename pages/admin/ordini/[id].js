@@ -21,8 +21,8 @@ const Ordine = ({ order }) => {
     const [proceed, setProceed] = useState(false)
     const router = useRouter()
 
-    const { productsInCart, totalPriceOrder, stateOfTheOrder } = order
-    const { firstName, lastName, vatOrFiscalCode, address, city, province, zipCode, telephone, email, additionalNotes} = order.billingDetails
+    const { productsInCart, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied } = order
+    const { firstName, lastName, vatOrFiscalCode, address, city, province, zipCode, telephone, email, additionalNotes } = order.billingDetails
    
     useEffect(() => {
         async function checkIfLoggedIn () {
@@ -60,6 +60,7 @@ const Ordine = ({ order }) => {
         <OrderRecap 
            products={productsInCart} 
            totalPrice={totalPriceOrder} 
+           discountCodeWasApplied={discountCodeWasApplied}
          />
       </OrderRecapContainer>
      </Container>

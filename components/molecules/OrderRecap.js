@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 
-export default function OrderRecap({ products, totalPrice }){
+export default function OrderRecap({ products, totalPrice, discountCodeWasApplied }){
   
   function TableHead(){
         return <thead>
@@ -40,7 +40,7 @@ export default function OrderRecap({ products, totalPrice }){
                 <Td>Gratuita</Td>
              </Tr>
              <Tr>
-                <Td><Strong>Totale</Strong></Td>
+                <Td><Strong>{discountCodeWasApplied ? 'Totale Scontato' : 'Totale'}</Strong></Td>
                 <Td>{totalPrice}€</Td>
              </Tr>
          </tbody>
