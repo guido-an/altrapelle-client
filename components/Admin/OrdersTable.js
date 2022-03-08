@@ -10,8 +10,6 @@ const OrdersTable = ({ orders }) => {
     const [inputValue, setInputValue] = useState('') // change this name (same in database)
     const router = useRouter()
 
-  
-
 function TableHead(){
     return <thead>
              <Tr>
@@ -47,7 +45,7 @@ function TableHead(){
                        <option value='Cancellato'>Cancellato</option>
                     </Select>
                   </Td>
-                  <Td>{totalPriceOrder / 100}€</Td>
+                  <Td>{totalPriceOrder.toFixed(2)}€</Td>
                   <Td><Link href={`/admin/ordini/${_id}`}> Dettagli</Link></Td>
                </Tr>
               )
