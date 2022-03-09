@@ -67,7 +67,7 @@ In caso di cancellazione parziale dell'Ordine:
 - I prodotti disponibili saranno consegnati all'Acquirente.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </span>
       </p>
-      <p class='p11'><span class='s1'>Se il l’Acquirente richiede l’annullamento dell’ordine, risolvendo il contratto, il Venditore rimborserà l’importo pagato entro 20 giorni a partire dal momento in cui i Venditore ha avuto conoscenza della decisione dell’acquirente di risolvere il contratto. Il Venditore eseguirà il rimborso utilizzando lo stesso mezzo di pagamento scelto dall’Acquirente in fase di acquisto. Nel caso di pagamento effettuato in contrassegno, e qualora l’Acquirente intenda esercitare il proprio diritto di recesso, dovrà fornire le coordinate bancarie: IBAN, SWIFT e BIC necessari all’effettuazione del rimborso.</span></p>
+      <p class='p11'><span class='s1'>Se il l’Acquirente richiede l’annullamento dell’ordine, risolvendo il contratto, il Venditore rimborserà l’importo pagato entro 20 giorni a partire dal momento in cui i Venditore ha avuto conoscenza della decisione dell’acquirente di risolvere il contratto. Il Venditore eseguirà il rimborso utilizzando lo stesso mezzo di pagamento scelto dall’Acquirente in fase di acquisto.</span></p>
       <p class='p8'><span class='s1'><b>Articolo 6 - Prezzi dei Prodotti e Modalità di Pagamento</b></span></p>
       <p class='p8'><span class='s1'><b>6.1 Prezzi</b></span></p>
 
@@ -80,7 +80,7 @@ In caso di cancellazione parziale dell'Ordine:
         </li>
       </ol>
       <p class='p13'><span class='s1'><b>6.2 Modalità di pagamento e Sicurezza delle operazioni</b></span></p>
-      <p class='p10'><span class='s1'>Il pagamento può essere realizzato on-line, al momento dell'Ordine, da parte dell'Acquirente mediante carta di credito oppure in contrassegno:</span></p>
+      <p class='p10'><span class='s1'>Il pagamento può essere realizzato on-line, al momento dell'Ordine, da parte dell'Acquirente mediante carta di credito.</span></p>
 
       <ul class='ul1'>
         <li class='li14'><span class='s1'><b>Carte di credito</b></span></li>
@@ -90,13 +90,6 @@ In caso di cancellazione parziale dell'Ordine:
       <p class='p15'><span class='s1'>In caso di mancata accettazione dell'ordine, il Venditore richiederà immediatamente l'annullamento della transazione e lo svincolo dell'importo impegnato. I tempi di svincolo dipendono esclusivamente dal sistema bancario e possono arrivare fino alla loro naturale scadenza. Richiesto l'annullamento della transazione, in nessun caso il Venditore può essere ritenuto responsabile per eventuali danni, diretti o indiretti, provocati da ritardo nel mancato svincolo dell'importo impegnato da parte del sistema bancario.</span></p>
       <p class='p15'><span class='s1'>Il Venditore si riserva la facoltà di richiedere all’Acquirente informazioni integrative (ad es. numero di telefono fisso) o l'invio di copia di documenti comprovanti la titolarità della Carta di Credito utilizzata; in mancanza della documentazione richiesta, il Venditore si riserva la facoltà di non accettare l'ordine. Il Venditore, in nessun momento della procedura di acquisto, è in grado di conoscere le informazioni relative alla Carta di Credito dell’Acquirente, in quanto tali informazioni vengono digitate direttamente sul sito dell'istituto bancario che gestisce la transazione tramite una connessione protetta che permette di comunicare in una modalità progettata per evitare l'intercettazione, la modifica o la falsificazione delle informazioni. </span></p>
       <p class='p15'><span class='s1'>Nessun archivio informatico del Venditore contiene, né conserva, tali dati; pertanto in nessun caso il Venditore può essere ritenuto responsabile per l'eventuale uso fraudolento o indebito di carte di credito da parte di terzi.</span></p>
-
-      <ul>
-        <li><span class='s3'><b>Contrassegno
-                             </b>
-            </span><span class='s1'>Il contrassegno è il metodo di pagamento per pagare direttamente alla consegna dei prodotti ordinati. È possibile effettuare ordini in contrassegno a condizione che l'Acquirente disponga di un indirizzo postale in Italia. Questa modalità di pagamento potrebbe prevedere un supplemento di costo. Al momento della consegna il cliente pagherà il totale dell'ordine direttamente al Vettore in contanti. Per i pagamenti in contrassegno si consiglia di preparare l'esatta somma per l'importo dovuto. Tutti gli Ordini sono pagabili in Euro, tasse e contributi obbligatori inclusi. </span>
-        </li>
-      </ul>
       <p class='p17'><span class='s1'><b>6.3 Conclusione del Contratto e Accettazione delle Condizioni Generali di Vendita</b></span></p>
       <p class='p18'><span class='s1'>Il contratto stipulato tra il Venditore e l’Acquirente deve intendersi concluso con l'accettazione dell'ordine da parte del Venditore, così come previsto all'art. 9 delle presenti Condizioni Generali.</span></p>
 
@@ -205,7 +198,7 @@ Sede Operativa: via Ciantro 67 c/o Cap.A8 Centro Mercantile Sicilia 98057 Milazz
       <p class='p10'><span class='s1'>10. La merce dovrà essere restituita integra, nella confezione originale, completa in tutte le sue parti e completa della documentazione fiscale annessa. Fatta salva la facoltà di verificare il rispetto di quanto sopra, il Venditore provvederà a rimborsare l’importo dei prodotti oggetto del recesso entro un termine massimo di 30 giorni, comprensivo degli eventuali costi di spedizione sostenuti all’atto dell’acquisto.</span></p>
       <p class='p10'><span class='s1'>11. Come previsto dall’art. 56 comma 3 del Codice del Consumo, il Venditore può sospendere il rimborso fino al ricevimento dei beni oppure fino all’avvenuta dimostrazione da parte dell’Acquirente di aver rispedito i beni.</span></p>
       <p class='p10'><span class='s1'>12. Non si applicherà il diritto al recesso nel caso in cui i servizi e prodotti del Venditore sono inclusi nelle categorie dell’art. 59 del Codice del Consumo.</span></p>
-      <p class='p10'><span class='s1'>13. Il Venditore eseguirà il rimborso utilizzando lo stesso mezzo di pagamento scelto dall’Acquirente in fase di acquisto. Nel caso di pagamento effettuato in contrassegno, e qualora l’Acquirente intenda esercitare il proprio diritto di recesso, dovrà fornire le coordinate bancarie: IBAN, SWIFT e BIC necessari all’effettuazione del rimborso.</span></p>
+      <p class='p10'><span class='s1'>13. Il Venditore eseguirà il rimborso utilizzando lo stesso mezzo di pagamento scelto dall’Acquirente in fase di acquisto.</span></p>
       <p class='p10'><span class='s1'>14. Il diritto di recesso è sottoposto alle seguenti inderogabili condizioni:</span></p>
 
       <ul class='ul1'>
