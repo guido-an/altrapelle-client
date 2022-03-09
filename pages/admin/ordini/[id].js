@@ -21,7 +21,7 @@ const Ordine = ({ order }) => {
     const [proceed, setProceed] = useState(false)
     const router = useRouter()
 
-    const { productsInCart, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied } = order
+    const { productsInCart, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied, discountCode } = order
     const { firstName, lastName, vatOrFiscalCode, address, city, province, zipCode, telephone, email, additionalNotes } = order.billingDetails
    
     useEffect(() => {
@@ -62,6 +62,7 @@ const Ordine = ({ order }) => {
            totalPrice={totalPriceOrder} 
            discountCodeWasApplied={discountCodeWasApplied}
          />
+         {discountCodeWasApplied && <p>Codice sconto utilizzato: {discountCode}</p>}
       </OrderRecapContainer>
      </Container>
    </ContainerApp>

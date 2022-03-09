@@ -51,7 +51,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
         // console.log("Stripe 35 | data", response.data.success);
         if (response.data.success) {
           console.log('CheckoutForm.js 25 | payment successful!')
-          const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent, totalPrice, discountCodeWasApplied)
+          const response = await service.createOrder(chekoutData, productsInCart, newsLetterConsent, totalPrice, discountCodeWasApplied, discountCode.toUpperCase())
           // console.log(response, 'response from checkout')
 
           // transaction tracking
