@@ -15,7 +15,7 @@ export const getServerSideProps  = async () => {
  }
 
 const Ordini = ({ orders }) => {
-  const [proceed, setProceed] = useState(false)
+    const [proceed, setProceed] = useState(false)
   const router = useRouter()
 
     useEffect(() => {
@@ -37,15 +37,23 @@ const Ordini = ({ orders }) => {
           <p>Loading...</p>
       }
 
+      const calculateTotalRevenue = () => {
+         let totalRevenue = 0
+         orders.forEach(order => totalRevenue += order.totalPriceOrder)
+         return totalRevenue.toFixed(2)
+      }
+
     return(
-      proceed &&  <ContainerApp>
-        <OrdersTable orders={orders}/>
+      proceed &&  (
+        <ContainerApp>
+        <TotalRevenue>Totale entrate: {calculateTotalRevenue()}€</TotalRevenue>
+         <OrdersTable orders={orders}/>
      </ContainerApp>
+      )
     )
 }
 
-  const Container = styled.div`
-      overflow-x: auto;     
+  const TotalRevenue = styled.p`  
       margin-top: 20px; 
 `
 export default Ordini;
