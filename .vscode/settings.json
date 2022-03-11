@@ -1,3 +1,64 @@
 {
-    "editor.codeActionsOnSave": null
-}
+    "editor.formatOnSave": true,
+    // The number of spaces a tab is equal to. This setting is overridden
+    // based on the file contents when `editor.detectIndentation` is true.
+    "editor.tabSize": 2,
+    // Insert spaces when pressing Tab. This setting is overriden
+    // based on the file contents when `editor.detectIndentation` is true.
+    "editor.insertSpaces": true,
+    // When opening a file, `editor.tabSize` and `editor.insertSpaces`
+    // will be detected based on the file contents. Set to false to keep
+    // the values you've explicitly set, above.
+    "editor.detectIndentation": false,
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    //Styelint fix
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    // Set the focus for es and stylelint
+    "eslint.validate": ["javascript", "javascriptreact"],
+    "stylelint.validate": ["css", "sass", "scss"],
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+  
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "[scss]": {
+      // "editor.defaultFormatter": "stylelint.vscode-stylelint",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": true
+      }
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.prettier": true
+      }
+    },
+    "workbench.colorCustomizations": {
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveForeground": "#15202b99",
+      "titleBar.activeBackground": "#a51d1d",
+      "titleBar.inactiveBackground": "#a51d1d",
+      "activityBar.activeBackground": "#a51d1d",
+      "activityBar.activeBorder": "#661010",
+      "activityBar.background": "#a51d1d",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#a51d1d",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "statusBar.background": "#a51d1d",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#a51d1d"
+    }
+  }
+  
