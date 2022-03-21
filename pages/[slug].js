@@ -1,47 +1,48 @@
-import React, { useContext, useState } from 'react'
-import { CartContext } from "../contexts/CartContext"
-import productService from '../services/productService'
+import React, { useContext, useState } from 'react';
+import { CartContext } from '../contexts/CartContext';
+import productService from '../services/productService';
 import ProductHeader from '../components/ProductPage/ProductHeader/ProductHeader';
 import ProductDescription from '../components/ProductPage/ProductDescription/ProductDescription';
 import OverFooter from '../components/molecules/OverFooter';
+import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
 
-const service = new productService()
+const service = new productService();
 
 export const getStaticPaths = async () => {
-    const data = await service.getAllProducts()
-    const paths = data.map(product => {
-        return {
-            params: { slug: product.slug }
-        }
-    })
-
+  const data = await service.getAllProducts();
+  const paths = data.map(product => {
     return {
-        paths,
-        fallback: false
-    }
-}
+      params: { slug: product.slug },
+    };
+  });
 
-export const getStaticProps = async (context) => {
-    const slug = context.params.slug
-    const data = await service.getSingleProduct(slug)
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
-    return {
-        props: { product: data }
-    }
-}
+export const getStaticProps = async context => {
+  const slug = context.params.slug;
+  const data = await service.getSingleProduct(slug);
+
+  return {
+    props: { product: data },
+  };
+};
 
 const Product = ({ product }) => {
-    const [inputQuantity, setInputQuantity] = useState(1)
-    const { addToCart } = useContext(CartContext)
-    const { name } = product[0]
+  const [inputQuantity, setInputQuantity] = useState(1);
+  const { addToCart } = useContext(CartContext);
+  const { name } = product[0];
 
-    return(
-        <>
-         <ProductHeader product={product[0]}/>
-         <ProductDescription product={product[0]} />
-         <OverFooter />
-        </>
-    )
-}
+  return (
+    <AnimatedWrapper>
+      <ProductHeader product={product[0]} />
+      <ProductDescription product={product[0]} />
+      <OverFooter />
+    </AnimatedWrapper>
+  );
+};
 
-export default Product
+export default Product;
