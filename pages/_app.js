@@ -1,11 +1,11 @@
-
-import React, {useEffect} from 'react'
-import Script from 'next/script'
-import { useRouter } from 'next/router'
-import CartContextProvider from '../contexts/CartContext'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Layout from '../components/Layout/Layout'
-import CookieBanner from '../components/utils/CookieBanner'
+import React, { useEffect } from 'react';
+import Script from 'next/script';
+import { useRouter } from 'next/router';
+import CartContextProvider from '../contexts/CartContext';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Layout from '../components/Layout/Layout';
+import CookieBanner from '../components/utils/CookieBanner';
+import { AnimatePresence } from 'framer-motion';
 
 import * as fbq from '../lib/FacebookPixel';
 
@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
      color: #153d6d;
    }
  
-`
+`;
 
 const theme = {
   colors: {
@@ -40,34 +40,31 @@ const theme = {
     lightBlue: '#60bfc2',
     yellow: '#ffc900',
     backgroundGrey: '#ebebed',
-    greyText: '#595b62'
+    greyText: '#595b62',
   },
   mobileContainer: `${20}px`,
   desktopContainer: '10%',
-  boxShadow: '0 4px 14px 0 rgb(0 0 0 / 39%)'
+  boxShadow: '0 4px 14px 0 rgb(0 0 0 / 39%)',
+};
 
-}
-
-function App ({ Component, pageProps }) {
-
-  const router = useRouter()
+function App({ Component, pageProps }) {
+  const router = useRouter();
 
   useEffect(() => {
-
     fbq.pageview();
     const handleRouteChange = () => {
       fbq.pageview();
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
-       {/* Global Site Code Pixel - Facebook Pixel */}
-       <Script
+      {/* Global Site Code Pixel - Facebook Pixel */}
+      <Script
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
@@ -87,13 +84,20 @@ function App ({ Component, pageProps }) {
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <Layout>
-            <Component {...pageProps} />
+            <AnimatePresence
+              exitBeforeEnter
+              initial={false}
+              // handles scroll to top only after previous page has unmounted
+              onExitComplete={() => window.scrollTo(0, 0)}
+            >
+              <Component key={router.asPath} {...pageProps} />
+            </AnimatePresence>
           </Layout>
         </ThemeProvider>
         <CookieBanner />
       </CartContextProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

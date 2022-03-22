@@ -27,7 +27,13 @@ export default function Button({
     </MyButton>
   );
 
-  return href ? <Link href={href}>{button}</Link> : button;
+  return href ? (
+    <Link scroll={false} href={href}>
+      {button}
+    </Link>
+  ) : (
+    button
+  );
 }
 
 const MyButton = styled.a`
@@ -46,8 +52,7 @@ const MyButton = styled.a`
   letter-spacing: 0.2px;
   &:hover {
     cursor: pointer;
-    background-color: ${({ theme, bgHover }) =>
-      bgHover || theme.colors.lightBlue};
+    background-color: ${({ theme, bgHover }) => bgHover || theme.colors.lightBlue};
     color: ${({ colorHover }) => colorHover || '#fff'};
   }
 `;
