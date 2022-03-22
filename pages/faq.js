@@ -2,6 +2,7 @@ import ContainerApp from '../components/atoms/ContainerApp';
 import IntroPage from '../components/molecules/IntroPage';
 import Faq from 'react-faq-component';
 import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
+import { NextSeo } from 'next-seo';
 
 const altrapelle = {
   title: 'Altrapelle',
@@ -296,6 +297,10 @@ const styles = {
 export default function FaqPage() {
   return (
     <AnimatedWrapper>
+      <NextSeo
+        title="Le domande più frequenti sui nostri prodotti | Altrapelle"
+        description="All'interno di questa sezione potrai trovare le risposte alle domande più frequenti sui prodotti a marchio Altrapelle in modo tale da sciogliere ogni dubbio."
+      />
       <ContainerApp>
         <IntroPage>Domande Frequenti</IntroPage>
         <div style={{ marginTop: '40px' }}>

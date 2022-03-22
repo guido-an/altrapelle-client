@@ -5,6 +5,7 @@ import DisplayProducts from '../../components/molecules/DisplayProducts';
 import productService from '../../services/productService';
 import OverFooter from '../../components/molecules/OverFooter';
 import AnimatedWrapper from '../../components/atoms/AnimatedWrapper';
+import { NextSeo } from 'next-seo';
 
 const service = new productService();
 
@@ -17,6 +18,10 @@ export const getStaticProps = async () => {
 export default function Tenless({ products }) {
   return (
     <AnimatedWrapper>
+      <NextSeo
+        title="Iperpigmentazione Cutanea: cos'è e come risolverla | Altrapelle"
+        description="L'iperpigmentazione cutanea è una patologia che rende, in alcuni tratti, la pelle più scura. Scopri cosa la determina e come curarla grazie ai nostri prodotti. "
+      />
       <ContainerApp>
         <IntroPage>Tenless</IntroPage>
         <Container>

@@ -6,6 +6,7 @@ import DisplayProducts from '../components/molecules/DisplayProducts';
 import IntroPage from '../components/molecules/IntroPage';
 import OverFooter from '../components/molecules/OverFooter';
 import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
+import { NextSeo } from 'next-seo';
 
 const service = new productService();
 
@@ -18,6 +19,10 @@ export const getStaticProps = async () => {
 const Products = ({ products }) => {
   return (
     <AnimatedWrapper>
+      <NextSeo
+        title="Prodotti Depigmentanti per le macchie scure | Altrapelle"
+        description="Per rimuovere le macchie scure della pelle abbiamo creato dei prodotti depigmentanti efficaci e dermatologicamente e clinicamente testati. Non farteli sfuggire!"
+      />
       <ContainerApp>
         <IntroPage>I nostri prodotti</IntroPage>
         <ProductsContainer>

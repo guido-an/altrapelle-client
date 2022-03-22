@@ -3,10 +3,15 @@ import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
 import ContainerApp from '../components/atoms/ContainerApp';
 import ContactForm from '../components/Contact/ContactForm';
 import IntroPage from '../components/molecules/IntroPage';
+import { NextSeo } from 'next-seo';
 
 export default function Contatti() {
   return (
     <AnimatedWrapper>
+      <NextSeo
+        title="Contattaci per ulteriori informazioni o dubbi | Altrapelle"
+        description="Se vuoi avere altre informazioni sui prodotti di Altrapelle puoi chiamare il numero verde 800.913639 o mandare una mail all'indirizzo servizioclienti@difar.it."
+      />
       <ContainerApp>
         <IntroPage>Contatti</IntroPage>
         <ContainerPage>

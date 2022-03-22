@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import productService from '../services/productService';
 import Hero from '../components/Home/Hero';
 import SubHero from '../components/Home/SubHero';
@@ -21,6 +22,10 @@ export const getStaticProps = async () => {
 const Home = ({ products }) => {
   return (
     <AnimatedWrapper>
+      <NextSeo
+        title="Altrapelle: dì addio per sempre alle macchie sulla pelle"
+        description="Grazie ai prodotti dermatologicamente testati ed efficaci di Altrapelle, ridurre la visibilità delle macchie scure sulla pelle non è mai stato così semplice."
+      />
       <Hero />
       <SubHero />
       <About />

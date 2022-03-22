@@ -5,6 +5,7 @@ import ProductHeader from '../components/ProductPage/ProductHeader/ProductHeader
 import ProductDescription from '../components/ProductPage/ProductDescription/ProductDescription';
 import OverFooter from '../components/molecules/OverFooter';
 import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
+import { NextSeo } from 'next-seo';
 
 const service = new productService();
 
@@ -35,9 +36,11 @@ const Product = ({ product }) => {
   const [inputQuantity, setInputQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
   const { name } = product[0];
+  const { seo } = product[0];
 
   return (
     <AnimatedWrapper>
+      <NextSeo title={seo?.title} description={seo?.description} />
       <ProductHeader product={product[0]} />
       <ProductDescription product={product[0]} />
       <OverFooter />

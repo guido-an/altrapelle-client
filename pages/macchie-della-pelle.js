@@ -4,10 +4,15 @@ import ContainerApp from '../components/atoms/ContainerApp';
 import IntroPage from '../components/molecules/IntroPage';
 import OverFooter from '../components/molecules/OverFooter';
 import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
+import { NextSeo } from 'next-seo';
 
 export default function MacchieDellaPelle() {
   return (
     <AnimatedWrapper>
+      <NextSeo
+        title="Macchie Scure sulla Pelle: cause e come eliminarle | Altrapelle"
+        description="Scatenate da vari fattori, le macchie scure sulla pelle rappresentano un'inestetismo che colpisce principalmente il viso, il seno, il decolleté e il dorso delle mani."
+      />
       <ContainerApp>
         <IntroPage>Macchie della pelle</IntroPage>
         <ImageContainer>

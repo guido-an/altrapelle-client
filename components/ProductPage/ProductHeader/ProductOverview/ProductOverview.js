@@ -17,7 +17,9 @@ export default function ProductOverview({ product }) {
       <PricesContainer>
         <Price product={product}>{product.price.toFixed(2)}€</Price>
         {/* Quick fix in production - to be changed  */}
-        {product.id === '3' && <DiscountedPrice>{product.discountedPrice}€</DiscountedPrice>}
+        {product.id === '3' && (
+          <DiscountedPrice>{product.discountedPrice.toFixed(2)}€</DiscountedPrice>
+        )}
       </PricesContainer>
       <Description>{product.description}.</Description>
       <QuantityContainer>
