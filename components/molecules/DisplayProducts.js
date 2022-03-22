@@ -5,7 +5,7 @@ import Product from './Product';
 export default function DisplayProducts({ products }) {
   return (
     <ContainerProducts>
-      {products.map((product) => {
+      {products.map(product => {
         if (product.test) {
           return;
         }
