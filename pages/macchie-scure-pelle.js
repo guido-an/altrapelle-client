@@ -14,7 +14,7 @@ export default function MacchieDellaPelle() {
         description="Scatenate da vari fattori, le macchie scure sulla pelle rappresentano un'inestetismo che colpisce principalmente il viso, il seno, il decolleté e il dorso delle mani."
       />
       <ContainerApp>
-        <IntroPage>Macchie della pelle</IntroPage>
+        <IntroPage>Macchie scure sulla pelle</IntroPage>
         <ImageContainer>
           <Title>
             FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle>

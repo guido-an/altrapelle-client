@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import ContainerApp from '../../components/atoms/ContainerApp';
-import IntroPage from '../../components/molecules/IntroPage';
-import DisplayProducts from '../../components/molecules/DisplayProducts';
-import productService from '../../services/productService';
-import OverFooter from '../../components/molecules/OverFooter';
-import AnimatedWrapper from '../../components/atoms/AnimatedWrapper';
+import ContainerApp from '../components/atoms/ContainerApp';
+import IntroPage from '../components/molecules/IntroPage';
+import DisplayProducts from '../components/molecules/DisplayProducts';
+import productService from '../services/productService';
+import OverFooter from '../components/molecules/OverFooter';
+import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
 import { NextSeo } from 'next-seo';
 
 const service = new productService();
