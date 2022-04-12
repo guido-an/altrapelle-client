@@ -36,7 +36,7 @@ export default function ProductOverview({ product }) {
         {displayCartLink && (
           <span>
             <Link href="/carrello">> Vai al carrello</Link> o visita{' '}
-            <Link href="/prodotti">gli altri prodotti</Link>
+            <Link href="/prodotti-depigmentanti">gli altri prodotti</Link>
           </span>
         )}
       </ContainerCartLink>
