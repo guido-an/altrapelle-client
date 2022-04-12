@@ -13,7 +13,12 @@ export default function Product({ product }) {
       <Link scroll={false} href={`/${product.slug}`}>
         <div key={product.id}>
           <ImageContainer>
-            <Image src={product.images[0]} width="640" height="534" alt={product.name} />
+            <Image
+              src={product.images[0].url}
+              width="640"
+              height="534"
+              alt={product.images[0].alt}
+            />
           </ImageContainer>
           <ProductName>{product.name}</ProductName>
           <Button

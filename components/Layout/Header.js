@@ -20,7 +20,12 @@ export default function Header(props) {
       <Link href="/carrello">
         <a>
           <IconCartContainer>
-            <Image src="/icons/shopping-cart-blue.png" width="24" height="24" />
+            <Image
+              src="/icons/shopping-cart-blue.png"
+              alt="icona carrello"
+              width="24"
+              height="24"
+            />
             <ProductsNumInCart>{productsInCart.length}</ProductsNumInCart>
           </IconCartContainer>
         </a>

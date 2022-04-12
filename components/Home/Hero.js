@@ -5,7 +5,12 @@ export default function Hero() {
   return (
     <HeroContainer>
       <ImageContainer>
-        <Image src="/home/altrapelle-hero-3.jpg" width="1500" height="1345" />
+        <Image
+          src="/home/altrapelle-hero-3.jpg"
+          alt="faccia donna con macchie sulla pelle"
+          width="1500"
+          height="1345"
+        />
       </ImageContainer>
       <TextContainer>
         <Title weight="600" size="3.5" paddingTop="20px">
@@ -18,9 +23,19 @@ export default function Hero() {
           sulla pelle
         </Title>
         <IconsContainer>
-          <Image src="/icons/clinicamente-testato.png" width="100" height="100" />
-          <Image src="/icons/dermatologicamente-testato.png" width="100" height="100" />
-          <Image src="/icons/metal-tested.png" width="100" height="100" />
+          <Image
+            src="/icons/clinicamente-testato.png"
+            alt="badge clinicamente testato"
+            width="100"
+            height="100"
+          />
+          <Image
+            src="/icons/dermatologicamente-testato.png"
+            alt="badge dermatologicamente testato"
+            width="100"
+            height="100"
+          />
+          <Image src="/icons/metal-tested.png" alt="badge metal tested" width="100" height="100" />
         </IconsContainer>
       </TextContainer>
     </HeroContainer>

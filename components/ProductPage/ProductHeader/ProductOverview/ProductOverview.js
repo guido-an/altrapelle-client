@@ -47,7 +47,7 @@ export default function ProductOverview({ product }) {
       </div>
       <IconsContainer>
         {product.icons.map((icon, i) => (
-          <Image key={i} src={icon} width="84" height="84" />
+          <Image key={i} src={icon.url} alt={icon.alt} width="84" height="84" />
         ))}
       </IconsContainer>
     </Container>

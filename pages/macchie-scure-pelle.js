@@ -21,6 +21,7 @@ export default function MacchieDellaPelle() {
           </Title>
           <Image
             src="/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg"
+            alt="aree discromiche, macchie scure, segni del tempo e melasma gravidico su pelle"
             width="1345"
             height="317"
           />
@@ -58,6 +59,7 @@ export default function MacchieDellaPelle() {
               <IconContainer>
                 <Image
                   src="/icons/macchie-della-pelle/cambiamenti-ormonali.png"
+                  alt="icona cambiamenti ormonali"
                   width="180"
                   height="180"
                 />
@@ -67,6 +69,7 @@ export default function MacchieDellaPelle() {
               <IconContainer>
                 <Image
                   src="/icons/macchie-della-pelle/esposizione-solare.png"
+                  alt="icona esposizione solare"
                   width="180"
                   height="180"
                 />
@@ -76,6 +79,7 @@ export default function MacchieDellaPelle() {
               <IconContainer>
                 <Image
                   src="/icons/macchie-della-pelle/invecchiamento-cutaneo.png"
+                  alt="icona invecchiamento cutaneo"
                   width="180"
                   height="180"
                 />
@@ -85,6 +89,7 @@ export default function MacchieDellaPelle() {
               <IconContainer>
                 <Image
                   src="/icons/macchie-della-pelle/patologie-metaboliche.png"
+                  alt="icona patologie metaboliche"
                   width="180"
                   height="180"
                 />
@@ -99,6 +104,7 @@ export default function MacchieDellaPelle() {
           <ImageCausesContainer>
             <Image
               src="/macchie-della-pelle/cause-formazione-macchie-scure.png"
+              alt="infografica su cause della formazione delle macchie scure sulla pelle"
               width="1234"
               height="667"
             />
