@@ -23,7 +23,7 @@ export default function Tenless({ products }) {
         description="L'iperpigmentazione cutanea è una patologia che rende, in alcuni tratti, la pelle più scura. Scopri cosa la determina e come curarla grazie ai nostri prodotti. "
       />
       <ContainerApp>
-        <IntroPage>Tenless</IntroPage>
+        <IntroPage>Iperpigmentazione cutanea</IntroPage>
         <Container>
           <Title>Il problema.</Title>
           <SpanTitle>Iperpigmentazione cutanea</SpanTitle>
@@ -123,9 +123,10 @@ const ProblemContainer = styled.div`
     }
   }
 `;
-const ProblemTitle = styled.p`
+const ProblemTitle = styled.h2`
   font-weight: 500;
   font-size: 1.1rem;
+  color: #fff;
 `;
 const ProblemText = styled.p`
   font-weight: 400;

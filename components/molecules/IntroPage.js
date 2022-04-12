@@ -29,12 +29,12 @@ const Container = styled.div`
   margin-top: 10px;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   color: ${({ bgColor, theme }) => (bgColor === 'blue' ? '#fff' : theme.colors.blue)};
   text-align: ${({ align }) => align};
   font-weight: 700;
   font-size: 2.5rem;
-  line-height: 100%;
+  line-height: 120%;
   text-align: center;
 `;
 

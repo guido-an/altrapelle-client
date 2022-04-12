@@ -24,7 +24,7 @@ const Products = ({ products }) => {
         description="Per rimuovere le macchie scure della pelle abbiamo creato dei prodotti depigmentanti efficaci e dermatologicamente e clinicamente testati. Non farteli sfuggire!"
       />
       <ContainerApp>
-        <IntroPage>I nostri prodotti</IntroPage>
+        <IntroPage>I nostri prodotti depigmentanti</IntroPage>
         <ProductsContainer>
           <DisplayProducts products={products} />
         </ProductsContainer>
