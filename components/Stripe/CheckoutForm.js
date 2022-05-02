@@ -44,34 +44,18 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
           email,
           totalPrice,
         });
-        // console.log("Stripe 35 | data", response.data.success);
-        if (response.data.success) {
-          console.log('CheckoutForm.js 25 | payment successful!');
-          const response = await service.createOrder(
-            chekoutData,
-            productsInCart,
-            newsLetterConsent,
-            totalPrice,
-            discountCodeWasApplied,
-            discountCode.toUpperCase()
+        if (response.data.paymentStatus === 'success') {
+          handlePaymentSuccess();
+        } else if (response.data.paymentStatus == 'action_required') {
+          const { paymentIntent, error } = await stripe.confirmCardPayment(
+            response.data?.data?.clientSecret
           );
-          // console.log(response, 'response from checkout')
-
-          // transaction tracking
-          window.gtag('event', 'purchase', {
-            transaction_id: response?.data?.transaction_id || Date.now(),
-            affiliation: 'Altrapelle',
-            value: totalPrice,
-            currency: 'EUR',
-            tax: 0,
-            shipping: 0,
-            items: productsInCart,
-          });
-          localStorage.clear();
-          setPaymentSuccessful(true);
-          setProductsInCart([]);
-          // test
-          setProcessing(false);
+          if (error) return alert('Error in payment, please try again later');
+          if (paymentIntent.status === 'succeeded') {
+            handlePaymentSuccess();
+          }
+        } else {
+          alert(response.data.message);
         }
       } catch (error) {
         console.log('CheckoutForm.js 28 | ', error);
@@ -80,6 +64,34 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
       console.log(error.message);
       setError(error.message);
     }
+  };
+
+  const handlePaymentSuccess = async () => {
+    const response = await service.createOrder(
+      chekoutData,
+      productsInCart,
+      newsLetterConsent,
+      totalPrice,
+      discountCodeWasApplied,
+      discountCode.toUpperCase()
+    );
+    // console.log(response, 'response from checkout')
+
+    // transaction tracking
+    window.gtag('event', 'purchase', {
+      transaction_id: response?.data?.transaction_id || Date.now(),
+      affiliation: 'Altrapelle',
+      value: totalPrice,
+      currency: 'EUR',
+      tax: 0,
+      shipping: 0,
+      items: productsInCart,
+    });
+    localStorage.clear();
+    setPaymentSuccessful(true);
+    setProductsInCart([]);
+    // test
+    setProcessing(false);
   };
 
   const handleDiscountCodeChange = e => {
