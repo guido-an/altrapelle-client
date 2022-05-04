@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export default function Benefits({ benefits }) {
   return (
     <>
-      <Title>{benefits.title}:</Title>
-      {benefits.list.map((benefit, i) => (
+      <Title>{benefits?.title}</Title>
+      {benefits?.list.map((benefit, i) => (
         <P key={i}>
           {benefit[0]} <Span>{benefit[1]}</Span>
         </P>

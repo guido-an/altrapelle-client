@@ -29,27 +29,14 @@ export default function ProductDescription({ product }) {
 
   //   Quick fix
   function howToApplyTheProduct() {
-    return (
-      <>
-        <Title>Step 1</Title>
-        <p>
-          Applicare TENLESS TRATTAMENTO ANTI-MACCHIE, due volte al giorno direttamente sull’area
-          interessata (mani, viso, décolleté o corpo) per contrastare le macchie esistenti e
-          prevenire la formazione di nuove.
-        </p>
-        <Title>Step 2</Title>
-        <p>
-          Applicare TENLESS BOOSTER ILLUMINANTE, uso quotidiano, due volte al giorno su viso, collo
-          e décolleté per migliorare l’incarnato illuminandolo ed uniformandolo e per prevenire la
-          formazione di macchie scure.
-        </p>
-        <Title>Step 3</Title>
-        <p>
-          Dopo il completo assorbimento di TENLESS BOOSTER ILLUMINANTE, applicare i consueti
-          prodotti di skincare (ad esempio creme, solari, fondotinta).
-        </p>
-      </>
-    );
+    return product.steps?.map((step, i) => {
+      return (
+        <div key={i}>
+          <Title>{step.title}</Title>
+          <p>{step.description}</p>
+        </div>
+      );
+    });
   }
 
   return (
@@ -57,7 +44,7 @@ export default function ProductDescription({ product }) {
       <TopBar topBarText={topBarText} />
       <DescriptionContainer>
         {screen && <ScreenBenefits screen={screen} />}
-        {product.id === '3' && howToApplyTheProduct()}
+        {product.combinedProduct && howToApplyTheProduct()}
         {displayDescription()}
       </DescriptionContainer>
     </Container>

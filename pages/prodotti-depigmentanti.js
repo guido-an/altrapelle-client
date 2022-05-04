@@ -37,7 +37,6 @@ const Products = ({ products }) => {
 const ProductsContainer = styled.div`
   margin-bottom: 80px;
   @media (min-width: 968px) {
-    margin: 40px 120px;
   }
 `;
 

@@ -11,7 +11,7 @@ export default function Product({ product }) {
   return (
     <motion.div whileHover={{ scale: 1.05, cursor: 'pointer' }}>
       <Link scroll={false} href={`/${product.slug}`}>
-        <div key={product.id}>
+        <ProductContainer key={product.id}>
           <ImageContainer>
             <Image
               src={product.images[0].url}
@@ -29,15 +29,21 @@ export default function Product({ product }) {
           >
             Scopri di più
           </Button>
-        </div>
+        </ProductContainer>
       </Link>
     </motion.div>
   );
 }
 
+const ProductContainer = styled.div`
+  @media (min-width: 968px) {
+    width: 350px;
+  }
+`;
+
 const ImageContainer = styled.div`
   @media (min-width: 968px) {
-    width: 400px;
+    width: 350px;
     margin: 0 auto;
   }
 `;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-
 export default function ScreenBenefits({ screen }) {
   return (
     <ScreenContainer>
@@ -17,8 +16,8 @@ const ScreenContainer = styled.div`
   }
 `;
 
-const { string } = PropTypes;
+const { object } = PropTypes;
 
 ScreenBenefits.propTypes = {
-  screen: string.isRequired,
+  screen: object.isRequired,
 };

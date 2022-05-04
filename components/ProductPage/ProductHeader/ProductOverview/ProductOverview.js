@@ -16,8 +16,7 @@ export default function ProductOverview({ product }) {
       <Dimension>{product.dimension}</Dimension>
       <PricesContainer>
         <Price product={product}>{product.price.toFixed(2)}€</Price>
-        {/* Quick fix in production - to be changed  */}
-        {product.id === '3' && (
+        {product.discountedPrice && (
           <DiscountedPrice>{product.discountedPrice.toFixed(2)}€</DiscountedPrice>
         )}
       </PricesContainer>
@@ -35,7 +34,7 @@ export default function ProductOverview({ product }) {
       <ContainerCartLink>
         {displayCartLink && (
           <span>
-            <Link href="/carrello">> Vai al carrello</Link> o visita{' '}
+            <Link href="/carrello">> Vai al carrello</Link> o scopri{' '}
             <Link href="/prodotti-depigmentanti">gli altri prodotti</Link>
           </span>
         )}
