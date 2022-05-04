@@ -2,6 +2,7 @@ class productService {
   getAllProducts = async () => {
     const res = await fetch(`${process.env.API_URL}/product/get-all`);
     const data = await res.json();
+
     return data;
   };
 
