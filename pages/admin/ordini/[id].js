@@ -79,7 +79,7 @@ const Ordine = ({ order }) => {
             {discountCodeWasApplied && <p>Codice sconto utilizzato: {discountCode}</p>}
           </OrderRecapContainer>
         </Container>
-        <SchemaForInvoice order={order} />
+        {/* <SchemaForInvoice order={order} /> */}
       </ContainerApp>
     )
   );
