@@ -12,7 +12,7 @@ const SchemaForInvoice = ({ order }) => {
     return order.productsInCart.map(order => {
       const { discountedPrice, quantity, price } = order;
       const priceToAdd = discountedPrice ? discountedPrice : price;
-      const total = (quantity * priceToAdd).toFixed();
+      const total = (quantity * priceToAdd).toFixed(2);
       return (
         <div>
           <p>
