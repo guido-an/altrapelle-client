@@ -8,7 +8,7 @@ import Button from '../../components/atoms/Button';
 
 export default function Login() {
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
@@ -17,7 +17,7 @@ export default function Login() {
 
   async function submitHandler(e) {
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
     try {
       await service.login(email, password);
       router.push('/admin/ordini');
@@ -25,7 +25,7 @@ export default function Login() {
       console.error(err.response);
       setError(err.response.data.errorMessage);
     }
-    setLoading(false);
+    // setLoading(false);
   }
 
   return (
@@ -47,7 +47,8 @@ export default function Login() {
           value={password}
           handleChange={e => setPassword(e.target.value)}
         />
-        <Button margin="40px auto 0">{loading ? 'Loading' : 'Login'}</Button>
+        {/* <Button margin="40px auto 0">{loading ? 'Loading' : 'Login'}</Button> */}
+        <Button margin="40px auto 0">Login</Button>
         {error && <Error>{error}</Error>}
       </Form>
     </ContainerApp>
