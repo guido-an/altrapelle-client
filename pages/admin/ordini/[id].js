@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropType from 'prop-types';
-import { useRouter } from 'next/router';
 import ContainerApp from '../../../components/atoms/ContainerApp';
 import OrderRecap from '../../../components/molecules/OrderRecap';
 import orderService from '../../../services/orderService';
-import authService from '../../../services/authService';
+import useIsAdmin from '../../../hooks/admin/useIsAdmin';
+import AuthService from '../../../services/authService';
 
 const Orderservice = new orderService();
-const AuthService = new authService();
 
 export const getServerSideProps = async context => {
   const { id } = context.params;
@@ -17,8 +16,7 @@ export const getServerSideProps = async context => {
 };
 
 const Ordine = ({ order }) => {
-  const [proceed, setProceed] = useState(false);
-  const router = useRouter();
+  const [{ loading, proceed }] = useIsAdmin();
 
   const { productsInCart, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied, discountCode } =
     order;
@@ -35,22 +33,7 @@ const Ordine = ({ order }) => {
     additionalNotes,
   } = order.billingDetails;
 
-  useEffect(() => {
-    async function checkIfLoggedIn() {
-      try {
-        const response = await AuthService.loggedin();
-        if (response.user) {
-          setProceed(true);
-        }
-      } catch (e) {
-        router.push('/admin/login');
-        console.log(e);
-      }
-    }
-    checkIfLoggedIn();
-  }, []);
-
-  if (!proceed) {
+  if (loading) {
     <p>Loading...</p>;
   }
 
@@ -121,5 +104,4 @@ const OrderRecapContainer = styled.div`
   }
 `;
 
-//export default withPrivateRoute(Ordine);
 export default Ordine;

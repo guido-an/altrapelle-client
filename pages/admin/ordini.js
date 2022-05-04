@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
 import OrdersTable from '../../components/Admin/OrdersTable';
 import ContainerApp from '../../components/atoms/ContainerApp';
 import orderService from '../../services/orderService';
-import authService from '../../services/authService';
 import OrdersStatus from '../../components/Admin/OrdersStatus';
 import TotalRevenue from '../../components/Admin/TotalRevenue';
+import useIsAdmin from '../../hooks/admin/useIsAdmin';
 
 const OrderService = new orderService();
-const AuthService = new authService();
 
 export const getServerSideProps = async () => {
   const orders = await OrderService.getAllOrders();
@@ -17,25 +13,9 @@ export const getServerSideProps = async () => {
 };
 
 const Ordini = ({ orders }) => {
-  const [proceed, setProceed] = useState(false);
-  const router = useRouter();
+  const [{ loading, proceed }] = useIsAdmin();
 
-  useEffect(() => {
-    async function checkIfLoggedIn() {
-      try {
-        const response = await AuthService.loggedin();
-        if (response.user) {
-          setProceed(true);
-        }
-      } catch (e) {
-        router.push('/admin/login');
-        console.log(e);
-      }
-    }
-    checkIfLoggedIn();
-  }, []);
-
-  if (!proceed) {
+  if (loading) {
     <p>Loading...</p>;
   }
 
@@ -55,4 +35,3 @@ const Ordini = ({ orders }) => {
 };
 
 export default Ordini;
-// export default withPrivateRoute(Ordini);
