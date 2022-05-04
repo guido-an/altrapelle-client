@@ -16,6 +16,7 @@ const OrdersTable = ({ orders }) => {
         <Tr>
           <Th>ID</Th>
           <Th>Cliente</Th>
+          <Th>Email</Th>
           <Th>Data</Th>
           <Th>Stato</Th>
           <Th>Totale</Th>
@@ -30,7 +31,7 @@ const OrdersTable = ({ orders }) => {
       <tbody>
         {orders.map(order => {
           const { _id, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied } = order;
-          const { firstName, lastName } = order.billingDetails;
+          const { firstName, lastName, email } = order.billingDetails;
           const { date, time } = order.dateOfCreation;
           return (
             <Tr key={_id}>
@@ -42,6 +43,7 @@ const OrdersTable = ({ orders }) => {
                   {firstName} {lastName}
                 </p>
               </Td>
+              <Td>{email}</Td>
               <Td>
                 <p>{date}</p>
                 <Time>{time}</Time>
