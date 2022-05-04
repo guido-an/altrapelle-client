@@ -6,6 +6,7 @@ import OrderRecap from '../../../components/molecules/OrderRecap';
 import orderService from '../../../services/orderService';
 import useIsAdmin from '../../../hooks/admin/useIsAdmin';
 import AuthService from '../../../services/authService';
+import SchemaForInvoice from '../../../components/Admin/SchemaForInvoice';
 
 const Orderservice = new orderService();
 
@@ -78,6 +79,7 @@ const Ordine = ({ order }) => {
             {discountCodeWasApplied && <p>Codice sconto utilizzato: {discountCode}</p>}
           </OrderRecapContainer>
         </Container>
+        <SchemaForInvoice order={order} />
       </ContainerApp>
     )
   );

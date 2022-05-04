@@ -43,7 +43,7 @@ const OrdersTable = ({ orders }) => {
                   {firstName} {lastName}
                 </p>
               </Td>
-              <Td>{email}</Td>
+              <Td> {email}</Td>
               <Td>
                 <p>{date}</p>
                 <Time>{time}</Time>
@@ -125,6 +125,7 @@ const Td = styled.td`
   }
   @media (min-width: 768px) {
     padding: 15px 10px;
+    min-width: 200px;
   }
 `;
 const Select = styled.select`
