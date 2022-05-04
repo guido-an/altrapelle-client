@@ -18,7 +18,6 @@ export default function Login() {
   async function submitHandler(e) {
     e.preventDefault();
     setLoading(true);
-    setError(false);
     try {
       await service.login(email, password);
       router.push('/admin/ordini');
