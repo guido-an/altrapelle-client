@@ -10,13 +10,33 @@ const SchemaForInvoice = ({ order }) => {
 
   function productsInCart() {
     return order.productsInCart.map(product => {
-      const { discountedPrice, quantity, price, codeArticle } = product;
+      const { discountedPrice, quantity, price, codeArticle, id } = product;
       const priceToAdd = discountedPrice ? discountedPrice : price;
       const total = (quantity * priceToAdd).toFixed(2);
+      const codeToShow = () => {
+        if (codeArticle) {
+          return codeArticle;
+        }
+        if (id === '1') {
+          return 'DCC.APT001';
+        }
+        if (id === '2') {
+          return 'DCC.APT002';
+        }
+        if (id === '3') {
+          return 'DCC.APT001 DCC.APT002';
+        }
+        if (id === '4') {
+          return 'DCC.APT003';
+        }
+        if (id === '5') {
+          return 'DCC.APT004';
+        }
+      };
       return (
         <div>
           <p>
-            O;{codeArticle}; {quantity};{total};{(total / 1.22).toFixed(2)}
+            O;{codeToShow()};{quantity};{total};{(total / 1.22).toFixed(2)}
           </p>
         </div>
       );
@@ -30,7 +50,7 @@ const SchemaForInvoice = ({ order }) => {
       <p>
         T;1; {_id}; {dateOfCreation.date}
       </p>
-      <p> D;RIFERIMENTO ORDINE ALTRAPELLE: {_id}</p>
+      <p>D;RIFERIMENTO ORDINE ALTRAPELLE: {_id}</p>
       {productsInCart()}
       <p>D;Spedizione gratuita</p>
     </div>
