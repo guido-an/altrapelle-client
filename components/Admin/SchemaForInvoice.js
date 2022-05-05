@@ -9,14 +9,14 @@ const SchemaForInvoice = ({ order }) => {
   // D;Spedizione gratuita
 
   function productsInCart() {
-    return order.productsInCart.map(order => {
-      const { discountedPrice, quantity, price } = order;
+    return order.productsInCart.map(product => {
+      const { discountedPrice, quantity, price, codeArticle } = product;
       const priceToAdd = discountedPrice ? discountedPrice : price;
       const total = (quantity * priceToAdd).toFixed(2);
       return (
         <div>
           <p>
-            O;-$CODART; {quantity};{total};{(total / 1.22).toFixed(2)}
+            {codeArticle}; {quantity};{total};{(total / 1.22).toFixed(2)}
           </p>
         </div>
       );
