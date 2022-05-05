@@ -45,6 +45,7 @@ const theme = {
   mobileContainer: `${20}px`,
   desktopContainer: '10%',
   boxShadow: '0 4px 14px 0 rgb(0 0 0 / 39%)',
+  boxShadowLight: '0 2px 7px 0 rgb(0 0 0 / 39%)',
 };
 
 function App({ Component, pageProps }) {

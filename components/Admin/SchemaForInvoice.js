@@ -16,7 +16,7 @@ const SchemaForInvoice = ({ order }) => {
       return (
         <div>
           <p>
-            {codeArticle}; {quantity};{total};{(total / 1.22).toFixed(2)}
+            O;{codeArticle}; {quantity};{total};{(total / 1.22).toFixed(2)}
           </p>
         </div>
       );

@@ -6,7 +6,7 @@ import orderService from '../../services/orderService';
 
 const service = new orderService();
 
-const OrdersTable = ({ orders }) => {
+const OrdersTable = ({ ordersToDisplay }) => {
   const [inputValue, setInputValue] = useState(''); // change this name (same in database)
   const router = useRouter();
 
@@ -29,7 +29,7 @@ const OrdersTable = ({ orders }) => {
   function TableBody() {
     return (
       <tbody>
-        {orders.map(order => {
+        {ordersToDisplay.map(order => {
           const { _id, totalPriceOrder, stateOfTheOrder, discountCodeWasApplied } = order;
           const { firstName, lastName, email } = order.billingDetails;
           const { date, time } = order.dateOfCreation;
@@ -87,8 +87,8 @@ const OrdersTable = ({ orders }) => {
   return (
     <Container>
       <Table>
-        {TableHead(orders)}
-        {TableBody(orders)}
+        {TableHead(ordersToDisplay)}
+        {TableBody(ordersToDisplay)}
       </Table>
     </Container>
   );
