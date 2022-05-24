@@ -77,8 +77,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
     );
     // console.log(response, 'response from checkout')
 
-    // transaction tracking
-    window.gtag('event', 'purchase', {
+    let googleAnalyticsPayload = {
       transaction_id: response?.data?.transaction_id || Date.now(),
       affiliation: 'Altrapelle',
       value: totalPrice,
@@ -86,7 +85,23 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
       tax: 0,
       shipping: 0,
       items: productsInCart,
-    });
+    };
+
+    if (discountCode) {
+      // adding discount coupon in google analytics
+      const discountAmount = ((totalPrice * 15) / 100).toFixed(2);
+      const actualPrice = Math.round(Number(totalPrice) + Number(discountAmount)).toFixed(2);
+
+      googleAnalyticsPayload = {
+        ...googleAnalyticsPayload,
+        coupon: discountCode.toUpperCase(),
+        actualPrice,
+        discountAmount,
+        value: totalPrice,
+      };
+    }
+    // transaction tracking
+    window.gtag('event', 'purchase', googleAnalyticsPayload);
     localStorage.clear();
     setPaymentSuccessful(true);
     setProductsInCart([]);
@@ -122,7 +137,7 @@ export const CheckoutForm = ({ chekoutData, newsLetterConsent, setPaymentSuccess
     setDiscountCode(e.target.value);
     if (codes.includes(e.target.value.toUpperCase()) && !discountCodeWasApplied) {
       const priceToRemove = ((totalPrice * 15) / 100).toFixed(2);
-      setTotalPrice((totalPrice - priceToRemove).toFixed(2));
+      setTotalPrice(totalPrice - priceToRemove);
       setDiscountCodeMessage('Codice valido e applicato correttamente!');
       setDiscountCodeWasApplied(true);
     }
