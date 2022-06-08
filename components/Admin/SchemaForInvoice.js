@@ -17,6 +17,7 @@ const SchemaForInvoice = ({ order }) => {
         if (codeArticle) {
           return codeArticle;
         }
+        // For displaying codeArticle also in previous orders
         if (id === '1') {
           return 'DCC.APT001';
         }
