@@ -47,6 +47,13 @@ export default function ProductDescription({ product }) {
         {product.combinedProduct && howToApplyTheProduct()}
         {displayDescription()}
       </DescriptionContainer>
+      {product.id === '9' && (
+        <p>
+          *Effetto temporaneo Reversibile <br />
+          **Valutazione Strumentale dell’effetto antirughe a breve termine su 20 soggetti età
+          <br /> >40 anni, a 4 controlli
+        </p>
+      )}
     </Container>
   );
 }
