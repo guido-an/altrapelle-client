@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <Container>
       <LogoContainer>
-        {/* <Logo /> */}
-        <Image src="/footer/cosmofarma.png" alt="Cosmofarma" width="600px" height="300px" />
+        <Logo />
+        {/* <Image src="/footer/cosmofarma.png" alt="Cosmofarma" width="600px" height="300px" /> */}
       </LogoContainer>
       <FooterSectionsContainer>
         <FooterSection>

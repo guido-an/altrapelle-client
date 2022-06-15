@@ -42,11 +42,18 @@ export default function ProductDescription({ product }) {
   return (
     <Container>
       <TopBar topBarText={topBarText} />
-      <DescriptionContainer>
+      <DescriptionContainer screen={screen}>
         {screen && <ScreenBenefits screen={screen} />}
         {product.combinedProduct && howToApplyTheProduct()}
         {displayDescription()}
       </DescriptionContainer>
+      {product.id === '9' && (
+        <p>
+          *Effetto temporaneo Reversibile <br />
+          **Valutazione Strumentale dell’effetto antirughe a breve termine su 20 soggetti età
+          <br /> >40 anni, a 4 controlli
+        </p>
+      )}
     </Container>
   );
 }
@@ -66,11 +73,12 @@ const Title = styled.h2`
 `;
 const DescriptionContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundGrey};
-  padding: 0 ${({ theme }) => theme.mobileContainer} 60px;
+  padding: ${({ screen, theme }) =>
+    screen ? `0 ${theme.mobileContainer} 60px` : `10px ${theme.mobileContainer} 60px`};
   border-radius: 4px;
   margin-top: 30px;
   @media (min-width: 968px) {
-    padding: 0 15% 60px;
+    padding: ${({ screen }) => (screen ? `0 15% 60px` : `20px 15% 60px`)};
     margin: 20px auto 0;
   }
 `;
