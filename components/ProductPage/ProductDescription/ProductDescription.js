@@ -7,6 +7,7 @@ import Benefits from './Benefits/Benefits';
 import MoleculeText from './MoleculeText/MoleculeText';
 import HowToUseIt from './HowToUseIt/HowToUseIt';
 import Ingredients from './Ingredients/Ingredients';
+import Without from './Without/Without';
 export default function ProductDescription({ product }) {
   const { topBarText, screen } = product;
 
@@ -15,6 +16,7 @@ export default function ProductDescription({ product }) {
     benefits: Benefits,
     howToUseIt: HowToUseIt,
     ingredients: Ingredients,
+    without: Without,
   };
 
   function displayDescription() {
