@@ -61,8 +61,8 @@ export default function Header(props) {
               <Link href="/">
                 <A>HOME</A>
               </Link>
-              <Link href="/tenless">
-                <A>TENLESS</A>
+              <Link href="/altrapelle">
+                <A>ALTRAPELLE</A>
               </Link>
               <Link href="/macchie-scure-pelle">
                 <A>MACCHIE DELLA PELLE</A>

@@ -6,6 +6,7 @@ import productService from '../services/productService';
 import OverFooter from '../components/molecules/OverFooter';
 import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
 import { NextSeo } from 'next-seo';
+import Image from 'next/image';
 
 const service = new productService();
 
@@ -23,9 +24,24 @@ export default function Tenless({ products }) {
         description="L'iperpigmentazione cutanea è una patologia che rende, in alcuni tratti, la pelle più scura. Scopri cosa la determina e come curarla grazie ai nostri prodotti. "
       />
       <ContainerApp>
-        <IntroPage>Iperpigmentazione cutanea</IntroPage>
+        <IntroPage>Come lavoriamo</IntroPage>
+        <p>
+          Qualità <Strong>MADE IN ITALY</Strong> e attitudine internazionale. Semplici nell'utilizzo
+          ma frutto di studi prolungati nel tempo. I nostri prodototti risolvono{' '}
+          <Strong>ESIGENZE SPECIFICHE</Strong> e <Strong>QUOTIDIANE</Strong>. Produciamo in Italia,
+          garantendo un maggiore <Strong>CONTROLLO</Strong> su ingredienti e fornitori. Non
+          scendiamo a compromessi tra qualità e risultati.
+        </p>
+        <p>
+          <TitleStrong>i Senza</TitleStrong>
+          Condizione prioritaria per le nostre formulazioni è il rispetto della pelle anche
+          sensibile. Selezioniamo gli ingredienti principalmente in base al loro profilo di{' '}
+          <Strong>TOLLERABILITÀ CUTANEA</Strong>. Secondo questa filosofia formulativa tutti i
+          prodotti, oltre ad essere <Strong>METAL TESTED</Strong> non contengono ingredienti
+          allergizzanti e irritanti, nel limite del possibile razionale formulativo.
+        </p>
         <Container>
-          <Title>Il problema.</Title>
+          <Title>Esigenze specifiche</Title>
           <SpanTitle>Iperpigmentazione cutanea</SpanTitle>
           <p>
             L'iperpigmentazione si manifesta quando fattori interni o esterni possono causare un
@@ -41,7 +57,7 @@ export default function Tenless({ products }) {
             <li>il melasma</li>
             <li>l'iperpigmentazione post-infiammatoria (PIPA)</li>
           </ul>
-          <ProblemContainer>
+          {/* <ProblemContainer>
             <div>
               <ProblemTitle>MACCHIE DELL'ETÀ</ProblemTitle>
               <ProblemText>
@@ -72,11 +88,46 @@ export default function Tenless({ products }) {
                 post-infiammatoria, può peggiorarne le manifestazioni.
               </ProblemText>
             </div>
-          </ProblemContainer>
-          <Title>La soluzione.</Title>
-          <SpanTitle>Trattamento antimacchie e Booster illuminante.</SpanTitle>
+          </ProblemContainer> */}
+          {/* <Title>La soluzione.</Title>
+          <SpanTitle>Trattamento antimacchie e Booster illuminante.</SpanTitle> */}
         </Container>
-        <DisplayProducts products={products} />
+        <ImageContainer>
+          <Title>
+            FORME COMUNI <span style={{ fontWeight: '400' }}>di iperpigmentazione</span>
+          </Title>
+          <Image
+            src="/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg"
+            alt="aree discromiche, macchie scure, segni del tempo e melasma gravidico su pelle"
+            width="1345"
+            height="317"
+          />
+        </ImageContainer>
+        <IntroSectionContainer>
+          <TitleIntro>Perché si manifestano le macchie sulla pelle</TitleIntro>
+        </IntroSectionContainer>
+        <IntroText>
+          Le macchie scure o discromie cutanee sono la conseguenza di un’eccessiva produzione di
+          melanina, nota anche come iperpigmentazione. La melanina è il pigmento rosso-bruno che
+          determina il colorito della pelle, prodotto da cellule presenti nell’epidermide
+          (melanociti).
+        </IntroText>
+        <IntroText>
+          L'iperpigmentazione interessa solo alcune zone della pelle, manifestandosi sotto forma di
+          aree piatte e scure di pelle, che hanno un colore che va dal marrone chiaro al nero, con
+          differente forma e dimensione.
+        </IntroText>
+        <IntroText>
+          Le aree maggiormente colpite dalle macchie scure sono il viso, il collo, il decolleté e il
+          dorso delle mani.
+        </IntroText>
+        <IntroText>
+          L’iperpigmentazione può essere causata da diversi fattori come l’esposizione solare,
+          l’invecchiamento cutaneo, terapie farmacologiche e variazioni ormonali tipiche della
+          gravidanza che inducono un accumulo anormale di melanina con formazione di macchie scure
+          localizzate su varie zone del corpo.
+        </IntroText>
+        {/* <DisplayProducts products={products} /> */}
       </ContainerApp>
       <OverFooter />
     </AnimatedWrapper>
@@ -93,6 +144,16 @@ const Title = styled.h2`
   @media (min-width: 968px) {
     margin-top: 40px;
   }
+`;
+
+const TitleStrong = styled.p`
+  color: ${({ theme }) => theme.colors.blue};
+  font-weight: 500;
+  margin-bottom: 0px;
+`;
+const Strong = styled.strong`
+  color: ${({ theme }) => theme.colors.blue};
+  font-weight: 500;
 `;
 const SpanTitle = styled.span`
   color: ${({ theme }) => theme.colors.blue};
@@ -130,4 +191,35 @@ const ProblemTitle = styled.h2`
 `;
 const ProblemText = styled.p`
   font-weight: 400;
+`;
+
+const ImageContainer = styled.div`
+  margin-top: 10px;
+  padding: 0 0 10px;
+`;
+
+// Intro
+const IntroSectionContainer = styled.div`
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.colors.lightBlue};
+  padding: 10px ${({ theme }) => theme.mobileContainer};
+`;
+
+const TitleIntro = styled.h2`
+  text-align: left;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  @media (min-width: 968px) {
+    text-align: center;
+  }
+`;
+const IntroText = styled.p`
+  margin-top: 10px;
+  @media (min-width: 968px) {
+    width: 80%;
+    margin: 10px auto 0;
+    line-height: 26px;
+  }
 `;

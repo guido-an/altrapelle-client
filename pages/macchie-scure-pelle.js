@@ -15,7 +15,7 @@ export default function MacchieDellaPelle() {
       />
       <ContainerApp>
         <IntroPage>Macchie scure sulla pelle</IntroPage>
-        <ImageContainer>
+        {/* <ImageContainer>
           <Title>
             FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle>
           </Title>
@@ -25,9 +25,9 @@ export default function MacchieDellaPelle() {
             width="1345"
             height="317"
           />
-        </ImageContainer>
+        </ImageContainer> */}
         <SecondContainer>
-          <IntroSectionContainer>
+          {/* <IntroSectionContainer>
             <TitleIntro>Perché si manifestano le macchie sulla pelle</TitleIntro>
           </IntroSectionContainer>
           <IntroText>
@@ -50,7 +50,7 @@ export default function MacchieDellaPelle() {
             l’invecchiamento cutaneo, terapie farmacologiche e variazioni ormonali tipiche della
             gravidanza che inducono un accumulo anormale di melanina con formazione di macchie scure
             localizzate su varie zone del corpo.
-          </IntroText>
+          </IntroText> */}
           <FirstSectionContainer>
             <Title>
               FATTORI SCATENANTI <SpanTitle>dell'iperpigmentazione cutanea</SpanTitle>
