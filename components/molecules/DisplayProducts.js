@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Product from './Product';
+import Image from 'next/image';
 
-export default function DisplayProducts({ products, featured }) {
-  console.log(featured, 'featured');
+export default function DisplayProducts({ products, featured, chooseProducts, ids }) {
   function displayProductsPerCategory(products) {
     return products.map(product => {
       if (product.test) {
@@ -26,6 +26,19 @@ export default function DisplayProducts({ products, featured }) {
     });
   }
 
+  function displayChosenProducts(products) {
+    return products.map(product => {
+      if (ids.includes(product.id)) {
+        return <Product key={product.id} product={product} />;
+      }
+    });
+  }
+
+  if (chooseProducts) {
+    return (
+      <ContainerProducts>{chooseProducts && displayChosenProducts(products)}</ContainerProducts>
+    );
+  }
   return (
     <ContainerProducts>
       {featured ? displayFeaturedProducts(products) : displayProductsPerCategory(products)}

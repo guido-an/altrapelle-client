@@ -7,6 +7,7 @@ import { CartContext } from '../../contexts/CartContext';
 
 export default function Header(props) {
   const [showMenu, setShowMenu] = useState(false);
+  const [displaySubMenu, setDisplaySubMenu] = useState(false);
   const { productsInCart } = useContext(CartContext);
   useEffect(() => {
     if (window) {
@@ -64,9 +65,30 @@ export default function Header(props) {
               <Link href="/altrapelle">
                 <A>ALTRAPELLE</A>
               </Link>
-              <Link href="/macchie-scure-pelle">
-                <A>MACCHIE DELLA PELLE</A>
-              </Link>
+              <div
+                onMouseEnter={() => setDisplaySubMenu(true)}
+                onMouseLeave={() => setDisplaySubMenu(false)}
+              >
+                <Link href="/le-tue-esigenze">
+                  <A>LE TUE ESIGENZE</A>
+                </Link>
+                {/* {displaySubMenu && (
+                  <div style={{ backgroundColor: '#fff' }}>
+                    <Link href="/antimacchie">
+                      <SubLink>Antimacchie</SubLink>
+                    </Link>
+                    <Link href="/antimacchie">
+                      <SubLink>Antimacchie</SubLink>
+                    </Link>
+                    <Link href="/antimacchie">
+                      <SubLink>Antimacchie</SubLink>
+                    </Link>
+                    <Link href="/antimacchie">
+                      <SubLink>Antimacchie</SubLink>
+                    </Link>
+                  </div>
+                )} */}
+              </div>
               <Link href="/prodotti-depigmentanti">
                 <A>PRODOTTI</A>
               </Link>
@@ -170,6 +192,28 @@ const A = styled.a`
     }
   }
 `;
+const SubLink = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.greyText};
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  padding-bottom: 10px;
+  position: relative;
+  left: 10px;
+  @media (min-width: 1200px) {
+    margin: 10px;
+    padding-bottom: 2px;
+    left: 20px;
+    &:hover {
+      cursor: pointer;
+      color: ${({ theme }) => theme.colors.blue};
+      border-bottom: 2px solid ${({ theme }) => theme.colors.blue};
+    }
+  }
+`;
+
 const MobileMenuIconContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundGrey};
   width: 30px;

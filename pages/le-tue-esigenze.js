@@ -5,8 +5,18 @@ import IntroPage from '../components/molecules/IntroPage';
 import OverFooter from '../components/molecules/OverFooter';
 import AnimatedWrapper from '../components/atoms/AnimatedWrapper';
 import { NextSeo } from 'next-seo';
+import DisplayProducts from '../components/molecules/DisplayProducts';
+import productService from '../services/productService';
 
-export default function MacchieDellaPelle() {
+const service = new productService();
+
+export const getStaticProps = async () => {
+  return {
+    props: { products: await service.getAllProducts() },
+  };
+};
+
+export default function LeTueEsigenze({ products }) {
   return (
     <AnimatedWrapper>
       <NextSeo
@@ -15,42 +25,7 @@ export default function MacchieDellaPelle() {
       />
       <ContainerApp>
         <IntroPage>Macchie scure sulla pelle</IntroPage>
-        {/* <ImageContainer>
-          <Title>
-            FORME COMUNI <SpanTitle>di iperpigmentazione</SpanTitle>
-          </Title>
-          <Image
-            src="/macchie-della-pelle/forme-comuni-di-iperpigmentazione.jpg"
-            alt="aree discromiche, macchie scure, segni del tempo e melasma gravidico su pelle"
-            width="1345"
-            height="317"
-          />
-        </ImageContainer> */}
         <SecondContainer>
-          {/* <IntroSectionContainer>
-            <TitleIntro>Perché si manifestano le macchie sulla pelle</TitleIntro>
-          </IntroSectionContainer>
-          <IntroText>
-            Le macchie scure o discromie cutanee sono la conseguenza di un’eccessiva produzione di
-            melanina, nota anche come iperpigmentazione. La melanina è il pigmento rosso-bruno che
-            determina il colorito della pelle, prodotto da cellule presenti nell’epidermide
-            (melanociti).
-          </IntroText>
-          <IntroText>
-            L'iperpigmentazione interessa solo alcune zone della pelle, manifestandosi sotto forma
-            di aree piatte e scure di pelle, che hanno un colore che va dal marrone chiaro al nero,
-            con differente forma e dimensione.
-          </IntroText>
-          <IntroText>
-            Le aree maggiormente colpite dalle macchie scure sono il viso, il collo, il decolleté e
-            il dorso delle mani.
-          </IntroText>
-          <IntroText>
-            L’iperpigmentazione può essere causata da diversi fattori come l’esposizione solare,
-            l’invecchiamento cutaneo, terapie farmacologiche e variazioni ormonali tipiche della
-            gravidanza che inducono un accumulo anormale di melanina con formazione di macchie scure
-            localizzate su varie zone del corpo.
-          </IntroText> */}
           <FirstSectionContainer>
             <Title>
               FATTORI SCATENANTI <SpanTitle>dell'iperpigmentazione cutanea</SpanTitle>
@@ -129,6 +104,63 @@ export default function MacchieDellaPelle() {
             </CausesText>
           </CausesTextContainer>
         </SecondContainer>
+        <Image
+          src="/products/trattamento-in-combinata/screen-trattamento-in-combinata.png"
+          alt="infografica trattamento in combinata"
+          width="1820"
+          height="800"
+        ></Image>
+        <Title>L'esperto consiglia il trattamento </Title>
+        <DisplayProducts products={products} chooseProducts={true} ids={['1', '2', '3', '4']} />
+        <div style={{ marginBottom: '60px' }} />
+        <IntroPage>Impurità</IntroPage>
+        <p style={{ marginBottom: '40px' }}>
+          Non c’è BEAUTY ROUTINE che si rispetti senza detersione ed esfoliazione. Sono i primi e
+          fondamentali step di ogni ROUTINE, senza i quali non si può procedere con gli amatissimi
+          PRODOTTI DI SKINCARE. Pongono le basi per il corretto utilizzo e ASSORBIMENTO di ogni
+          prodotto utilizzato negli step successivi.{' '}
+        </p>
+        <Image
+          src="/le-tue-esigenze/detergente-routine-anti-impurità.png"
+          alt="infografica trattamento in combinata"
+          width="1820"
+          height="880"
+        ></Image>
+        <Title>L'esperto consiglia il trattamento </Title>
+        <DisplayProducts products={products} chooseProducts={true} ids={['6', '7']} />
+        <div style={{ marginBottom: '60px' }} />
+        <IntroPage>Luminosità</IntroPage>
+        <p style={{ marginBottom: '40px' }}>
+          La sinergia tra un detergente dedicato ed un peeling illuminante, consente di rinnovare la
+          pelle CONTRASTANDO COLORITO SPENTO E L’OPACITÀ. Aggiungi il corretto concentrato di attivi
+          in forma di siero, per RISVEGLIARE la pelle e renderla subito PIÙ RADIOSA, DONANDO UN
+          BOOST DI LUMINOSITÀ QUOTIDIANO.
+        </p>
+        <Image
+          src="/le-tue-esigenze/peeling-routine-luminosità.png"
+          alt="peeling routine luminosità"
+          width="1820"
+          height="880"
+        ></Image>
+        <Title>L'esperto consiglia il trattamento </Title>
+        <DisplayProducts products={products} chooseProducts={true} ids={['6', '7']} />
+        <div style={{ marginBottom: '60px' }} />
+        <IntroPage>Idratante anti-età</IntroPage>
+        <p style={{ marginBottom: '40px' }}>
+          La crema viso crea un film idrolipidico con una FUNZIONE BARRIERA che protegge la pelle e
+          PREVIENE LA PERDITA DI ACQUA che causerebbe secchezza, desquamazione e rughe più evidenti.
+          L’arricchimento con acido ialuronico contribuisce ad un EFFETTO IDRATANTE MULTILIVELLO a
+          lungo termine.
+        </p>
+        <Image
+          src="/le-tue-esigenze/routine-anti-age.png"
+          alt="peeling routine luminosità"
+          width="1820"
+          height="880"
+        ></Image>
+        <Title>L'esperto consiglia il trattamento </Title>
+        <DisplayProducts products={products} chooseProducts={true} ids={['6', '8', '9']} />
+        <div style={{ marginBottom: '60px' }} />
       </ContainerApp>
       <OverFooter />
     </AnimatedWrapper>
@@ -143,40 +175,7 @@ const SecondContainer = styled.div`
     padding: 0;
   }
 `;
-const ImageContainer = styled.div`
-  margin-top: 10px;
-  padding: 0 0 10px;
-  @media (min-width: 968px) {
-    margin: 10px ${({ theme }) => theme.desktopContainer};
-    padding: 0;
-  }
-`;
 
-// Intro
-const IntroSectionContainer = styled.div`
-  margin-top: 10px;
-  border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.lightBlue};
-  padding: 10px ${({ theme }) => theme.mobileContainer};
-`;
-
-const TitleIntro = styled.h2`
-  text-align: left;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  @media (min-width: 968px) {
-    text-align: center;
-  }
-`;
-const IntroText = styled.p`
-  margin-top: 10px;
-  @media (min-width: 968px) {
-    width: 80%;
-    margin: 10px auto 0;
-    line-height: 26px;
-  }
-`;
 // Title section
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.blue};
