@@ -5,12 +5,12 @@ import styled from 'styled-components';
 export default function Layout({ children }) {
   return (
     <>
-      <Banner>
+      {/* <Banner>
         <p>
           Saremo <strong>chiusi per ferie dal 5 al 22 agosto</strong>. Le spedizioni ripartiranno
           quindi dal 23 Agosto. Vi ringraziamo e vi auguriamo buone vacanze!
         </p>
-      </Banner>
+      </Banner> */}
       <Header />
       <main>{children}</main>
       <Footer />
