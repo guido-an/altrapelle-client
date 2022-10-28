@@ -61,11 +61,11 @@ const Container = styled.div`
 
 const TextContainer = styled.div`
   position: relative;
-  left: 40px;
+  left: 25px;
   color: ${({ color }) => color || ''};
 `;
 const BottomTitle = styled.h2`
-  color: #000;
+  color: #60bfc2;
   text-align: ${({ align }) => align};
   font-weight: 500;
   font-size: 2rem;
