@@ -6,7 +6,7 @@ export default function Hero() {
     <HeroContainer>
       <ImageContainer>
         <Image
-          src="/home/altrapelle-hero-3.jpg"
+          src="/home/altrapelle-hero-instant.png"
           alt="faccia donna con macchie sulla pelle"
           width="1500"
           height="1345"
@@ -14,21 +14,21 @@ export default function Hero() {
       </ImageContainer>
       <TextContainer>
         <Title weight="600" size="3.5" paddingTop="20px">
-          ADDIO
+          Attenua
         </Title>
         <Title weight="400" size="3.5">
-          MACCHIE
+          le rughe
         </Title>
         <Title weight="400" size="3.5">
-          sulla pelle
+          in 3 minuti
         </Title>
         <IconsContainer>
-          <Image
+          {/* <Image
             src="/icons/clinicamente-testato.png"
             alt="badge clinicamente testato"
             width="100"
             height="100"
-          />
+          /> */}
           <Image
             src="/icons/dermatologicamente-testato.png"
             alt="badge dermatologicamente testato"
@@ -76,6 +76,7 @@ const Title = styled.h1`
   }
   @media (min-width: 1600px) {
     font-size: ${({ size }) => size * 1.8}rem;
+    font-weight: 600;
   }
 `;
 
@@ -84,6 +85,6 @@ const IconsContainer = styled.div`
   padding: 20px 0 60px;
   width: 300px;
   @media (min-width: 968px) {
-    margin: 0;
+    margin: auto;
   }
 `;
