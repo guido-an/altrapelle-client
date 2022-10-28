@@ -19,31 +19,32 @@ export default function BeforeAndAfter() {
       <ImagesContainer>
         <ImageContainer>
           <Image
-            src="/home/prima-e-dopo-clinica.png"
+            src="/home/prima_bottom.png"
             alt="risultati trattamento crema depigmentante di Altrapelle"
             width="1000"
             height="440"
           />
-          <p>
+          {/* <p>
             Studio cosmeto-clinico, efficacia depigmentante, % soddisfazione da autovalutazione
             dell’effetto sulla pelle, 25 volontarie, 30 giorni di trattamento con Altrapelle TENLESS
             TRATTAMENTO ANTI-MACCHIE, 2 volte al giorno
-          </p>
+          </p> */}
         </ImageContainer>
         <ImageContainer>
           <Image
-            src="/home/prima-e-dopo-siero.png"
+            src="/home/dopo_bottom.png"
             alt="risultati trattamento siero illuminante di Altrapelle"
             width="1000"
             height="440"
           />
-          <p>
+          {/* <p>
             Studio cosmeto-clinico, % soddisfazione riduzione visibilità macchie cutanee, 20
             volontarie, 60 giorni di trattamento con Altrapelle TENLESS BOOSTER ILLUMINANTE, 2 volte
             al giorno
-          </p>
+          </p> */}
         </ImageContainer>
       </ImagesContainer>
+      <BottomTitle align="center">Efficace in soli 3 minuti!</BottomTitle>
     </Container>
   );
 }
@@ -61,6 +62,17 @@ const Container = styled.div`
 const TextContainer = styled.div`
   position: relative;
   left: 40px;
+  color: ${({ color }) => color || ''};
+`;
+const BottomTitle = styled.h2`
+  color: #000;
+  text-align: ${({ align }) => align};
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 100%;
+  @media (min-width: 968px) {
+    font-size: 2.5rem;
+  }
 `;
 const P = styled.p`
   position: relative;
