@@ -84,6 +84,7 @@ const IconsContainer = styled.div`
   margin: 0 auto;
   padding: 20px 0 60px;
   width: 300px;
+  text-align: center;
   @media (min-width: 968px) {
     margin: auto;
   }
