@@ -13,7 +13,7 @@ export default function About() {
         garantire efficacia e risultati davvero sorprendenti. Soluzioni efficaci adatte alle
         esigenze quotidiane e specifiche di ogni tipo di pelle e non solo.
       </P>
-      <Button margin="40px auto 0" href="/tenless">
+      <Button margin="40px auto 0" href="/le-tue-esigenze">
         Scopri le nostre linee
       </Button>
     </Container>
