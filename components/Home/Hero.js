@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Button, Dialog, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 
 export default function Hero() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
   const handleClose = () => {
     setOpen(false);
@@ -53,25 +53,23 @@ export default function Hero() {
           </IconsContainer>
         </TextContainer>
       </HeroContainer>
-      <div>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              Gli ordini effettuati dalle 13:00 del 22 dicembre verranno evasi dal 2 gennaio
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button variant="outlined" onClick={handleClose}>
-              chiudi
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Gli ordini effettuati dalle 13:00 del 22 dicembre verranno evasi dal 2 gennaio
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="outlined" onClick={handleClose}>
+            chiudi
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
