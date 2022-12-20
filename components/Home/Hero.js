@@ -1,44 +1,78 @@
 import Image from 'next/image';
 import styled from 'styled-components';
+import * as React from 'react';
+import { Button, Dialog, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 
 export default function Hero() {
+  const [open, setOpen] = React.useState(true);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <HeroContainer>
-      <ImageContainer>
-        <Image
-          src="/home/altrapelle-hero-instant.png"
-          alt="faccia donna con macchie sulla pelle"
-          width="1500"
-          height="1345"
-        />
-      </ImageContainer>
-      <TextContainer>
-        <Title weight="600" size="3.5" paddingTop="20px">
-          Attenua
-        </Title>
-        <Title weight="400" size="3.5">
-          le rughe
-        </Title>
-        <Title weight="400" size="3.5">
-          in 3 minuti
-        </Title>
-        <IconsContainer>
-          {/* <Image
+    <>
+      <HeroContainer>
+        <ImageContainer>
+          <Image
+            src="/home/altrapelle-hero-instant.png"
+            alt="faccia donna con macchie sulla pelle"
+            width="1500"
+            height="1345"
+          />
+        </ImageContainer>
+        <TextContainer>
+          <Title weight="600" size="3.5" paddingTop="20px">
+            Attenua
+          </Title>
+          <Title weight="400" size="3.5">
+            le rughe
+          </Title>
+          <Title weight="400" size="3.5">
+            in 3 minuti
+          </Title>
+          <IconsContainer>
+            {/* <Image
             src="/icons/clinicamente-testato.png"
             alt="badge clinicamente testato"
             width="100"
             height="100"
           /> */}
-          <Image
-            src="/icons/dermatologicamente-testato.png"
-            alt="badge dermatologicamente testato"
-            width="100"
-            height="100"
-          />
-          <Image src="/icons/metal-tested.png" alt="badge metal tested" width="100" height="100" />
-        </IconsContainer>
-      </TextContainer>
-    </HeroContainer>
+            <Image
+              src="/icons/dermatologicamente-testato.png"
+              alt="badge dermatologicamente testato"
+              width="100"
+              height="100"
+            />
+            <Image
+              src="/icons/metal-tested.png"
+              alt="badge metal tested"
+              width="100"
+              height="100"
+            />
+          </IconsContainer>
+        </TextContainer>
+      </HeroContainer>
+      <div>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Gli ordini effettuati dalle 13:00 del 22 dicembre verranno evasi dal 2 gennaio
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button variant="outlined" onClick={handleClose}>
+              chiudi
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    </>
   );
 }
 
